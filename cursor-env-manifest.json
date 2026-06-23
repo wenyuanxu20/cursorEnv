@@ -1,14 +1,15 @@
 {
   "version": "1.0.0",
   "description": "Cursor 开发环境配置清单，用于新机器一键部署与迁移",
-  "last_updated": "2026-06-23",
+  "last_updated": "2026-06-24",
   "platform": "windows",
   "repo_root": "cursorEnv",
   "deploy_order": [
     "GRAPHIFY.md",
     "AGENTSVIEW.md",
     "KARPATHY.md",
-    "agency-agents.md"
+    "agency-agents.md",
+    "MATTPOCOCK-SKILLS.md"
   ],
   "configs": [
     {
@@ -106,6 +107,26 @@
       "env_vars": [],
       "quick_deploy": [],
       "notes": "v0.1 Draft；可与 cursor-env-manifest.json 互补用于知识组织"
+    },
+    {
+      "file": "MATTPOCOCK-SKILLS.md",
+      "title": "Matt Pocock Skills 部署与使用指南",
+      "necessity": "非必要",
+      "summary": "工程化 Agent Skills 增强包，支持 TDD/排障/PRD/Issue 流程，提升 Cursor 产研协作效率",
+      "category": "productivity-skills",
+      "install_method": "npx skills@latest add mattpocock/skills -g --all --copy",
+      "related_paths": [
+        "%USERPROFILE%\\.agents\\skills\\",
+        "https://github.com/mattpocock/skills",
+        "https://skills.sh/mattpocock/skills"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "npx skills@latest add mattpocock/skills -g --all --copy",
+        "npx skills@latest list -g --agent cursor --json",
+        "在 Cursor 中执行 /setup-matt-pocock-skills"
+      ],
+      "notes": "推荐全局安装并运行 /setup-matt-pocock-skills 完成 issue tracker 与文档布局配置"
     }
   ],
   "necessary_only": {
@@ -125,6 +146,7 @@
       "AGENTSVIEW.md",
       "KARPATHY.md",
       "agency-agents.md",
+      "MATTPOCOCK-SKILLS.md",
       "OKF.md"
     ]
   }
