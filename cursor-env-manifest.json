@@ -1,0 +1,131 @@
+{
+  "version": "1.0.0",
+  "description": "Cursor 开发环境配置清单，用于新机器一键部署与迁移",
+  "last_updated": "2026-06-23",
+  "platform": "windows",
+  "repo_root": "cursorEnv",
+  "deploy_order": [
+    "GRAPHIFY.md",
+    "AGENTSVIEW.md",
+    "KARPATHY.md",
+    "agency-agents.md"
+  ],
+  "configs": [
+    {
+      "file": "GRAPHIFY.md",
+      "title": "Graphify 本地部署与使用指南",
+      "necessity": "必要",
+      "summary": "代码知识图谱工具；全局 Cursor 规则要求 Agent 在探索代码前先运行 graphify",
+      "category": "cursor-core",
+      "install_method": "uv tool install + graphify install --platform cursor",
+      "related_paths": [
+        "%USERPROFILE%\\.local\\bin\\graphify",
+        "%USERPROFILE%\\.local\\bin\\graphify-init-project.ps1",
+        "%USERPROFILE%\\.cursor\\rules\\graphify.mdc"
+      ],
+      "env_vars": [
+        "OPENAI_API_KEY",
+        "OPENAI_BASE_URL",
+        "OPENAI_MODEL"
+      ],
+      "quick_deploy": [
+        "powershell -ExecutionPolicy ByPass -c \"irm https://astral.sh/uv/install.ps1 | iex\"",
+        "uv tool install \"graphifyy[openai]\"",
+        "graphify install --platform cursor"
+      ],
+      "notes": "PyPI 包名为 graphifyy（双 y），CLI 命令为 graphify。PATH 需包含 %USERPROFILE%\\.local\\bin"
+    },
+    {
+      "file": "AGENTSVIEW.md",
+      "title": "AgentsView 本地部署与使用指南",
+      "necessity": "必要",
+      "summary": "本地 AI Agent 会话浏览器，用于查看/搜索 Cursor 历史对话，不影响 Cursor 正常工作",
+      "category": "devtools",
+      "install_method": "pip install agentsview",
+      "related_paths": [
+        "%APPDATA%\\Python\\Python314\\Scripts\\agentsview.exe",
+        "%USERPROFILE%\\.agentsview\\",
+        "%USERPROFILE%\\.cursor\\projects\\",
+        "%APPDATA%\\Cursor\\User\\globalStorage\\state.vscdb"
+      ],
+      "env_vars": [
+        "CURSOR_PROJECTS_DIR",
+        "CURSOR_STATE_DB",
+        "AGENTSVIEW_DATA_DIR"
+      ],
+      "quick_deploy": [
+        "pip install agentsview",
+        "agentsview serve --background --no-browser"
+      ],
+      "notes": "Cursor 会话不含 token 用量；pip 安装后需将 Python Scripts 目录加入 PATH"
+    },
+    {
+      "file": "KARPATHY.md",
+      "title": "Karpathy 指南（项目内使用说明）",
+      "necessity": "必要",
+      "summary": "Andrej Karpathy 编码风格的项目级规则模板，按需在具体仓库部署，非全局 Cursor 依赖",
+      "category": "project-rules",
+      "install_method": "forrestchang/andrej-karpathy-skills 项目级部署",
+      "related_paths": [
+        ".cursor/rules/karpathy-guidelines.mdc",
+        "CLAUDE.md",
+        "CURSOR.md"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "参考 KARPATHY.md，在目标项目仓库内复制 .cursor/rules/karpathy-guidelines.mdc"
+      ],
+      "notes": "本文档为说明性参考；实际规则文件部署在各自项目仓库，非 cursorEnv 目录内容"
+    },
+    {
+      "file": "agency-agents.md",
+      "title": "Agency Agents 从 0 开始使用指南",
+      "necessity": "必要",
+      "summary": "多 Agent 编排规则集（162 个 agent），仅在特定项目启用，非 Cursor 基础环境",
+      "category": "project-rules",
+      "install_method": "克隆 agency-agents 仓库并生成 .cursor/rules/*.mdc",
+      "related_paths": [
+        "C:\\Users\\xwy12\\Desktop\\my-project\\github\\agency-agents\\.cursor\\rules\\"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "参考 agency-agents.md，在目标项目克隆仓库并生成 Cursor 规则"
+      ],
+      "notes": "建议仅启用 3 个常驻 agent + 按需调用，避免 162 个规则全部 alwaysApply"
+    },
+    {
+      "file": "OKF.md",
+      "title": "Open Knowledge Format (OKF) 调研总结",
+      "necessity": "非必要",
+      "summary": "Google Cloud 开放知识格式规范调研；知识文档标准化参考，非 Cursor 部署依赖",
+      "category": "reference",
+      "install_method": "无需安装，阅读参考",
+      "related_paths": [
+        "https://github.com/GoogleCloudPlatform/knowledge-catalog/tree/main/okf"
+      ],
+      "env_vars": [],
+      "quick_deploy": [],
+      "notes": "v0.1 Draft；可与 cursor-env-manifest.json 互补用于知识组织"
+    }
+  ],
+  "necessary_only": {
+    "description": "新机器最小 Cursor 环境：仅部署 necessity=必要 的项即可开始正常开发",
+    "files": ["GRAPHIFY.md"],
+    "steps": [
+      "安装 uv 与 graphify CLI",
+      "执行 graphify install --platform cursor 注册全局规则",
+      "确认 PATH 包含 %USERPROFILE%\\.local\\bin",
+      "（可选）配置 OPENAI_API_KEY 等以启用语义图谱"
+    ]
+  },
+  "optional_all": {
+    "description": "完整复原本机环境：按 deploy_order 顺序部署全部配置",
+    "files": [
+      "GRAPHIFY.md",
+      "AGENTSVIEW.md",
+      "KARPATHY.md",
+      "agency-agents.md",
+      "OKF.md"
+    ]
+  }
+}
