@@ -108,7 +108,50 @@ npx skills@latest list -g --agent cursor --json
 
 ---
 
-## 六、运维命令
+## 六、全部 skills 清单（34）
+
+> 说明：以下命令名与 `npx skills@latest list -g --agent cursor --json` 的安装结果一致。
+
+| 技能 | 用途（简述） |
+|------|--------------|
+| `/ask-matt` | 技能路由器：帮助选择当前最合适的工作流技能 |
+| `/codebase-design` | 用深模块思路做接口与模块边界设计 |
+| `/decision-mapping` | 将模糊想法拆成可执行的决策与调查路径 |
+| `/design-an-interface` | 并行探索多个接口设计方案并比较取舍 |
+| `/diagnosing-bugs` | 结构化排障循环：复现→假设→验证→修复 |
+| `/domain-modeling` | 建立与迭代领域术语/上下文模型 |
+| `/edit-article` | 编辑和重构文章，提高可读性与结构性 |
+| `/git-guardrails-claude-code` | 给 Claude Code 配置危险 Git 操作防护 |
+| `/grill-me` | 通过高密度提问澄清方案与边界 |
+| `/grill-with-docs` | 澄清需求并同步沉淀文档（PRD/ADR/术语等） |
+| `/grilling` | 通用“深挖式提问”能力（`grill-me` 的底层循环） |
+| `/handoff` | 把当前上下文压缩成交接文档给下一个 agent |
+| `/implement` | 按 PRD/Issue 执行实现落地 |
+| `/improve-codebase-architecture` | 扫描代码库并提出架构改进机会 |
+| `/migrate-to-shoehorn` | 将测试中的 `as` 断言迁移到 shoehorn |
+| `/obsidian-vault` | 在 Obsidian 知识库中搜索/组织笔记 |
+| `/prototype` | 快速构建可运行原型验证设计 |
+| `/qa` | 交互式 QA 会话，记录问题并沉淀 issue |
+| `/request-refactor-plan` | 通过访谈生成“可小步提交”的重构计划 |
+| `/resolving-merge-conflicts` | 处理 merge/rebase 冲突并保证可继续开发 |
+| `/review` | 对照规范与需求做并行评审 |
+| `/scaffold-exercises` | 批量生成练习目录、题目与解答骨架 |
+| `/setup-matt-pocock-skills` | 初始化 Matt 技能配置（tracker/标签/文档布局） |
+| `/setup-pre-commit` | 配置 Husky + lint-staged + 提交前校验 |
+| `/tdd` | 红绿重构测试驱动开发流程 |
+| `/teach` | 多轮教学模式，围绕目标逐步训练 |
+| `/to-issues` | 把计划/PRD 拆分成可独立领取的 issue |
+| `/to-prd` | 将当前讨论沉淀为 PRD |
+| `/triage` | issue 分诊与状态流转 |
+| `/ubiquitous-language` | 抽取并维护项目统一术语（DDD） |
+| `/writing-beats` | 用“节拍式结构”组织文章叙事路径 |
+| `/writing-fragments` | 先收集碎片化观点，再组织成文 |
+| `/writing-great-skills` | 编写高质量技能文档的方法论 |
+| `/writing-shape` | 将素材逐步塑形成可发布文章 |
+
+---
+
+## 七、运维命令
 
 ```powershell
 # 列出全局技能
@@ -126,7 +169,7 @@ npx skills@latest add mattpocock/skills -l --full-depth
 
 ---
 
-## 七、常见问题
+## 八、常见问题
 
 ### Q1: 提示 `Invalid agents: cursor-cli`
 
@@ -149,7 +192,7 @@ npx skills@latest list -g --agent cursor --json
 
 ---
 
-## 八、与本仓库清单的关系
+## 九、与本仓库清单的关系
 
 本文件与 `cursor-env-manifest.json` 联动，用于迁移时快速识别：
 

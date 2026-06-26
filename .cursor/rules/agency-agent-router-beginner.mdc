@@ -1,0 +1,39 @@
+---
+description: 新手优先的 agency agent 自动路由（可手动覆盖）
+alwaysApply: true
+---
+
+# Agency Agent Auto Router (Beginner)
+
+## Goal
+
+Help beginner users choose the right agency agent automatically, while preserving manual control.
+
+## Routing Policy
+
+1. If user explicitly specifies `@agent-name`, treat it as manual override and follow it.
+2. If user does not specify an agent, auto-select:
+   - architecture / module split / refactor design -> `@software-architect`
+   - frontend implementation / component refactor / page performance -> `@frontend-developer`
+   - backend API / database / reliability -> `@backend-architect`
+   - visual style / UI consistency -> `@ui-designer`
+   - interaction flow / information architecture / usability -> `@ux-architect`
+   - QA evidence / bug checklist / verification -> `@evidence-collector`
+   - release readiness / risk review / final gate -> `@reality-checker`
+3. If request spans multiple domains, pick one primary agent and one fallback agent.
+4. If request is ambiguous, ask one concise clarification question; otherwise default to `@software-architect`.
+
+## Response Contract
+
+When an agent is **auto-selected** (user did not specify `@agent`), the reply **must** open with a visible declaration, then continue execution:
+
+```text
+主Agent: @<name> | 备选: @<name> | 理由: <one sentence>
+```
+
+Rules:
+- This line is mandatory in the answer body — not silent routing.
+- Use the exact `@agent-name` form so the user knows which persona is active.
+- If the user manually specified `@agent`, acknowledge it: `主Agent: @<user-choice>（手动指定）`
+- Then continue execution immediately without waiting for confirmation.
+
