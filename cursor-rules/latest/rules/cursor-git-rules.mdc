@@ -1,0 +1,201 @@
+---
+description: Windows 下 Git/GitHub 同步标准流程（含代理与凭据）
+alwaysApply: true
+---
+
+# Cursor Git 同步规则（Windows + GitHub）
+
+当用户要求 **push / 同步到 GitHub / 创建仓库 / 提交并推送** 时，按本规则执行，不先给泛泛方案。
+
+## 环境默认值（本机已验证）
+
+| 项 | 值 |
+|---|---|
+| GitHub 账号 | `wenyuanxu20` |
+| 默认分支 | `main` |
+| 默认可见性 | `private` |
+| SOCKS5 代理 | `socks5://127.0.0.1:7897` |
+| gh 路径 | `C:\Program Files\GitHub CLI\gh.exe` |
+
+## 安全约束（必须遵守）
+
+- **仅在用户明确要求时** 才 `git commit` / `git push`；未明确要求则先确认。
+- **禁止** `git config` 修改、`push --force`（除非用户明确要求）、`reset --hard`、跳过 hooks。
+- **禁止** 提交 `.env`、`*credentials*`、`*.pem`、API Key、授权码、大体积归档（`*.7z`、完整 `venv/`、`node_modules/`）。
+- push 前扫描 `password|api_key|secret|token`；发现硬编码密钥时警告并建议改为环境变量。
+- **禁止** 在回复中输出完整 token；凭据只用于命令，不写入文件。
+
+---
+
+## A. 日常 push（已有仓库）
+
+### 1. 并行检查
+
+```powershell
+git status --short
+git diff --stat
+git log -8 --oneline
+git remote -v
+```
+
+### 2. 提交（用户已要求 push 时）
+
+```powershell
+git add -A
+$msg = @'
+<标题：动词开头，说明 why>
+
+<可选正文：1-2 句补充上下文>
+'@
+git commit -m "$msg"
+```
+
+- 提交信息聚焦 **why**，与仓库近期风格一致。
+- PowerShell 多行消息用 `$msg = @' ... '@`；**不要** 用 bash heredoc。
+
+### 3. 设置代理并 push
+
+```powershell
+$env:Path = "C:\Program Files\GitHub CLI;" + $env:Path
+$env:ALL_PROXY = "socks5://127.0.0.1:7897"
+$env:HTTPS_PROXY = "socks5://127.0.0.1:7897"
+
+git push origin main
+```
+
+### 4. 非交互凭据 fallback（push 卡住 / 提示输入用户名密码时）
+
+```powershell
+$credOutput = "protocol=https`nhost=github.com`n" |
+  git -c credential.https://github.com.helper= `
+      -c credential.https://github.com.helper=manager credential fill 2>$null
+$username = ($credOutput | Select-String '^username=(.+)$').Matches.Groups[1].Value
+$token    = ($credOutput | Select-String '^password=(.+)$').Matches.Groups[1].Value
+$pair     = "$username`:$token"
+$b64      = [Convert]::ToBase64String([Text.Encoding]::ASCII.GetBytes($pair))
+git -c credential.helper= `
+    -c http.https://github.com/.extraheader="AUTHORIZATION: basic $b64" `
+    push origin main
+```
+
+### 5. 验证
+
+```powershell
+git status -sb
+git rev-parse HEAD; git rev-parse origin/main   # 两者应一致
+```
+
+---
+
+## B. 新建仓库并首次 push
+
+### 1. 前置
+
+- 无 `.git` → `git init` + `git branch -M main`
+- 无 `.gitignore` → 按项目类型创建（见下方模板）
+- 检查大文件与密钥后再 `git add .`
+
+### 2. 创建远程并推送
+
+```powershell
+$env:Path = "C:\Program Files\GitHub CLI;" + $env:Path
+$env:ALL_PROXY = "socks5://127.0.0.1:7897"
+$env:HTTPS_PROXY = "socks5://127.0.0.1:7897"
+
+$credOutput = "protocol=https`nhost=github.com`n" | git credential fill 2>$null
+$env:GH_TOKEN = ($credOutput | Select-String '^password=(.+)$').Matches.Groups[1].Value
+gh auth setup-git 2>$null
+
+$Owner = "wenyuanxu20"
+$RepoName = "<仓库名>"
+
+$view = gh repo view "$Owner/$RepoName" 2>&1
+if ($LASTEXITCODE -ne 0) {
+  gh repo create $RepoName --private --source=. --remote=origin `
+    --description "<简短描述>"
+} else {
+  git remote remove origin 2>$null
+  git remote add origin "https://github.com/$Owner/$RepoName.git"
+}
+
+git push -u origin main
+# 若卡住，使用 A.4 的 extraheader fallback
+```
+
+### 3. 完成后输出
+
+- 仓库 URL、分支、最新 commit hash
+- 是否排除了敏感/大文件
+- 若发现硬编码密钥，给出 remediation 建议
+
+---
+
+## C. `.gitignore` 最小模板
+
+**Python 项目：**
+```
+venv/  __pycache__/  *.py[cod]  build/  dist/
+.env  .env.*  *.log
+graphify-out/cache/
+.DS_Store  Thumbs.db  .idea/  .vscode/
+```
+
+**Node / 全栈：**
+```
+node_modules/  dist/  .venv/  __pycache__/
+.env  .env.local  *.7z  *.log
+graphify-out/cache/
+```
+
+**通用文档仓库：**
+```
+.env  .env.*  *.pem  credentials.json
+.DS_Store  Thumbs.db  .vscode/  .idea/
+```
+
+---
+
+## D. 网络与凭据排障
+
+按顺序诊断，**不要** 在 global git config 长期写入 proxy。
+
+| 现象 | 处理 |
+|------|------|
+| `443` 超时 / `Connection reset` | 设置 `$env:ALL_PROXY = "socks5://127.0.0.1:7897"` 后重试 |
+| HTTP 代理可用但 git 报 SOCKS 不支持 | **不要** 用 `git config http.proxy socks5://...`；改用环境变量 + A.4 extraheader |
+| `gh` 未找到 | `winget install GitHub.cli`，PATH 加 `C:\Program Files\GitHub CLI` |
+| `gh auth` 失败 | 从 GCM 取 token 设 `$env:GH_TOKEN`，再 `gh auth setup-git` |
+| SSH `Permission denied (publickey)` | 改回 HTTPS remote，优先 A.4 方案；SSH 需用户手动在 GitHub 添加公钥 |
+| push 等待用户名密码 | 立即用 A.4 非交互 push，不要挂起等待 |
+| `git push` 长时间无响应 | 终止进程，设代理 + extraheader 重试 |
+
+**代理探测（可选）：**
+```powershell
+$env:ALL_PROXY = "socks5://127.0.0.1:7897"
+gh api user -q .login    # 返回用户名则代理+凭据正常
+```
+
+---
+
+## E. Agent 执行清单
+
+用户说「push 到 git / 同步 GitHub / 创建仓库」时：
+
+1. 进入目标目录，执行 A.1 检查
+2. 若无 `.gitignore` 或含 secrets → 先处理再继续
+3. 用户已授权则 commit（A.2）
+4. 设代理 → push（A.3）→ 失败则 A.4 fallback
+5. 验证并汇报：URL、commit、是否完全同步
+6. 若 push 后文件又被进程改写（如实时数据），告知用户并询问是否再提交
+
+**PowerShell 注意：** 避免 `&&` 链式命令；用 `Set-Location` + 分号或分开执行。
+
+---
+
+## F. 复制到其他项目
+
+将本文件复制到目标项目的 `.cursor/rules/cursor-git-rules.mdc` 即可。可按项目修改：
+
+- `$Owner` / 默认 remote
+- 代理地址（若本机端口不同）
+- `.gitignore` 模板段落
