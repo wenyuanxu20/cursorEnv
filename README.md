@@ -14,6 +14,7 @@ Cursor 开发环境配置与迁移文档仓库。
 | [agency-agents.md](./agency-agents.md) | 多 Agent 编排规则 | 见 manifest |
 | [OKF.md](./OKF.md) | Open Knowledge Format 调研 | 参考 |
 | [cursor-env-manifest.json](./cursor-env-manifest.json) | 环境配置清单（机器可读） | 核心 |
+| [HEADROOM.md](./HEADROOM.md) | Headroom token 压缩 × Cursor 子项目映射 | 见 manifest |
 
 ## 新机器快速开始
 

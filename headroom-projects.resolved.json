@@ -1,0 +1,114 @@
+﻿[
+    {
+        "id":  "ai",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\ai",
+        "openai_base_url":  "http://127.0.0.1:8787/p/ai/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/ai",
+        "category":  "code"
+    },
+    {
+        "id":  "backtest",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\backtest",
+        "openai_base_url":  "http://127.0.0.1:8787/p/backtest/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/backtest",
+        "category":  "code"
+    },
+    {
+        "id":  "cursorEnv",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\cursorEnv",
+        "openai_base_url":  "http://127.0.0.1:8787/p/cursorEnv/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/cursorEnv",
+        "category":  "devtools"
+    },
+    {
+        "id":  "diary",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\diary",
+        "openai_base_url":  "http://127.0.0.1:8787/p/diary/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/diary",
+        "category":  "notes"
+    },
+    {
+        "id":  "EE",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\EE",
+        "openai_base_url":  "http://127.0.0.1:8787/p/EE/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/EE",
+        "category":  "code"
+    },
+    {
+        "id":  "exam",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\exam",
+        "openai_base_url":  "http://127.0.0.1:8787/p/exam/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/exam",
+        "category":  "notes"
+    },
+    {
+        "id":  "Fate",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\Fate",
+        "openai_base_url":  "http://127.0.0.1:8787/p/Fate/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/Fate",
+        "category":  "code"
+    },
+    {
+        "id":  "finance",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\finance",
+        "openai_base_url":  "http://127.0.0.1:8787/p/finance/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/finance",
+        "category":  "code"
+    },
+    {
+        "id":  "food",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\food",
+        "openai_base_url":  "http://127.0.0.1:8787/p/food/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/food",
+        "category":  "notes"
+    },
+    {
+        "id":  "frontEnd",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\frontEnd",
+        "openai_base_url":  "http://127.0.0.1:8787/p/frontEnd/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/frontEnd",
+        "category":  "code"
+    },
+    {
+        "id":  "github",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\github",
+        "openai_base_url":  "http://127.0.0.1:8787/p/github/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/github",
+        "category":  "code"
+    },
+    {
+        "id":  "Quant-Research",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\Quant-Research",
+        "openai_base_url":  "http://127.0.0.1:8787/p/Quant-Research/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/Quant-Research",
+        "category":  "code"
+    },
+    {
+        "id":  "record",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\record",
+        "openai_base_url":  "http://127.0.0.1:8787/p/record/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/record",
+        "category":  "notes"
+    },
+    {
+        "id":  "travel",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\travel",
+        "openai_base_url":  "http://127.0.0.1:8787/p/travel/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/travel",
+        "category":  "notes"
+    },
+    {
+        "id":  "vibe-trading",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\vibe-trading",
+        "openai_base_url":  "http://127.0.0.1:8787/p/vibe-trading/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/vibe-trading",
+        "category":  "code"
+    },
+    {
+        "id":  "zjuilearn",
+        "path":  "C:\\Users\\xwy12\\Desktop\\my-project\\zjuilearn",
+        "openai_base_url":  "http://127.0.0.1:8787/p/zjuilearn/v1",
+        "anthropic_base_url":  "http://127.0.0.1:8787/p/zjuilearn",
+        "category":  "code"
+    }
+]

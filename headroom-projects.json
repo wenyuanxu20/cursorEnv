@@ -1,0 +1,37 @@
+{
+  "version": "1.0.0",
+  "description": "Headroom Cursor subproject map for my-project workspace",
+  "last_updated": "2026-07-03",
+  "proxy": {
+    "host": "127.0.0.1",
+    "port": 8787,
+    "health_url": "http://127.0.0.1:8787/readyz",
+    "dashboard": "http://127.0.0.1:8787/dashboard"
+  },
+  "workspace_root": "C:\\Users\\xwy12\\Desktop\\my-project",
+  "hub": "cursorEnv",
+  "path_prefix_pattern": "/p/{project}",
+  "url_templates": {
+    "openai_base_url": "http://127.0.0.1:8787/p/{project}/v1",
+    "anthropic_base_url": "http://127.0.0.1:8787/p/{project}"
+  },
+  "cursor_settings_hint": "Settings > Models > Override OpenAI Base URL; run headroom-switch-cursor-project.ps1 when switching projects",
+  "projects": [
+    { "id": "ai", "path": "ai", "category": "code" },
+    { "id": "backtest", "path": "backtest", "category": "code" },
+    { "id": "cursorEnv", "path": "cursorEnv", "category": "devtools", "hub": true },
+    { "id": "diary", "path": "diary", "category": "notes" },
+    { "id": "EE", "path": "EE", "category": "code" },
+    { "id": "exam", "path": "exam", "category": "notes" },
+    { "id": "Fate", "path": "Fate", "category": "code" },
+    { "id": "finance", "path": "finance", "category": "code" },
+    { "id": "food", "path": "food", "category": "notes" },
+    { "id": "frontEnd", "path": "frontEnd", "category": "code" },
+    { "id": "github", "path": "github", "category": "code" },
+    { "id": "Quant-Research", "path": "Quant-Research", "category": "code" },
+    { "id": "record", "path": "record", "category": "notes" },
+    { "id": "travel", "path": "travel", "category": "notes" },
+    { "id": "vibe-trading", "path": "vibe-trading", "category": "code" },
+    { "id": "zjuilearn", "path": "zjuilearn", "category": "code" }
+  ]
+}

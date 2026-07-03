@@ -1,15 +1,17 @@
 {
   "version": "1.0.0",
   "description": "Cursor 开发环境配置清单，用于新机器一键部署与迁移",
-  "last_updated": "2026-06-24",
+  "last_updated": "2026-06-26",
   "platform": "windows",
   "repo_root": "cursorEnv",
   "deploy_order": [
     "GRAPHIFY.md",
     "AGENTSVIEW.md",
     "KARPATHY.md",
+    "karpathy-llm-wiki-knowledge-base-guide.md",
     "agency-agents.md",
-    "MATTPOCOCK-SKILLS.md"
+    "MATTPOCOCK-SKILLS.md",
+    "HEADROOM.md"
   ],
   "configs": [
     {
@@ -79,6 +81,39 @@
       "notes": "本文档为说明性参考；实际规则文件部署在各自项目仓库，非 cursorEnv 目录内容"
     },
     {
+      "file": "karpathy-llm-wiki-knowledge-base-guide.md",
+      "title": "Karpathy LLM Wiki 知识库搭建指南",
+      "necessity": "必要",
+      "summary": "Karpathy LLM Wiki 模式：raw/wiki/schema 三层架构，通过 ingest/query/lint 持续维护项目知识库；全局规则支持中文触发「构建LLM wiki」一键脚手架",
+      "category": "project-rules",
+      "install_method": "全局规则 llm-wiki-bootstrap.mdc + 各项目输入「构建LLM wiki」自动初始化",
+      "related_paths": [
+        "%USERPROFILE%\\.cursor\\rules\\llm-wiki-bootstrap.mdc",
+        ".cursor/rules/llm-wiki-bootstrap.mdc",
+        "raw/",
+        "wiki/index.md",
+        "wiki/log.md",
+        "schema/",
+        "AGENTS.md",
+        "cursor-rules/latest/docs/karpathy-llm-wiki-knowledge-base-guide.md"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "确认全局规则存在：%USERPROFILE%\\.cursor\\rules\\llm-wiki-bootstrap.mdc",
+        "在目标项目 Cursor 对话中输入：构建LLM wiki",
+        "将原始资料放入 raw/ 后执行 ingest 更新 wiki/"
+      ],
+      "trigger_phrases": [
+        "构建LLM wiki",
+        "构建 LLM wiki",
+        "搭建LLM wiki",
+        "建立LLM wiki知识库",
+        "build llm wiki"
+      ],
+      "workflows": ["ingest", "query", "lint"],
+      "notes": "每个项目建议具备 LLM Wiki 结构；规则 alwaysApply=true，任意仓库可直接触发脚手架。详细说明见 karpathy-llm-wiki-knowledge-base-guide.md"
+    },
+    {
       "file": "agency-agents.md",
       "title": "Agency Agents 从 0 开始使用指南",
       "necessity": "必要",
@@ -127,15 +162,47 @@
         "在 Cursor 中执行 /setup-matt-pocock-skills"
       ],
       "notes": "推荐全局安装并运行 /setup-matt-pocock-skills 完成 issue tracker 与文档布局配置"
+    },
+    {
+      "file": "HEADROOM.md",
+      "title": "Headroom × Cursor Token 压缩配置",
+      "necessity": "非必要",
+      "summary": "本地 Headroom 代理 + 子项目 /p/{name} URL 映射，批量 wrap cursor 配置 RTK 与 .headroom/",
+      "category": "devtools",
+      "install_method": "pip install headroom-ai[proxy] + scripts/headroom-map-subprojects.ps1",
+      "related_paths": [
+        "%APPDATA%\\Python\\Python314\\Scripts\\headroom.exe",
+        "%USERPROFILE%\\.headroom\\",
+        "headroom-projects.json",
+        "scripts/headroom-start-proxy.ps1",
+        "scripts/headroom-switch-cursor-project.ps1"
+      ],
+      "env_vars": [
+        "HEADROOM_OUTPUT_SHAPER",
+        "OPENAI_TARGET_API_URL",
+        "ANTHROPIC_TARGET_API_URL"
+      ],
+      "quick_deploy": [
+        "pip install \"headroom-ai[proxy]\"",
+        "cd cursorEnv; .\\scripts\\headroom-start-proxy.ps1 -Memory",
+        ".\\scripts\\headroom-map-subprojects.ps1",
+        "Cursor Settings > Override OpenAI Base URL = http://127.0.0.1:8787/p/<项目名>/v1"
+      ],
+      "notes": "Cursor 全局仅一处 Base URL；切换子项目时运行 headroom-switch-cursor-project.ps1。持久 Windows 服务需管理员。"
     }
   ],
   "necessary_only": {
     "description": "新机器最小 Cursor 环境：仅部署 necessity=必要 的项即可开始正常开发",
-    "files": ["GRAPHIFY.md"],
+    "files": [
+      "GRAPHIFY.md",
+      "karpathy-llm-wiki-knowledge-base-guide.md"
+    ],
     "steps": [
       "安装 uv 与 graphify CLI",
       "执行 graphify install --platform cursor 注册全局规则",
       "确认 PATH 包含 %USERPROFILE%\\.local\\bin",
+      "确认全局 LLM Wiki 规则：%USERPROFILE%\\.cursor\\rules\\llm-wiki-bootstrap.mdc",
+      "在每个目标项目输入「构建LLM wiki」初始化 raw/wiki/schema",
       "（可选）配置 OPENAI_API_KEY 等以启用语义图谱"
     ]
   },
@@ -145,6 +212,7 @@
       "GRAPHIFY.md",
       "AGENTSVIEW.md",
       "KARPATHY.md",
+      "karpathy-llm-wiki-knowledge-base-guide.md",
       "agency-agents.md",
       "MATTPOCOCK-SKILLS.md",
       "OKF.md"

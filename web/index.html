@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>cursorEnv · Cursor 规则藏书阁</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="theme-library">
+  <!-- 风格切换按钮 -->
+  <button id="themeToggle" class="theme-toggle" type="button" aria-label="切换页面风格" title="切换页面风格"></button>
+
+  <!-- 顶部导航 -->
+  <header class="topbar">
+    <a class="brand" href="#top">
+      <span class="brand-mark">❦</span>
+      <span class="brand-text">cursorEnv<span class="brand-sub">规则藏书阁</span></span>
+    </a>
+    <nav class="topnav">
+      <a href="#about">馆藏简介</a>
+      <a href="#core">核心规则</a>
+      <a href="#tools">环境工具</a>
+      <a href="#catalog">Agent 目录</a>
+    </nav>
+  </header>
+
+  <!-- 大方向：项目作用 -->
+  <section id="top" class="hero">
+    <div class="hero-inner">
+      <p class="eyebrow">CURSOR DEVELOPMENT ENVIRONMENT · 知识藏书阁</p>
+      <h1>cursorEnv<br /><span class="hero-accent">一座可随身迁移的 Cursor 规则图书馆</span></h1>
+      <p class="hero-lead">
+        本项目集中管理 Cursor 开发环境的<strong>规则、Agent、工具与迁移文档</strong>。
+        把它想象成一座图书馆：大门口告诉你“这里是什么”，
+        走进书架则能逐本翻阅每一条 Cursor 规则与每一位 Agent 的介绍，
+        让任意一台新机器都能一键复现同一套智能开发环境。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#core">浏览核心规则</a>
+        <a class="btn btn-ghost" href="#catalog">进入 Agent 目录</a>
+      </div>
+      <dl class="hero-stats" id="heroStats">
+        <div><dt id="statRules">4</dt><dd>核心 Cursor 规则</dd></div>
+        <div><dt id="statTools">6</dt><dd>环境工具文档</dd></div>
+        <div><dt id="statAgents">—</dt><dd>agency-agents 规则</dd></div>
+        <div><dt id="statCats">8</dt><dd>领域细分</dd></div>
+      </dl>
+    </div>
+    <div class="hero-shelf" aria-hidden="true">
+      <div class="book b1">RULE</div>
+      <div class="book b2">AGENT</div>
+      <div class="book b3">GRAPH</div>
+      <div class="book b4">WIKI</div>
+      <div class="book b5">SKILL</div>
+      <div class="book b6">ENV</div>
+    </div>
+  </section>
+
+  <!-- 馆藏简介 -->
+  <section id="about" class="section">
+    <div class="section-head">
+      <h2>馆藏简介</h2>
+      <p class="section-desc">cursorEnv 由四类“藏品”组成，覆盖从环境复现到智能协作的完整链路。</p>
+    </div>
+    <div class="about-grid">
+      <article class="about-card">
+        <span class="about-num">01</span>
+        <h3>核心 Cursor 规则</h3>
+        <p>项目级与全局 <code>.cursor/rules/*.mdc</code>，定义 Agent 的行为底线：自动路由、知识库构建、规则备份、代码探索前置图谱。</p>
+      </article>
+      <article class="about-card">
+        <span class="about-num">02</span>
+        <h3>环境工具文档</h3>
+        <p>Graphify、AgentsView、Karpathy、Matt Pocock Skills 等工具的部署与迁移指南，新机器照着做即可复现。</p>
+      </article>
+      <article class="about-card">
+        <span class="about-num">03</span>
+        <h3>Agency Agents 规则库</h3>
+        <p>统一收录自 <code>agency-agents</code> 单一项目的全部专家 Agent 规则，再按领域细分，从后端架构到内容增长，按需调用。</p>
+      </article>
+      <article class="about-card">
+        <span class="about-num">04</span>
+        <h3>机器可读清单</h3>
+        <p><code>cursor-env-manifest.json</code> 记录部署顺序与必要程度，支撑“最小部署”到“完整复原”的一键迁移。</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- 核心规则 -->
+  <section id="core" class="section section-alt">
+    <div class="section-head">
+      <h2>核心 Cursor 规则</h2>
+      <p class="section-desc">本项目当前激活的规则——它们是这座图书馆的“镇馆之宝”，每次对话都在背后生效。</p>
+    </div>
+    <div id="coreGrid" class="core-grid"></div>
+  </section>
+
+  <!-- 环境工具 -->
+  <section id="tools" class="section">
+    <div class="section-head">
+      <h2>环境工具书架</h2>
+      <p class="section-desc">按 <code>manifest</code> 部署顺序排列，标注必要程度，便于新机器迁移取舍。</p>
+    </div>
+    <div id="toolsGrid" class="tools-grid"></div>
+  </section>
+
+  <!-- Agent 目录 -->
+  <section id="catalog" class="section section-alt">
+    <div class="section-head">
+      <h2>Agency Agents 项目规则库</h2>
+      <p class="section-desc">本区全部规则统一来自同一个项目 <code>agency-agents</code>，共 <strong id="catTotal">122</strong> 条。下方分类只是该项目内部的领域细分，可搜索关键词或点击分类筛选。</p>
+    </div>
+    <div class="catalog-source">
+      <span class="src-badge">单一来源</span>
+      <span class="src-path"><code>C:\Users\xwy12\Desktop\my-project\github\agency-agents\.cursor\rules\</code></span>
+    </div>
+    <div class="catalog-controls">
+      <input id="search" class="search" type="search" placeholder="搜索 Agent 名称或职责，例如：backend、SEO、unreal…" />
+      <div id="filters" class="filters"></div>
+    </div>
+    <p id="resultCount" class="result-count"></p>
+    <div id="catalogGrid" class="catalog-grid"></div>
+    <p id="emptyState" class="empty-state" hidden>没有找到匹配的 Agent，换个关键词试试。</p>
+  </section>
+
+  <!-- 规则原文弹窗 -->
+  <div id="ruleModal" class="modal" hidden>
+    <div class="modal-backdrop" data-close></div>
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <div>
+          <h3 id="modalTitle">规则名称</h3>
+          <div id="modalFile" class="modal-file"></div>
+        </div>
+        <button class="modal-close" data-close aria-label="关闭">✕</button>
+      </div>
+      <pre id="modalBody" class="modal-body"><code></code></pre>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>cursorEnv · Cursor 开发环境配置与迁移仓库</p>
+    <p class="footer-sub">规则数据由 <code>cursor-rules/grouped</code> 自动提取生成 · 本页面为纯静态，可直接用浏览器打开</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="rules.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

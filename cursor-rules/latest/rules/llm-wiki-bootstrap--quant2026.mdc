@@ -1,0 +1,45 @@
+---
+description: 中文触发“构建LLM wiki”自动搭建知识库
+alwaysApply: true
+---
+
+# 中文 LLM Wiki 自动构建规则
+
+## 触发词
+
+当用户输入以下任一短语时，立即按本规则执行，不先给方案：
+- `构建LLM wiki`
+- `构建 LLM wiki`
+- `搭建LLM wiki`
+- `建立LLM wiki知识库`
+- `build llm wiki`
+
+## 必做动作
+
+1. 在项目根目录创建（如不存在）：
+   - `raw/`
+   - `wiki/`
+   - `schema/`
+   - `wiki/index.md`
+   - `wiki/log.md`
+   - `AGENTS.md`
+
+2. 初始化模板内容：
+   - `AGENTS.md`：定义 ingest/query/lint、来源引用、命名规范、冲突处理、更新策略。
+   - `wiki/index.md`：按主题分类的页面目录模板。
+   - `wiki/log.md`：按时间记录 ingest 与页面变更模板。
+
+3. 保持幂等：
+   - 不覆盖用户已有非空内容。
+   - 文件已存在时，仅补充缺失章节；必要时新增 `*-template.md`。
+
+4. 完成脚手架后执行首轮：
+   - 若 `raw/` 已有资料：执行一次 ingest，更新相关页面并记入 `wiki/log.md`。
+   - 若 `raw/` 为空：向用户索要第一批资料或建议可导入来源。
+
+## 输出格式
+
+执行后必须输出：
+- 创建/更新文件清单
+- 一条可复用的 ingest 提示词
+- query 与每周 lint 的下一步清单

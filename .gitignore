@@ -12,3 +12,7 @@ desktop.ini
 .env.*
 *.pem
 credentials.json
+
+# Headroom runtime (per-project memory DB is local)
+.headroom/*.db
+.headroom/logs/
