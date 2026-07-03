@@ -20,8 +20,17 @@
 
 | 项目 | 图谱规模 | 输出目录 |
 |------|----------|----------|
+| `cursorEnv` | 见 `graphify-out/GRAPH_REPORT.md` | `cursorEnv/graphify-out/` |
 | `ai` | 76 节点 · 101 边 · 8 社区 | `ai/graphify-out/` |
 | `quant2026` | 898 节点 · 2037 边 · 41 社区 | `github/quant2026/graphify-out/` |
+
+`cursorEnv` 图谱包含 **Headroom 配置 wiki**（`wiki/headroom/`）、脚本与 `HEADROOM.md`；查询示例：
+
+```powershell
+cd C:\Users\xwy12\Desktop\my-project\cursorEnv
+graphify query "Headroom Cursor BYOK 如何配置"
+graphify explain "Headroom"
+```
 
 ---
 
@@ -264,4 +273,4 @@ graphify query "你的问题"
 
 ---
 
-*最后更新：2026-06-22 · 本机 Graphify v0.8.44*
+*最后更新：2026-07-03 · 本机 Graphify v0.8.44 · cursorEnv 图谱已含 Headroom wiki*

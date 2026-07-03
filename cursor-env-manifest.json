@@ -174,8 +174,14 @@
         "%APPDATA%\\Python\\Python314\\Scripts\\headroom.exe",
         "%USERPROFILE%\\.headroom\\",
         "headroom-projects.json",
+        "headroom-projects.resolved.json",
+        "wiki/headroom/",
+        "wiki/index.md",
+        "raw/headroom/",
+        "graphify-out/graph.json",
         "scripts/headroom-start-proxy.ps1",
-        "scripts/headroom-switch-cursor-project.ps1"
+        "scripts/headroom-switch-cursor-project.ps1",
+        "scripts/headroom-verify-cursor.ps1"
       ],
       "env_vars": [
         "HEADROOM_OUTPUT_SHAPER",
@@ -188,7 +194,7 @@
         ".\\scripts\\headroom-map-subprojects.ps1",
         "Cursor Settings > Override OpenAI Base URL = http://127.0.0.1:8787/p/<项目名>/v1"
       ],
-      "notes": "Cursor 全局仅一处 Base URL；切换子项目时运行 headroom-switch-cursor-project.ps1。持久 Windows 服务需管理员。"
+      "notes": "Cursor 全局仅一处 Base URL；切换子项目时运行 headroom-switch-cursor-project.ps1。持久 Windows 服务需管理员。结构化知识见 wiki/headroom/；图谱查询 graphify query \"Headroom BYOK\"。"
     }
   ],
   "necessary_only": {

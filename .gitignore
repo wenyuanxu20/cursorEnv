@@ -16,3 +16,6 @@ credentials.json
 # Headroom runtime (per-project memory DB is local)
 .headroom/*.db
 .headroom/logs/
+
+# Graphify build output (regenerate with graphify extract/update)
+graphify-out/
