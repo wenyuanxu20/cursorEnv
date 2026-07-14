@@ -11,7 +11,8 @@
     "karpathy-llm-wiki-knowledge-base-guide.md",
     "agency-agents.md",
     "MATTPOCOCK-SKILLS.md",
-    "CAVEMAN-PONYTAIL.md",
+    "CAVEMAN.md",
+    "PONYTAIL.md",
     "HEADROOM.md"
   ],
   "configs": [
@@ -165,27 +166,49 @@
       "notes": "推荐全局安装并运行 /setup-matt-pocock-skills 完成 issue tracker 与文档布局配置"
     },
     {
-      "file": "CAVEMAN-PONYTAIL.md",
-      "title": "Caveman × Ponytail Skills 部署与使用指南",
+      "file": "CAVEMAN.md",
+      "title": "Caveman Skill 部署与使用指南",
       "necessity": "非必要",
-      "summary": "Caveman 压缩 Agent 输出口癖（≈−65% 输出 token）；Ponytail 用 YAGNI 少写代码（≈−54% LOC）。与 Headroom 互补，不占 8787 端口",
+      "summary": "压缩 Agent 输出口癖，官方约 −65% 输出 token；代码/命令/错误原文保持精确。与 Headroom 互补，不占 8787 端口",
       "category": "productivity-skills",
-      "install_method": "npx skills@latest add JuliusBrussee/caveman|DietrichGebert/ponytail -g -a cursor --copy -y",
+      "install_method": "npx skills@latest add JuliusBrussee/caveman -g -a cursor --copy -y",
       "related_paths": [
         "%USERPROFILE%\\.agents\\skills\\caveman",
-        "%USERPROFILE%\\.agents\\skills\\ponytail",
-        "wiki/caveman-ponytail/",
-        "raw/caveman-ponytail/",
+        "%USERPROFILE%\\.agents\\skills\\cavecrew",
+        "wiki/caveman/",
+        "raw/caveman/",
         "https://github.com/JuliusBrussee/caveman",
-        "https://github.com/DietrichGebert/ponytail"
+        "https://skills.sh/JuliusBrussee/caveman"
       ],
       "env_vars": [],
       "quick_deploy": [
         "npx skills@latest add JuliusBrussee/caveman -g -a cursor --copy -y",
+        "npx skills@latest list -g --agent cursor --json"
+      ],
+      "notes": "安装前确认无同名 skills/rules；Cursor 用 /caveman 或 talk like caveman。结构化知识见 wiki/caveman/"
+    },
+    {
+      "file": "PONYTAIL.md",
+      "title": "Ponytail Skill 部署与使用指南",
+      "necessity": "非必要",
+      "summary": "YAGNI 最小实现 Skill，agentic 约 −54% LOC；不砍安全/校验/a11y。与 Headroom 互补，不占 8787 端口",
+      "category": "productivity-skills",
+      "install_method": "npx skills@latest add DietrichGebert/ponytail -g -a cursor --copy -y",
+      "related_paths": [
+        "%USERPROFILE%\\.agents\\skills\\ponytail",
+        "wiki/ponytail/",
+        "raw/ponytail/",
+        "https://github.com/DietrichGebert/ponytail",
+        "https://skills.sh/DietrichGebert/ponytail"
+      ],
+      "env_vars": [
+        "PONYTAIL_DEFAULT_MODE"
+      ],
+      "quick_deploy": [
         "npx skills@latest add DietrichGebert/ponytail -g -a cursor --copy -y",
         "npx skills@latest list -g --agent cursor --json"
       ],
-      "notes": "安装前确认无同名 skills/rules；Cursor 以 /caveman、/ponytail 或触发词启用。结构化知识见 wiki/caveman-ponytail/"
+      "notes": "本机采用 skills 路径，未写入项目 .cursor/rules/。结构化知识见 wiki/ponytail/"
     },
     {
       "file": "HEADROOM.md",
@@ -245,7 +268,8 @@
       "karpathy-llm-wiki-knowledge-base-guide.md",
       "agency-agents.md",
       "MATTPOCOCK-SKILLS.md",
-      "CAVEMAN-PONYTAIL.md",
+      "CAVEMAN.md",
+      "PONYTAIL.md",
       "HEADROOM.md",
       "OKF.md"
     ]

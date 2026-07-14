@@ -19,16 +19,27 @@ Cursor 开发环境配置与迁移文档仓库的知识层。代码与配置问�
 
 快速入口：仓库根 [HEADROOM.md](../HEADROOM.md)
 
-## Caveman × Ponytail（Agent Skills）
+## Caveman（输出压缩 Skill）
 
-> 全局安装：`%USERPROFILE%\.agents\skills\` · 与 Headroom 端口无冲突
+> 全局安装：`%USERPROFILE%\.agents\skills\caveman*` · 不占 Headroom 端口
 
 | 页 | 内容 |
 |----|------|
-| [00 · 总览](caveman-ponytail/00-overview.md) | 定位对比、本机部署状态 |
-| [01 · 用法与命令](caveman-ponytail/01-usage.md) | `/caveman`、`/ponytail` 与选型 |
+| [00 · 总览](caveman/00-overview.md) | 定位、本机部署状态、冲突确认 |
+| [01 · 用法与命令](caveman/01-usage.md) | `/caveman` 档位与辅助技能 |
 
-快速入口：仓库根 [CAVEMAN-PONYTAIL.md](../CAVEMAN-PONYTAIL.md)
+快速入口：仓库根 [CAVEMAN.md](../CAVEMAN.md)
+
+## Ponytail（YAGNI Skill）
+
+> 全局安装：`%USERPROFILE%\.agents\skills\ponytail*` · 不占 Headroom 端口
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](ponytail/00-overview.md) | 定位、本机部署状态、冲突确认 |
+| [01 · 用法与命令](ponytail/01-usage.md) | `/ponytail` 档位、阶梯与辅助技能 |
+
+快速入口：仓库根 [PONYTAIL.md](../PONYTAIL.md)
 
 ## 其他工具链
 
@@ -38,7 +49,8 @@ Cursor 开发环境配置与迁移文档仓库的知识层。代码与配置问�
 | [cursor-env-manifest.json](../cursor-env-manifest.json) | 机器可读环境清单 |
 | [agency-agents.md](../agency-agents.md) | 多 Agent 编排 |
 | [MATTPOCOCK-SKILLS.md](../MATTPOCOCK-SKILLS.md) | 工程流程 Skills |
-| [CAVEMAN-PONYTAIL.md](../CAVEMAN-PONYTAIL.md) | 输出压缩 + YAGNI Skills |
+| [CAVEMAN.md](../CAVEMAN.md) | Caveman 输出压缩 Skill |
+| [PONYTAIL.md](../PONYTAIL.md) | Ponytail YAGNI Skill |
 
 ## 维护
 

@@ -2,26 +2,47 @@
 
 按时间倒序记录 ingest 与页面变更。
 
-## 2026-07-14 · Caveman / Ponytail 调研入库并本地部署
+## 2026-07-14 · Caveman 调研入库并本地部署
 
 **来源**
-- 上游：JuliusBrussee/caveman、DietrichGebert/ponytail README
-- `raw/caveman-ponytail/research-notes.md`
-- 本机安装：`npx skills@latest add … -g -a cursor --copy -y`
+- 上游：JuliusBrussee/caveman README
+- `raw/caveman/research-notes.md`
+- 本机安装：`npx skills@latest add JuliusBrussee/caveman -g -a cursor --copy -y`
 
 **新增 / 更新**
-- `CAVEMAN-PONYTAIL.md`（部署与使用）
-- `wiki/caveman-ponytail/00-overview.md`、`01-usage.md`
-- `wiki/index.md`、`wiki/headroom/07-comparison.md`（纠正 Caveman 误写为「会话摘要」）
+- `CAVEMAN.md`
+- `wiki/caveman/00-overview.md`、`01-usage.md`
+- `wiki/index.md`、`wiki/headroom/07-comparison.md`（纠正旧「会话摘要」误写）
 - `cursor-env-manifest.json`、`README.md`
 
 **部署确认**
-- 安装前无 `cursorEnv/caveman|ponytail`、无同名 Cursor rules
-- 装入 `~\.agents\skills\`：Caveman 7 + Ponytail 6；与 Headroom `:8787`、mattpocock skills **无冲突**
+- 安装前无 `cursorEnv/caveman/`、无同名 Cursor rules
+- 装入 `~\.agents\skills\`：7 个技能（含 cavecrew）；不占 Headroom `:8787`
 
 **图谱**
-- `graphify update .` → 约 **4117 节点 · 4200 边 · 247 社区**
-- 查询：`graphify query "Caveman Ponytail Headroom skills"`
+- `graphify update .`
+- 查询：`graphify query "Caveman"`
+
+## 2026-07-14 · Ponytail 调研入库并本地部署
+
+**来源**
+- 上游：DietrichGebert/ponytail README
+- `raw/ponytail/research-notes.md`
+- 本机安装：`npx skills@latest add DietrichGebert/ponytail -g -a cursor --copy -y`
+
+**新增 / 更新**
+- `PONYTAIL.md`
+- `wiki/ponytail/00-overview.md`、`01-usage.md`
+- `wiki/index.md`、`wiki/headroom/07-comparison.md`
+- `cursor-env-manifest.json`、`README.md`
+
+**部署确认**
+- 安装前无 `cursorEnv/ponytail/`、无同名 Cursor rules
+- 装入 `~\.agents\skills\`：6 个技能；不占 Headroom `:8787`；未写入项目 `.cursor/rules/`
+
+**图谱**
+- `graphify update .`
+- 查询：`graphify query "Ponytail"`
 
 ## 2026-07-03 · Headroom 配置入库（知识图谱首轮）
 

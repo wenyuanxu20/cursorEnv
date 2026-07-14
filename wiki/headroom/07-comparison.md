@@ -22,8 +22,8 @@ Headroom 在「节约 LLM Token」生态中的定位：相对 RTK-only、上下�
 |------|----------|------------------|
 | **RTK**（独立） | 仅 shell 输出 | Headroom 内置 RTK + 代理 CCR |
 | **LeanCTX / Context Mode** | 上下文裁剪、文件选择 | 不改 API 载荷结构；Headroom 在 wire 层压缩 |
-| **Caveman**（[JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman)） | 提示层：极简口癖，≈−65% **输出** token | 不压缩 API 载荷；与 Headroom 互补。详见 [CAVEMAN-PONYTAIL.md](../../CAVEMAN-PONYTAIL.md) |
-| **Ponytail**（[DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail)） | 提示层：YAGNI，少写代码（≈−54% LOC） | 不碰 wire 压缩；与 Headroom / Caveman 正交 |
+| **Caveman**（[JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman)） | 提示层：极简口癖，≈−65% **输出** token | 不压缩 API 载荷；与 Headroom 互补。见 [CAVEMAN.md](../../CAVEMAN.md) |
+| **Ponytail**（[DietrichGebert/ponytail](https://github.com/DietrichGebert/ponytail)） | 提示层：YAGNI，少写代码（≈−54% LOC） | 不碰 wire 压缩；与 Headroom 互补。见 [PONYTAIL.md](../../PONYTAIL.md) |
 | **Claw Compactor / cavemem** | 会话摘要、跨会话记忆 | 偏应用层摘要/记忆；Headroom 偏透明代理 |
 | **LLMLingua** | prompt 压缩模型 | 需额外模型；Headroom CCR 无额外推理 |
 | **Mem0 / Zep** | 长期记忆 RAG | 互补：Headroom `memory.db` 为会话级，非知识库 |
@@ -62,6 +62,6 @@ wiki/           → 配置与架构事实源
 
 - [00 · 总览](00-overview.md)
 - [03 · Cursor BYOK](03-byok-cursor.md)
-- [Caveman × Ponytail 总览](../caveman-ponytail/00-overview.md)
-- [CAVEMAN-PONYTAIL.md](../../CAVEMAN-PONYTAIL.md)
+- [Caveman 总览](../caveman/00-overview.md)
+- [Ponytail 总览](../ponytail/00-overview.md)
 - [../../GRAPHIFY.md](../../GRAPHIFY.md)
