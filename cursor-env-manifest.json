@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "description": "Cursor 开发环境配置清单，用于新机器一键部署与迁移",
-  "last_updated": "2026-06-26",
+  "last_updated": "2026-07-14",
   "platform": "windows",
   "repo_root": "cursorEnv",
   "deploy_order": [
@@ -11,6 +11,7 @@
     "karpathy-llm-wiki-knowledge-base-guide.md",
     "agency-agents.md",
     "MATTPOCOCK-SKILLS.md",
+    "CAVEMAN-PONYTAIL.md",
     "HEADROOM.md"
   ],
   "configs": [
@@ -164,6 +165,29 @@
       "notes": "推荐全局安装并运行 /setup-matt-pocock-skills 完成 issue tracker 与文档布局配置"
     },
     {
+      "file": "CAVEMAN-PONYTAIL.md",
+      "title": "Caveman × Ponytail Skills 部署与使用指南",
+      "necessity": "非必要",
+      "summary": "Caveman 压缩 Agent 输出口癖（≈−65% 输出 token）；Ponytail 用 YAGNI 少写代码（≈−54% LOC）。与 Headroom 互补，不占 8787 端口",
+      "category": "productivity-skills",
+      "install_method": "npx skills@latest add JuliusBrussee/caveman|DietrichGebert/ponytail -g -a cursor --copy -y",
+      "related_paths": [
+        "%USERPROFILE%\\.agents\\skills\\caveman",
+        "%USERPROFILE%\\.agents\\skills\\ponytail",
+        "wiki/caveman-ponytail/",
+        "raw/caveman-ponytail/",
+        "https://github.com/JuliusBrussee/caveman",
+        "https://github.com/DietrichGebert/ponytail"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "npx skills@latest add JuliusBrussee/caveman -g -a cursor --copy -y",
+        "npx skills@latest add DietrichGebert/ponytail -g -a cursor --copy -y",
+        "npx skills@latest list -g --agent cursor --json"
+      ],
+      "notes": "安装前确认无同名 skills/rules；Cursor 以 /caveman、/ponytail 或触发词启用。结构化知识见 wiki/caveman-ponytail/"
+    },
+    {
       "file": "HEADROOM.md",
       "title": "Headroom × Cursor Token 压缩配置",
       "necessity": "非必要",
@@ -221,6 +245,8 @@
       "karpathy-llm-wiki-knowledge-base-guide.md",
       "agency-agents.md",
       "MATTPOCOCK-SKILLS.md",
+      "CAVEMAN-PONYTAIL.md",
+      "HEADROOM.md",
       "OKF.md"
     ]
   }

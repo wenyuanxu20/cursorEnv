@@ -15,7 +15,9 @@ Cursor 开发环境配置与迁移文档仓库。
 | [OKF.md](./OKF.md) | Open Knowledge Format 调研 | 参考 |
 | [cursor-env-manifest.json](./cursor-env-manifest.json) | 环境配置清单（机器可读） | 核心 |
 | [HEADROOM.md](./HEADROOM.md) | Headroom token 压缩 × Cursor 子项目映射 | 见 manifest |
-| [wiki/index.md](./wiki/index.md) | LLM Wiki（含 Headroom 结构化知识页） | 推荐 |
+| [MATTPOCOCK-SKILLS.md](./MATTPOCOCK-SKILLS.md) | Matt Pocock 工程流程 Skills | 见 manifest |
+| [CAVEMAN-PONYTAIL.md](./CAVEMAN-PONYTAIL.md) | Caveman（输出压缩）+ Ponytail（YAGNI）Skills | 见 manifest |
+| [wiki/index.md](./wiki/index.md) | LLM Wiki（含 Headroom / Caveman·Ponytail） | 推荐 |
 
 ## 新机器快速开始
 
