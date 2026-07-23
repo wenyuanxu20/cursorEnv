@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "description": "Cursor 开发环境配置清单，用于新机器一键部署与迁移",
-  "last_updated": "2026-07-14",
+  "last_updated": "2026-07-15",
   "platform": "windows",
   "repo_root": "cursorEnv",
   "deploy_order": [
@@ -13,6 +13,10 @@
     "MATTPOCOCK-SKILLS.md",
     "CAVEMAN.md",
     "PONYTAIL.md",
+    "UZI.md",
+    "SERENITY.md",
+    "BOTTLENECK-HUNTER.md",
+    "SERENITY-BOTTLENECK-HUNTER.md",
     "HEADROOM.md"
   ],
   "configs": [
@@ -134,7 +138,7 @@
     {
       "file": "OKF.md",
       "title": "Open Knowledge Format (OKF) 调研总结",
-      "necessity": "非必要",
+      "necessity": "必要",
       "summary": "Google Cloud 开放知识格式规范调研；知识文档标准化参考，非 Cursor 部署依赖",
       "category": "reference",
       "install_method": "无需安装，阅读参考",
@@ -148,7 +152,7 @@
     {
       "file": "MATTPOCOCK-SKILLS.md",
       "title": "Matt Pocock Skills 部署与使用指南",
-      "necessity": "非必要",
+      "necessity": "必要",
       "summary": "工程化 Agent Skills 增强包，支持 TDD/排障/PRD/Issue 流程，提升 Cursor 产研协作效率",
       "category": "productivity-skills",
       "install_method": "npx skills@latest add mattpocock/skills -g --all --copy",
@@ -168,7 +172,7 @@
     {
       "file": "CAVEMAN.md",
       "title": "Caveman Skill 部署与使用指南",
-      "necessity": "非必要",
+      "necessity": "必要",
       "summary": "压缩 Agent 输出口癖，官方约 −65% 输出 token；代码/命令/错误原文保持精确。与 Headroom 互补，不占 8787 端口",
       "category": "productivity-skills",
       "install_method": "npx skills@latest add JuliusBrussee/caveman -g -a cursor --copy -y",
@@ -190,7 +194,7 @@
     {
       "file": "PONYTAIL.md",
       "title": "Ponytail Skill 部署与使用指南",
-      "necessity": "非必要",
+      "necessity": "必要",
       "summary": "YAGNI 最小实现 Skill，agentic 约 −54% LOC；不砍安全/校验/a11y。与 Headroom 互补，不占 8787 端口",
       "category": "productivity-skills",
       "install_method": "npx skills@latest add DietrichGebert/ponytail -g -a cursor --copy -y",
@@ -209,6 +213,109 @@
         "npx skills@latest list -g --agent cursor --json"
       ],
       "notes": "本机采用 skills 路径，未写入项目 .cursor/rules/。结构化知识见 wiki/ponytail/"
+    },
+    {
+      "file": "UZI.md",
+      "title": "UZI Skill（游资）部署与使用指南",
+      "necessity": "必要",
+      "summary": "A/H/美股深度分析 Skill：22 维数据 × 机构模型 × 多投资人 persona → HTML 研报；全局 skills 跨项目复用",
+      "category": "productivity-skills",
+      "install_method": "git clone + npx skills@latest add <local> -g -a cursor --copy -y --full-depth + pip install -r requirements.txt",
+      "related_paths": [
+        "%USERPROFILE%\\.agents\\skills\\uzi",
+        "%USERPROFILE%\\.agents\\skills\\deep-analysis",
+        "%USERPROFILE%\\.agents\\skills\\investor-panel",
+        "%USERPROFILE%\\.agents\\skills\\lhb-analyzer",
+        "%USERPROFILE%\\.agents\\skills\\trap-detector",
+        "C:\\Users\\xwy12\\Desktop\\my-project\\github\\UZI-Skill",
+        "wiki/uzi/",
+        "raw/uzi/",
+        "https://github.com/wbh604/UZI-Skill"
+      ],
+      "env_vars": [
+        "MX_APIKEY",
+        "UZI_DEPTH",
+        "UZI_NO_UPDATE_CHECK"
+      ],
+      "quick_deploy": [
+        "git -c http.proxy=http://127.0.0.1:7897 clone --depth 1 https://github.com/wbh604/UZI-Skill.git C:\\Users\\xwy12\\Desktop\\my-project\\github\\UZI-Skill",
+        "npx skills@latest add C:\\Users\\xwy12\\Desktop\\my-project\\github\\UZI-Skill -g -a cursor --copy -y --full-depth",
+        "python -m pip install -r C:\\Users\\xwy12\\Desktop\\my-project\\github\\UZI-Skill\\requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn",
+        "npx skills@latest list -g --agent cursor"
+      ],
+      "notes": "全局 -g 即同步到全部 Cursor 项目；勿逐仓复制。本机直连 GitHub clone 曾 schannel 失败，需 HTTP 代理。结构化知识见 wiki/uzi/"
+    },
+    {
+      "file": "SERENITY.md",
+      "title": "Serenity Skill 部署与使用指南",
+      "necessity": "必要",
+      "summary": "供应链瓶颈猎人 Skill：主题→价值链→稀缺约束→公开公司证据→证伪；与 UZI 互补，全局 skills 跨项目复用",
+      "category": "productivity-skills",
+      "install_method": "git clone + 完整复制到 ~/.agents/skills/serenity-skill（CLI copy 可能仅 SKILL.md）",
+      "related_paths": [
+        "%USERPROFILE%\\.agents\\skills\\serenity-skill",
+        "C:\\Users\\xwy12\\Desktop\\my-project\\github\\serenity-skill",
+        "wiki/serenity/",
+        "raw/serenity/",
+        "https://github.com/muxuuu/serenity-skill",
+        "https://skills.sh/muxuuu/serenity-skill"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "git -c http.proxy=http://127.0.0.1:7897 clone --depth 1 https://github.com/muxuuu/serenity-skill.git C:\\Users\\xwy12\\Desktop\\my-project\\github\\serenity-skill",
+        "Copy-Item 完整包到 %USERPROFILE%\\.agents\\skills\\serenity-skill（见 SERENITY.md）",
+        "python %USERPROFILE%\\.agents\\skills\\serenity-skill\\scripts\\validate_skill.py %USERPROFILE%\\.agents\\skills\\serenity-skill",
+        "npx skills@latest list -g --agent cursor"
+      ],
+      "notes": "npx skills add --copy 本机曾只装 SKILL.md；须含 references/assets/scripts。结构化知识见 wiki/serenity/"
+    },
+    {
+      "file": "BOTTLENECK-HUNTER.md",
+      "title": "Bottleneck Hunter Skill 部署与使用指南",
+      "necessity": "必要",
+      "summary": "AI Berkshire 供应链瓶颈猎手：超级趋势→物理分层→Layer2/3 卡点套利；与 Serenity/UZI 互补，全局 skills 跨项目复用",
+      "category": "productivity-skills",
+      "install_method": "npx skills add xbtlin/ai-berkshire --skill bottleneck-hunter -g -a cursor --copy -y --full-depth + git clone 整仓（tools/）",
+      "related_paths": [
+        "%USERPROFILE%\\.agents\\skills\\bottleneck-hunter",
+        "C:\\Users\\xwy12\\Desktop\\my-project\\github\\ai-berkshire",
+        "wiki/bottleneck-hunter/",
+        "raw/bottleneck-hunter/",
+        "https://github.com/xbtlin/ai-berkshire",
+        "https://skills.sh/xbtlin/ai-berkshire/bottleneck-hunter"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "npx skills@latest add xbtlin/ai-berkshire --skill bottleneck-hunter -g -a cursor --copy -y --full-depth",
+        "git -c http.sslBackend=openssl -c http.proxy=http://127.0.0.1:7897 clone --depth 1 https://github.com/xbtlin/ai-berkshire.git C:\\Users\\xwy12\\Desktop\\my-project\\github\\ai-berkshire",
+        "npx skills@latest list -g --agent cursor"
+      ],
+      "notes": "skill 本体多为 SKILL.md；财务工具在整仓 tools/。clone 本机需 openssl SSL + HTTP 代理。结构化知识见 wiki/bottleneck-hunter/"
+    },
+    {
+      "file": "SERENITY-BOTTLENECK-HUNTER.md",
+      "title": "Serenity Bottleneck Hunter（mrjie7205）部署与使用指南",
+      "necessity": "必要",
+      "summary": "主题→逆向供应链→9 原型→上游瓶颈候选；含 ETF audit/ticker 真值/禁猜价/HTML 契约；与 muxuuu serenity-skill、ai-berkshire bottleneck-hunter 互补",
+      "category": "productivity-skills",
+      "install_method": "git clone + 完整复制到 ~/.agents/skills/serenity-bottleneck-hunter（CLI copy 可能仅 SKILL.md）",
+      "related_paths": [
+        "%USERPROFILE%\\.agents\\skills\\serenity-bottleneck-hunter",
+        "C:\\Users\\xwy12\\Desktop\\my-project\\github\\serenity-bottleneck-hunter",
+        "wiki/serenity-bottleneck-hunter/",
+        "raw/serenity-bottleneck-hunter/",
+        "https://github.com/Mrjie7205/serenity-bottleneck-hunter",
+        "https://skills.sh/mrjie7205/serenity-bottleneck-hunter/serenity-bottleneck-hunter"
+      ],
+      "env_vars": [
+        "EODHD_API_KEY"
+      ],
+      "quick_deploy": [
+        "git -c http.sslBackend=openssl -c http.proxy=http://127.0.0.1:7897 clone --depth 1 https://github.com/mrjie7205/serenity-bottleneck-hunter.git C:\\Users\\xwy12\\Desktop\\my-project\\github\\serenity-bottleneck-hunter",
+        "完整复制 SKILL.md LICENSE agents reference scripts tracking 到 %USERPROFILE%\\.agents\\skills\\serenity-bottleneck-hunter",
+        "npx skills@latest list -g --agent cursor"
+      ],
+      "notes": "CLI --full-depth 本机曾只装 SKILL.md；须含 reference/scripts/tracking。价格用 scripts/price.py，禁止 WebSearch 猜价。结构化知识见 wiki/serenity-bottleneck-hunter/"
     },
     {
       "file": "HEADROOM.md",
@@ -270,6 +377,10 @@
       "MATTPOCOCK-SKILLS.md",
       "CAVEMAN.md",
       "PONYTAIL.md",
+      "UZI.md",
+      "SERENITY.md",
+      "BOTTLENECK-HUNTER.md",
+      "SERENITY-BOTTLENECK-HUNTER.md",
       "HEADROOM.md",
       "OKF.md"
     ]

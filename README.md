@@ -18,7 +18,11 @@ Cursor 开发环境配置与迁移文档仓库。
 | [MATTPOCOCK-SKILLS.md](./MATTPOCOCK-SKILLS.md) | Matt Pocock 工程流程 Skills | 见 manifest |
 | [CAVEMAN.md](./CAVEMAN.md) | Caveman 输出压缩 Skill | 见 manifest |
 | [PONYTAIL.md](./PONYTAIL.md) | Ponytail YAGNI / 最小实现 Skill | 见 manifest |
-| [wiki/index.md](./wiki/index.md) | LLM Wiki（含 Headroom、Caveman、Ponytail） | 推荐 |
+| [UZI.md](./UZI.md) | UZI（游资）股票深度分析 Skill | 见 manifest |
+| [SERENITY.md](./SERENITY.md) | Serenity 供应链瓶颈猎人 Skill | 见 manifest |
+| [BOTTLENECK-HUNTER.md](./BOTTLENECK-HUNTER.md) | Bottleneck Hunter（AI Berkshire） | 见 manifest |
+| [SERENITY-BOTTLENECK-HUNTER.md](./SERENITY-BOTTLENECK-HUNTER.md) | Serenity Bottleneck Hunter（mrjie7205） | 见 manifest |
+| [wiki/index.md](./wiki/index.md) | LLM Wiki（含 Headroom、Skills 主题页） | 推荐 |
 
 ## 新机器快速开始
 

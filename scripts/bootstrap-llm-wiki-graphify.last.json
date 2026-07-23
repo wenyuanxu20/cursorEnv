@@ -1,0 +1,72 @@
+﻿[
+    {
+        "Project":  "ai",
+        "Wiki":  "raw=created | wiki=exists | schema=created | AGENTS.md=wrote | wiki/index.md=skipped-nonempty | wiki/00-overview.md=wrote | wiki/log.md=skipped-nonempty | schema/page-template.md=copied | raw/.gitkeep=wrote",
+        "Graphify":  "skipped"
+    },
+    {
+        "Project":  "backtest",
+        "Wiki":  "raw=created | wiki=created | schema=created | AGENTS.md=wrote | wiki/index.md=wrote | wiki/00-overview.md=wrote | wiki/log.md=wrote | schema/page-template.md=copied | raw/.gitkeep=wrote",
+        "Graphify":  "skipped"
+    },
+    {
+        "Project":  "diary",
+        "Wiki":  "raw=created | wiki=created | schema=created | AGENTS.md=wrote | wiki/index.md=wrote | wiki/00-overview.md=wrote | wiki/log.md=wrote | schema/page-template.md=copied | raw/.gitkeep=wrote",
+        "Graphify":  "skipped"
+    },
+    {
+        "Project":  "EE",
+        "Wiki":  "raw=created | wiki=created | schema=created | AGENTS.md=wrote | wiki/index.md=wrote | wiki/00-overview.md=wrote | wiki/log.md=wrote | schema/page-template.md=copied | raw/.gitkeep=wrote",
+        "Graphify":  "skipped"
+    },
+    {
+        "Project":  "exam",
+        "Wiki":  "raw=created | wiki=created | schema=created | AGENTS.md=wrote | wiki/index.md=wrote | wiki/00-overview.md=wrote | wiki/log.md=wrote | schema/page-template.md=copied | raw/.gitkeep=wrote",
+        "Graphify":  "skipped"
+    },
+    {
+        "Project":  "Fate",
+        "Wiki":  "raw=created | wiki=created | schema=created | AGENTS.md=wrote | wiki/index.md=wrote | wiki/00-overview.md=wrote | wiki/log.md=wrote | schema/page-template.md=copied | raw/.gitkeep=wrote",
+        "Graphify":  "skipped"
+    },
+    {
+        "Project":  "finance",
+        "Wiki":  "raw=created | wiki=created | schema=created | AGENTS.md=wrote | wiki/index.md=wrote | wiki/00-overview.md=wrote | wiki/log.md=wrote | schema/page-template.md=copied | raw/.gitkeep=wrote",
+        "Graphify":  "skipped"
+    },
+    {
+        "Project":  "frontEnd",
+        "Wiki":  "raw=created | wiki=created | schema=created | AGENTS.md=wrote | wiki/index.md=wrote | wiki/00-overview.md=wrote | wiki/log.md=wrote | schema/page-template.md=copied | raw/.gitkeep=wrote",
+        "Graphify":  "skipped"
+    },
+    {
+        "Project":  "github",
+        "Wiki":  "raw=created | wiki=created | schema=created | AGENTS.md=wrote | wiki/index.md=wrote | wiki/00-overview.md=wrote | wiki/log.md=wrote | schema/page-template.md=copied | raw/.gitkeep=wrote",
+        "Graphify":  "skipped"
+    },
+    {
+        "Project":  "Quant-Research",
+        "Wiki":  "raw=created | wiki=created | schema=created | AGENTS.md=wrote | wiki/index.md=wrote | wiki/00-overview.md=wrote | wiki/log.md=wrote | schema/page-template.md=copied | raw/.gitkeep=wrote",
+        "Graphify":  "skipped"
+    },
+    {
+        "Project":  "record",
+        "Wiki":  "raw=created | wiki=created | schema=created | AGENTS.md=wrote | wiki/index.md=wrote | wiki/00-overview.md=wrote | wiki/log.md=wrote | schema/page-template.md=copied | raw/.gitkeep=wrote",
+        "Graphify":  "skipped"
+    },
+    {
+        "Project":  "travel",
+        "Wiki":  "raw=created | wiki=created | schema=created | AGENTS.md=wrote | wiki/index.md=wrote | wiki/00-overview.md=wrote | wiki/log.md=wrote | schema/page-template.md=copied | raw/.gitkeep=wrote",
+        "Graphify":  "skipped"
+    },
+    {
+        "Project":  "vibe-trading",
+        "Wiki":  "raw=created | wiki=exists | schema=created | AGENTS.md=wrote | wiki/index.md=wrote | wiki/00-overview.md=wrote | wiki/log.md=wrote | schema/page-template.md=copied | raw/.gitkeep=wrote",
+        "Graphify":  "skipped"
+    },
+    {
+        "Project":  "zjuilearn",
+        "Wiki":  "raw=created | wiki=created | schema=created | AGENTS.md=wrote | wiki/index.md=wrote | wiki/00-overview.md=wrote | wiki/log.md=wrote | schema/page-template.md=copied | raw/.gitkeep=wrote",
+        "Graphify":  "skipped"
+    }
+]

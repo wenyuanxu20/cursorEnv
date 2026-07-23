@@ -41,6 +41,50 @@ Cursor 开发环境配置与迁移文档仓库的知识层。代码与配置问�
 
 快速入口：仓库根 [PONYTAIL.md](../PONYTAIL.md)
 
+## UZI（游资 · 股票深度分析 Skill）
+
+> 全局安装：`%USERPROFILE%\.agents\skills\{uzi,deep-analysis,…}` · 运行时：`github/UZI-Skill`
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](uzi/00-overview.md) | 定位、本机部署状态、冲突确认 |
+| [01 · 用法与命令](uzi/01-usage.md) | CLI 深度档位与五技能路由 |
+
+快速入口：仓库根 [UZI.md](../UZI.md)
+
+## Serenity（供应链瓶颈猎人 Skill）
+
+> 全局安装：`%USERPROFILE%\.agents\skills\serenity-skill` · 整仓：`github/serenity-skill`
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](serenity/00-overview.md) | 定位、本机部署状态、冲突确认 |
+| [01 · 用法与命令](serenity/01-usage.md) | 触发词、路由模式与 scorecard |
+
+快速入口：仓库根 [SERENITY.md](../SERENITY.md)
+
+## Bottleneck Hunter（AI Berkshire · 供应链瓶颈猎手）
+
+> 全局安装：`%USERPROFILE%\.agents\skills\bottleneck-hunter` · 整仓：`github/ai-berkshire`
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](bottleneck-hunter/00-overview.md) | 定位、本机部署状态、冲突确认 |
+| [01 · 用法与命令](bottleneck-hunter/01-usage.md) | 触发词与 tools 运行时 |
+
+快速入口：仓库根 [BOTTLENECK-HUNTER.md](../BOTTLENECK-HUNTER.md)
+
+## Serenity Bottleneck Hunter（mrjie7205）
+
+> 全局安装：`%USERPROFILE%\.agents\skills\serenity-bottleneck-hunter` · 整仓：`github/serenity-bottleneck-hunter`
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](serenity-bottleneck-hunter/00-overview.md) | 定位、完整包部署、与姊妹 skill 关系 |
+| [01 · 用法](serenity-bottleneck-hunter/01-usage.md) | 触发词、scripts、价格纪律 |
+
+快速入口：仓库根 [SERENITY-BOTTLENECK-HUNTER.md](../SERENITY-BOTTLENECK-HUNTER.md)
+
 ## 其他工具链
 
 | 文档 | 说明 |
@@ -51,6 +95,10 @@ Cursor 开发环境配置与迁移文档仓库的知识层。代码与配置问�
 | [MATTPOCOCK-SKILLS.md](../MATTPOCOCK-SKILLS.md) | 工程流程 Skills |
 | [CAVEMAN.md](../CAVEMAN.md) | Caveman 输出压缩 Skill |
 | [PONYTAIL.md](../PONYTAIL.md) | Ponytail YAGNI Skill |
+| [UZI.md](../UZI.md) | UZI 股票深度分析 Skill |
+| [SERENITY.md](../SERENITY.md) | Serenity 供应链瓶颈猎人 Skill（muxuuu） |
+| [BOTTLENECK-HUNTER.md](../BOTTLENECK-HUNTER.md) | Bottleneck Hunter（AI Berkshire） |
+| [SERENITY-BOTTLENECK-HUNTER.md](../SERENITY-BOTTLENECK-HUNTER.md) | Serenity Bottleneck Hunter（mrjie7205） |
 
 ## 维护
 

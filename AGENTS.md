@@ -1,6 +1,6 @@
 # cursorEnv 知识库 Agent 规范
 
-本仓库是 Cursor 开发环境配置中枢；知识库覆盖 **Graphify 图谱**、**Headroom Token 压缩**、**Agency Agents** 等工具链。
+本仓库是 Cursor 开发环境配置中枢；知识库覆盖 **Graphify 图谱**、**Headroom Token 压缩**、**Agency Agents**、**Caveman / Ponytail / UZI / Serenity / Bottleneck Hunter / Serenity-Bottleneck-Hunter Skills** 等工具链。
 
 ## 页面模板
 
@@ -19,8 +19,9 @@
 ## 更新策略
 
 1. 改 Headroom 脚本或 `headroom-projects.json` 后，同步更新 `wiki/headroom/` 相关页与 `wiki/log.md`
-2. 运行 `graphify update .` 刷新 `graphify-out/`（AST，无 API 成本）
-3. 大量文档变更后运行 `graphify extract . --cluster-only` 全量重建
+2. 改全局 skills（Caveman / Ponytail / UZI / Serenity / Bottleneck Hunter / Serenity-Bottleneck-Hunter）部署后，同步 `wiki/{caveman,ponytail,uzi,serenity,bottleneck-hunter,serenity-bottleneck-hunter}/` 与根目录对应 `*.md`
+3. 运行 `graphify update .` 刷新 `graphify-out/`（AST，无 API 成本）
+4. 大量文档变更后运行 `graphify extract . --cluster-only` 全量重建
 
 ## 查询优先级
 
@@ -33,4 +34,5 @@ Agent 探索本仓库时：
 ## 命名规范
 
 - Headroom 主题页：`wiki/headroom/NN-*.md`（两位序号）
+- Skill 主题页：`wiki/caveman/`、`wiki/ponytail/`、`wiki/uzi/`、`wiki/serenity/`、`wiki/bottleneck-hunter/`、`wiki/serenity-bottleneck-hunter/`
 - 术语统一：Base URL、BYOK、RTK、path prefix `/p/{project}`
