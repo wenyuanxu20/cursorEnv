@@ -16,6 +16,12 @@
     "Quant-Research": {
       "github": "https://github.com/wenyuanxu20/Quant-Research",
       "local_root": "C:\\Users\\xwy12\\Desktop\\my-project\\Quant-Research",
+      "knowledge_base": {
+        "AGENTS.md": "AGENTS.md",
+        "raw": "raw/",
+        "wiki": "wiki/",
+        "schema": "schema/"
+      },
       "bundled_repos": {
         "ai-berkshire": "ai-berkshire",
         "serenity-skill": "serenity-skill",
