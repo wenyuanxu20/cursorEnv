@@ -1,9 +1,29 @@
 {
   "version": "1.0.0",
   "description": "Cursor 开发环境配置清单，用于新机器一键部署与迁移",
-  "last_updated": "2026-07-15",
+  "last_updated": "2026-07-23",
   "platform": "windows",
   "repo_root": "cursorEnv",
+  "monorepos": {
+    "cursorEnv": {
+      "github": "https://github.com/wenyuanxu20/cursorEnv",
+      "local_root": "C:\\Users\\xwy12\\Desktop\\my-project\\cursorEnv",
+      "bundled_repos": {
+        "agency-agents": "repos/agency-agents",
+        "serenity-bottleneck-hunter": "repos/serenity-bottleneck-hunter"
+      }
+    },
+    "Quant-Research": {
+      "github": "https://github.com/wenyuanxu20/Quant-Research",
+      "local_root": "C:\\Users\\xwy12\\Desktop\\my-project\\Quant-Research",
+      "bundled_repos": {
+        "ai-berkshire": "ai-berkshire",
+        "serenity-skill": "serenity-skill",
+        "UZI-Skill": "UZI-Skill",
+        "vibe-trading": "vibe-trading"
+      }
+    }
+  },
   "deploy_order": [
     "GRAPHIFY.md",
     "AGENTSVIEW.md",
@@ -127,7 +147,9 @@
       "category": "project-rules",
       "install_method": "克隆 agency-agents 仓库并生成 .cursor/rules/*.mdc",
       "related_paths": [
-        "C:\\Users\\xwy12\\Desktop\\my-project\\github\\agency-agents\\.cursor\\rules\\"
+        "repos/agency-agents/.cursor/rules/",
+        "C:\\Users\\xwy12\\Desktop\\my-project\\cursorEnv\\repos\\agency-agents\\.cursor\\rules\\",
+        "https://github.com/wenyuanxu20/agency-agents"
       ],
       "env_vars": [],
       "quick_deploy": [
@@ -227,10 +249,12 @@
         "%USERPROFILE%\\.agents\\skills\\investor-panel",
         "%USERPROFILE%\\.agents\\skills\\lhb-analyzer",
         "%USERPROFILE%\\.agents\\skills\\trap-detector",
-        "C:\\Users\\xwy12\\Desktop\\my-project\\github\\UZI-Skill",
+        "C:\\Users\\xwy12\\Desktop\\my-project\\Quant-Research\\UZI-Skill",
+        "Quant-Research/UZI-Skill",
         "wiki/uzi/",
         "raw/uzi/",
-        "https://github.com/wbh604/UZI-Skill"
+        "https://github.com/wenyuanxu20/UZI-Skill",
+        "https://github.com/wenyuanxu20/Quant-Research"
       ],
       "env_vars": [
         "MX_APIKEY",
@@ -238,9 +262,9 @@
         "UZI_NO_UPDATE_CHECK"
       ],
       "quick_deploy": [
-        "git -c http.proxy=http://127.0.0.1:7897 clone --depth 1 https://github.com/wbh604/UZI-Skill.git C:\\Users\\xwy12\\Desktop\\my-project\\github\\UZI-Skill",
-        "npx skills@latest add C:\\Users\\xwy12\\Desktop\\my-project\\github\\UZI-Skill -g -a cursor --copy -y --full-depth",
-        "python -m pip install -r C:\\Users\\xwy12\\Desktop\\my-project\\github\\UZI-Skill\\requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn",
+        "git clone https://github.com/wenyuanxu20/Quant-Research.git C:\\Users\\xwy12\\Desktop\\my-project\\Quant-Research",
+        "npx skills@latest add C:\\Users\\xwy12\\Desktop\\my-project\\Quant-Research\\UZI-Skill -g -a cursor --copy -y --full-depth",
+        "python -m pip install -r C:\\Users\\xwy12\\Desktop\\my-project\\Quant-Research\\UZI-Skill\\requirements.txt -i https://pypi.tuna.tsinghua.edu.cn/simple --trusted-host pypi.tuna.tsinghua.edu.cn",
         "npx skills@latest list -g --agent cursor"
       ],
       "notes": "全局 -g 即同步到全部 Cursor 项目；勿逐仓复制。本机直连 GitHub clone 曾 schannel 失败，需 HTTP 代理。结构化知识见 wiki/uzi/"
@@ -254,16 +278,17 @@
       "install_method": "git clone + 完整复制到 ~/.agents/skills/serenity-skill（CLI copy 可能仅 SKILL.md）",
       "related_paths": [
         "%USERPROFILE%\\.agents\\skills\\serenity-skill",
-        "C:\\Users\\xwy12\\Desktop\\my-project\\github\\serenity-skill",
+        "C:\\Users\\xwy12\\Desktop\\my-project\\Quant-Research\\serenity-skill",
+        "Quant-Research/serenity-skill",
         "wiki/serenity/",
         "raw/serenity/",
-        "https://github.com/muxuuu/serenity-skill",
-        "https://skills.sh/muxuuu/serenity-skill"
+        "https://github.com/wenyuanxu20/serenity-skill",
+        "https://github.com/wenyuanxu20/Quant-Research"
       ],
       "env_vars": [],
       "quick_deploy": [
-        "git -c http.proxy=http://127.0.0.1:7897 clone --depth 1 https://github.com/muxuuu/serenity-skill.git C:\\Users\\xwy12\\Desktop\\my-project\\github\\serenity-skill",
-        "Copy-Item 完整包到 %USERPROFILE%\\.agents\\skills\\serenity-skill（见 SERENITY.md）",
+        "git clone https://github.com/wenyuanxu20/Quant-Research.git C:\\Users\\xwy12\\Desktop\\my-project\\Quant-Research",
+        "Copy-Item 完整包到 %USERPROFILE%\\.agents\\skills\\serenity-skill（见 SERENITY.md，源目录 Quant-Research/serenity-skill）",
         "python %USERPROFILE%\\.agents\\skills\\serenity-skill\\scripts\\validate_skill.py %USERPROFILE%\\.agents\\skills\\serenity-skill",
         "npx skills@latest list -g --agent cursor"
       ],
@@ -278,16 +303,18 @@
       "install_method": "npx skills add xbtlin/ai-berkshire --skill bottleneck-hunter -g -a cursor --copy -y --full-depth + git clone 整仓（tools/）",
       "related_paths": [
         "%USERPROFILE%\\.agents\\skills\\bottleneck-hunter",
-        "C:\\Users\\xwy12\\Desktop\\my-project\\github\\ai-berkshire",
+        "C:\\Users\\xwy12\\Desktop\\my-project\\Quant-Research\\ai-berkshire",
+        "Quant-Research/ai-berkshire",
         "wiki/bottleneck-hunter/",
         "raw/bottleneck-hunter/",
-        "https://github.com/xbtlin/ai-berkshire",
+        "https://github.com/wenyuanxu20/ai-berkshire",
+        "https://github.com/wenyuanxu20/Quant-Research",
         "https://skills.sh/xbtlin/ai-berkshire/bottleneck-hunter"
       ],
       "env_vars": [],
       "quick_deploy": [
         "npx skills@latest add xbtlin/ai-berkshire --skill bottleneck-hunter -g -a cursor --copy -y --full-depth",
-        "git -c http.sslBackend=openssl -c http.proxy=http://127.0.0.1:7897 clone --depth 1 https://github.com/xbtlin/ai-berkshire.git C:\\Users\\xwy12\\Desktop\\my-project\\github\\ai-berkshire",
+        "git clone https://github.com/wenyuanxu20/Quant-Research.git C:\\Users\\xwy12\\Desktop\\my-project\\Quant-Research",
         "npx skills@latest list -g --agent cursor"
       ],
       "notes": "skill 本体多为 SKILL.md；财务工具在整仓 tools/。clone 本机需 openssl SSL + HTTP 代理。结构化知识见 wiki/bottleneck-hunter/"
@@ -301,18 +328,19 @@
       "install_method": "git clone + 完整复制到 ~/.agents/skills/serenity-bottleneck-hunter（CLI copy 可能仅 SKILL.md）",
       "related_paths": [
         "%USERPROFILE%\\.agents\\skills\\serenity-bottleneck-hunter",
-        "C:\\Users\\xwy12\\Desktop\\my-project\\github\\serenity-bottleneck-hunter",
+        "C:\\Users\\xwy12\\Desktop\\my-project\\cursorEnv\\repos\\serenity-bottleneck-hunter",
+        "repos/serenity-bottleneck-hunter",
         "wiki/serenity-bottleneck-hunter/",
         "raw/serenity-bottleneck-hunter/",
-        "https://github.com/Mrjie7205/serenity-bottleneck-hunter",
-        "https://skills.sh/mrjie7205/serenity-bottleneck-hunter/serenity-bottleneck-hunter"
+        "https://github.com/wenyuanxu20/serenity-bottleneck-hunter",
+        "https://github.com/wenyuanxu20/cursorEnv"
       ],
       "env_vars": [
         "EODHD_API_KEY"
       ],
       "quick_deploy": [
-        "git -c http.sslBackend=openssl -c http.proxy=http://127.0.0.1:7897 clone --depth 1 https://github.com/mrjie7205/serenity-bottleneck-hunter.git C:\\Users\\xwy12\\Desktop\\my-project\\github\\serenity-bottleneck-hunter",
-        "完整复制 SKILL.md LICENSE agents reference scripts tracking 到 %USERPROFILE%\\.agents\\skills\\serenity-bottleneck-hunter",
+        "git clone https://github.com/wenyuanxu20/cursorEnv.git C:\\Users\\xwy12\\Desktop\\my-project\\cursorEnv",
+        "完整复制 cursorEnv/repos/serenity-bottleneck-hunter 到 %USERPROFILE%\\.agents\\skills\\serenity-bottleneck-hunter",
         "npx skills@latest list -g --agent cursor"
       ],
       "notes": "CLI --full-depth 本机曾只装 SKILL.md；须含 reference/scripts/tracking。价格用 scripts/price.py，禁止 WebSearch 猜价。结构化知识见 wiki/serenity-bottleneck-hunter/"
