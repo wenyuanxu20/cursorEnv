@@ -24,7 +24,8 @@ Cursor 开发环境配置与迁移文档仓库。
 | [SERENITY.md](./SERENITY.md) | Serenity 供应链瓶颈猎人 Skill | 见 manifest |
 | [BOTTLENECK-HUNTER.md](./BOTTLENECK-HUNTER.md) | Bottleneck Hunter（AI Berkshire） | 见 manifest |
 | [SERENITY-BOTTLENECK-HUNTER.md](./SERENITY-BOTTLENECK-HUNTER.md) | Serenity Bottleneck Hunter（mrjie7205） | 见 manifest |
-| [wiki/index.md](./wiki/index.md) | LLM Wiki（含 Headroom、Skills 主题页） | 推荐 |
+| [NOTION-MCP.md](./NOTION-MCP.md) | Notion MCP 连接、授权与飞书桥接 | 见 manifest |
+| [wiki/index.md](./wiki/index.md) | LLM Wiki（含 Headroom、Skills、Notion MCP） | 推荐 |
 
 ## 新机器快速开始
 

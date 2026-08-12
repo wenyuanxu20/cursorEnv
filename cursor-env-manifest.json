@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "description": "Cursor 开发环境配置清单，用于新机器一键部署与迁移",
-  "last_updated": "2026-07-23",
+  "last_updated": "2026-07-26",
   "platform": "windows",
   "repo_root": "cursorEnv",
   "monorepos": {
@@ -43,6 +43,7 @@
     "SERENITY.md",
     "BOTTLENECK-HUNTER.md",
     "SERENITY-BOTTLENECK-HUNTER.md",
+    "NOTION-MCP.md",
     "HEADROOM.md"
   ],
   "configs": [
@@ -352,6 +353,34 @@
       "notes": "CLI --full-depth 本机曾只装 SKILL.md；须含 reference/scripts/tracking。价格用 scripts/price.py，禁止 WebSearch 猜价。结构化知识见 wiki/serenity-bottleneck-hunter/"
     },
     {
+      "file": "NOTION-MCP.md",
+      "title": "Notion MCP 连接与授权指南",
+      "necessity": "必要",
+      "summary": "Cursor 官方 Notion Workspace 插件 MCP：授权、排障、与 Fate 飞书 notion_bridge 分工；配套 wiki 与 notion-mcp Skill",
+      "category": "cursor-core",
+      "install_method": "启用 Notion Workspace 插件 + mcp_auth；复制 skills/notion-mcp 到 ~/.cursor/skills 与 ~/.agents/skills",
+      "related_paths": [
+        "%USERPROFILE%\\.cursor\\skills\\notion-mcp",
+        "%USERPROFILE%\\.agents\\skills\\notion-mcp",
+        "%USERPROFILE%\\.cursor\\plugins\\cache\\cursor-public\\notion-workspace",
+        "%USERPROFILE%\\.cursor\\mcp.json",
+        "%APPDATA%\\Cursor\\User\\globalStorage\\state.vscdb",
+        "skills/notion-mcp/",
+        "wiki/notion-mcp/",
+        "raw/notion-mcp/",
+        "C:\\Users\\xwy12\\Desktop\\my-project\\Fate\\feishuBot\\notion_bridge.py",
+        "https://mcp.notion.com/mcp"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "Cursor 安装/启用 Notion Workspace 插件",
+        "Agent 中对 plugin-notion-workspace-notion 调用 mcp_auth",
+        "Copy-Item cursorEnv/skills/notion-mcp 到 %USERPROFILE%\\.cursor\\skills\\notion-mcp 与 %USERPROFILE%\\.agents\\skills\\notion-mcp",
+        "notion-search 冒烟验证"
+      ],
+      "notes": "用户 mcp.json 通常不含 Notion 条目属正常（插件注入）。CLI/飞书不共享 IDE OAuth，见 Fate wiki/13-feishu-notion-bridge.md。结构化知识见 wiki/notion-mcp/"
+    },
+    {
       "file": "HEADROOM.md",
       "title": "Headroom × Cursor Token 压缩配置",
       "necessity": "非必要",
@@ -415,6 +444,7 @@
       "SERENITY.md",
       "BOTTLENECK-HUNTER.md",
       "SERENITY-BOTTLENECK-HUNTER.md",
+      "NOTION-MCP.md",
       "HEADROOM.md",
       "OKF.md"
     ]

@@ -85,6 +85,21 @@ Cursor 开发环境配置与迁移文档仓库的知识层。代码与配置问�
 
 快速入口：仓库根 [SERENITY-BOTTLENECK-HUNTER.md](../SERENITY-BOTTLENECK-HUNTER.md)
 
+## Notion MCP（连接 / 授权 / 飞书桥接）
+
+> 全局安装：`%USERPROFILE%\.cursor\skills\notion-mcp`、`%USERPROFILE%\.agents\skills\notion-mcp` · IDE：`plugin-notion-workspace-notion` + `user-notion-token`
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](notion-mcp/00-overview.md) | 定位、本机路径、与 Fate 分工 |
+| [01 · 授权与配置](notion-mcp/01-auth-and-config.md) | 插件 MCP、`mcp_auth`、OAuth / PAT 存放 |
+| [02 · 飞书桥接](notion-mcp/02-feishu-bridge.md) | Fate `notion_bridge` 与 CLI needsAuth |
+| [03 · 桥接直连建页](notion-mcp/03-bridge-create-page.md) | needsAuth 时 refresh OAuth + `notion-create-pages` |
+| [04 · Token 兜底](notion-mcp/04-token-fallback.md) | PAT `notion-token` + Agent 自动切换顺序 |
+| [05 · 环境与运维](notion-mcp/05-environment-and-ops.md) | 本机快照、能力边界、AiRec 锚点（2026-08-12） |
+
+快速入口：仓库根 [NOTION-MCP.md](../NOTION-MCP.md)
+
 ## 其他工具链
 
 | 文档 | 说明 |
@@ -99,6 +114,7 @@ Cursor 开发环境配置与迁移文档仓库的知识层。代码与配置问�
 | [SERENITY.md](../SERENITY.md) | Serenity 供应链瓶颈猎人 Skill（muxuuu） |
 | [BOTTLENECK-HUNTER.md](../BOTTLENECK-HUNTER.md) | Bottleneck Hunter（AI Berkshire） |
 | [SERENITY-BOTTLENECK-HUNTER.md](../SERENITY-BOTTLENECK-HUNTER.md) | Serenity Bottleneck Hunter（mrjie7205） |
+| [NOTION-MCP.md](../NOTION-MCP.md) | Notion MCP 连接与授权 |
 
 ## 维护
 
