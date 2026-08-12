@@ -100,6 +100,18 @@ Cursor 开发环境配置与迁移文档仓库的知识层。代码与配置问�
 
 快速入口：仓库根 [NOTION-MCP.md](../NOTION-MCP.md)
 
+## agentmemory（Agent 持久记忆）
+
+> 全局 npm：`@agentmemory/agentmemory` + `@agentmemory/mcp` · 引擎 `iii` 0.11.2 · REST `:3111` / Viewer `:3113`
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](agentmemory/00-overview.md) | 定位、本机状态、与 mcp-memory 模板区别 |
+| [01 · 用法与命令](agentmemory/01-usage.md) | Cursor MCP、REST、Viewer、记什么/不记什么 |
+| [02 · 本机部署](agentmemory/02-local-deploy.md) | Windows 安装路径、端口、MCP、排障（2026-08-12） |
+
+快速入口：仓库根 [AGENTMEMORY.md](../AGENTMEMORY.md)
+
 ## 其他工具链
 
 | 文档 | 说明 |
@@ -115,6 +127,7 @@ Cursor 开发环境配置与迁移文档仓库的知识层。代码与配置问�
 | [BOTTLENECK-HUNTER.md](../BOTTLENECK-HUNTER.md) | Bottleneck Hunter（AI Berkshire） |
 | [SERENITY-BOTTLENECK-HUNTER.md](../SERENITY-BOTTLENECK-HUNTER.md) | Serenity Bottleneck Hunter（mrjie7205） |
 | [NOTION-MCP.md](../NOTION-MCP.md) | Notion MCP 连接与授权 |
+| [AGENTMEMORY.md](../AGENTMEMORY.md) | agentmemory 持久记忆部署与使用 |
 
 ## 维护
 

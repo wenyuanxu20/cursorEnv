@@ -2,6 +2,28 @@
 
 按时间倒序记录 ingest 与页面变更。
 
+## 2026-08-12 · agentmemory 部署 + 使用指引（wiki + AiRec）
+
+**来源**
+- 用户：调研 agentmemory；myproject 无同类则部署；补充详细使用指引并同步 wiki / Notion AiRec
+- 本机实测：CLI 0.9.28、iii 0.11.2、livez/health、remember/smart-search、Cursor MCP `agentmemory`
+
+**新增 / 更新**
+- `AGENTMEMORY.md`（新建）
+- `wiki/agentmemory/00-overview.md`、`01-usage.md`、`02-local-deploy.md`
+- `raw/agentmemory/deploy-notes-2026-08-12.md`
+- `scripts/start-agentmemory.ps1`（此前会话已建）
+- `wiki/index.md`、`AGENTS.md`
+- Notion AiRec 子页：
+  - Hub https://app.notion.com/p/cursorEnv-agentmemory-Wiki-3ba54d8e86f6815bb65be3daa70ee776
+  - 用法 https://app.notion.com/p/01-agentmemory-3ba54d8e86f68160959bf1fa7c6abbc3
+  - 部署 https://app.notion.com/p/02-agentmemory-3ba54d8e86f681f1abf6f8f97e716c07
+
+**要点**
+- myproject 原先无记忆服务；agency-agents mcp-memory 仅为 Prompt 模板
+- Windows：手动 `iii.exe`；MCP 手写 `mcp.json`（`AGENTMEMORY_TOOLS=core`）
+- 默认 zero-LLM / BM25-only
+
 ## 2026-08-12 · Notion 环境快照 wiki + AiRec 同步
 
 **来源**
