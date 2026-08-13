@@ -2,6 +2,23 @@
 
 按时间倒序记录 ingest 与页面变更。
 
+## 2026-08-13 · agentmemory 全局自动调用规则
+
+**来源**
+- 用户：新增 Cursor rules，任何项目自动调用 agentmemory，无需手动调用；随后更新 memory / wiki / graphify 并 push
+
+**新增 / 更新**
+- 全局规则：`%USERPROFILE%\.cursor\rules\agentmemory-auto.mdc`（`alwaysApply: true`）
+- 中枢副本：`cursorEnv/.cursor/rules/agentmemory-auto.mdc`
+- 备份：`cursor-rules/latest/rules/agentmemory-auto.mdc`、`agentmemory-auto--global.mdc`
+- `wiki/agentmemory/03-auto-rule.md`（新建）
+- `wiki/agentmemory/00-overview.md`、`01-usage.md`、`02-local-deploy.md`
+- `wiki/index.md`、`AGENTMEMORY.md`、`AGENTS.md`
+
+**要点**
+- Agent 会话开场必须 `memory_recall`；有可复用结论时 `memory_save`
+- MCP 不可用时静默跳过，不阻断任务；禁止写入密钥
+
 ## 2026-08-12 · agentmemory 部署 + 使用指引（wiki + AiRec）
 
 **来源**

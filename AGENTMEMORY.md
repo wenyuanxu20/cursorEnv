@@ -44,7 +44,8 @@ pwsh C:\Users\xwy12\Desktop\my-project\cursorEnv\scripts\start-agentmemory.ps1
 
 1. 确认 `mcp.json` 含 `agentmemory` 块（见下）。
 2. **重启 Cursor** 或重载 MCP。
-3. 在对话中让 Agent：`memory_save` 记下决策；新会话用 `memory_smart_search` / `memory_recall` 找回。
+3. **自动调用（默认）：** 全局规则 `%USERPROFILE%\.cursor\rules\agentmemory-auto.mdc`（`alwaysApply`）要求 Agent 会话开场 `memory_recall`，有可复用结论时 `memory_save`，无需口头提醒。Wiki：[03 · 自动调用规则](wiki/agentmemory/03-auto-rule.md)。
+4. 仍可口头补充：`memory_save` 记下决策；`memory_smart_search` / `memory_recall` 找回。
 
 当前 core 工具集（约 8 个）：`memory_save`、`memory_recall`、`memory_consolidate`、`memory_smart_search`、`memory_sessions`、`memory_diagnose`、lesson save、reflect。
 
@@ -119,6 +120,6 @@ curl.exe -s -X POST http://127.0.0.1:3111/agentmemory/remember -H "Content-Type:
 
 ## 相关文档
 
-- Wiki：[00 总览](wiki/agentmemory/00-overview.md) · [01 用法](wiki/agentmemory/01-usage.md) · [02 本机部署](wiki/agentmemory/02-local-deploy.md)
+- Wiki：[00 总览](wiki/agentmemory/00-overview.md) · [01 用法](wiki/agentmemory/01-usage.md) · [02 本机部署](wiki/agentmemory/02-local-deploy.md) · [03 自动调用](wiki/agentmemory/03-auto-rule.md)
 - 上游：`INSTALL_FOR_AGENTS.md`、README
 - 对比：`agency-agents/integrations/mcp-memory` 仅为 **Prompt 模板**，不是本服务

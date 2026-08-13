@@ -20,7 +20,7 @@
 
 1. 改 Headroom 脚本或 `headroom-projects.json` 后，同步更新 `wiki/headroom/` 相关页与 `wiki/log.md`
 2. 改全局 skills（Caveman / Ponytail / UZI / Serenity / Bottleneck Hunter / Serenity-Bottleneck-Hunter / Notion MCP）部署后，同步 `wiki/{caveman,ponytail,uzi,serenity,bottleneck-hunter,serenity-bottleneck-hunter,notion-mcp}/` 与根目录对应 `*.md`
-3. 改 agentmemory 版本、MCP 或启动脚本后，同步 `wiki/agentmemory/` 与根目录 `AGENTMEMORY.md`
+3. 改 agentmemory 版本、MCP、启动脚本或自动调用规则后，同步 `wiki/agentmemory/` 与根目录 `AGENTMEMORY.md`
 4. 运行 `graphify update .` 刷新 `graphify-out/`（AST，无 API 成本）
 5. 大量文档变更后运行 `graphify extract . --cluster-only` 全量重建
 
@@ -28,9 +28,10 @@
 
 Agent 探索本仓库时：
 
-1. `graphify query "<问题>"`（需 `graphify-out/graph.json`）
-2. `wiki/index.md` → 主题页
-3. 原始文件 `HEADROOM.md` / `GRAPHIFY.md` / `NOTION-MCP.md` / `AGENTMEMORY.md`
+1. `memory_recall`（全局规则 `agentmemory-auto.mdc`，会话开场自动；MCP：`user-agentmemory`）
+2. `graphify query "<问题>"`（需 `graphify-out/graph.json`）
+3. `wiki/index.md` → 主题页
+4. 原始文件 `HEADROOM.md` / `GRAPHIFY.md` / `NOTION-MCP.md` / `AGENTMEMORY.md`
 
 ## 命名规范
 

@@ -12,3 +12,5 @@
 | 2026-06-28 | 部署 | `cursorEnv/.cursor/rules/llm-wiki-bootstrap.mdc` | `quant2026/.cursor/rules/llm-wiki-bootstrap.mdc` |
 | 2026-06-28 | 备份 | `quant2026/.cursor/rules/llm-wiki-bootstrap.mdc` | `cursor-rules/latest/rules/llm-wiki-bootstrap--quant2026.mdc` |
 | 2026-07-01 | 新增 | `.cursor/rules/cursor-git-rules.mdc` | `cursor-rules/latest/rules/cursor-git-rules.mdc` |
+| 2026-08-13 | 新增 | `.cursor/rules/agentmemory-auto.mdc` | `cursor-rules/latest/rules/agentmemory-auto.mdc` |
+| 2026-08-13 | 新增 | `C:\Users\xwy12\.cursor\rules\agentmemory-auto.mdc` | `cursor-rules/latest/rules/agentmemory-auto--global.mdc` |

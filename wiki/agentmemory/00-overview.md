@@ -14,6 +14,7 @@
 | Windows 注意 | 引擎需手动放 `iii.exe`；`agentmemory connect` 不可用，须手改 MCP |
 | 非同类物 | `agency-agents/integrations/mcp-memory` 是 Prompt 集成说明，不是记忆服务 |
 | 启动入口 | `scripts/start-agentmemory.ps1` |
+| 自动调用 | 全局规则 `agentmemory-auto.mdc`（`alwaysApply`）：会话开场 `memory_recall`，有可复用结论时 `memory_save`，无需用户口头提醒 |
 
 ## 证据与来源
 
@@ -29,4 +30,5 @@
 
 - [01 · 用法与命令](01-usage.md)
 - [02 · 本机部署](02-local-deploy.md)
+- [03 · 自动调用规则](03-auto-rule.md)
 - 目录：`wiki/index.md`

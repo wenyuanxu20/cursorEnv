@@ -109,6 +109,7 @@ Cursor 开发环境配置与迁移文档仓库的知识层。代码与配置问�
 | [00 · 总览](agentmemory/00-overview.md) | 定位、本机状态、与 mcp-memory 模板区别 |
 | [01 · 用法与命令](agentmemory/01-usage.md) | Cursor MCP、REST、Viewer、记什么/不记什么 |
 | [02 · 本机部署](agentmemory/02-local-deploy.md) | Windows 安装路径、端口、MCP、排障（2026-08-12） |
+| [03 · 自动调用规则](agentmemory/03-auto-rule.md) | 全局 `alwaysApply`：开场 recall、决策 save，无需口头提醒 |
 
 快速入口：仓库根 [AGENTMEMORY.md](../AGENTMEMORY.md)
 

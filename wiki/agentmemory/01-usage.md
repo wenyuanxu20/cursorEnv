@@ -6,14 +6,16 @@
 
 ## 关键结论
 
-### A. Cursor 对话用法（推荐）
+### A. Cursor 对话用法
+
+**默认自动（无需口头提醒）：** 全局规则 `agentmemory-auto.mdc`（`alwaysApply`）要求 Agent 会话开场先 `memory_recall`，有可复用结论时 `memory_save`。详页：[03 · 自动调用规则](03-auto-rule.md)。
 
 前提：本机 `agentmemory` 服务已起，且 MCP 已加载（重启 Cursor 后看 Tools）。
 
-| 场景 | 对 Agent 说 / 期望调用 |
+| 场景 | 默认行为 / 也可口头说 |
 |------|------------------------|
-| 记下架构决策 | 「把这次 API 选型记入 memory，标签 cursorEnv」→ `memory_save` |
-| 新会话续上 | 「查一下上次关于 X 的结论」→ `memory_smart_search` / `memory_recall` |
+| 新会话续上 | **自动** `memory_recall`（过薄再 `memory_smart_search`） |
+| 记下架构决策 / 排障根因 / 偏好 | **自动** `memory_save`；也可说「把这次 API 选型记入 memory」 |
 | 会话列表 | 「列出近期 memory sessions」→ `memory_sessions` |
 | 健康检查 | 「跑一下 memory diagnose」→ `memory_diagnose` |
 | 合并重复记忆 | 「consolidate 关于认证的记忆」→ `memory_consolidate` |
@@ -81,3 +83,4 @@ AGENTMEMORY_INJECT_CONTEXT=true
 
 - [00 · 总览](00-overview.md)
 - [02 · 本机部署](02-local-deploy.md)
+- [03 · 自动调用规则](03-auto-rule.md)

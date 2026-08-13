@@ -107,4 +107,5 @@ agentmemory status
 
 - [00 · 总览](00-overview.md)
 - [01 · 用法](01-usage.md)
+- [03 · 自动调用规则](03-auto-rule.md)
 - [[notion-mcp/05-environment-and-ops]]（同机其他 MCP 环境）

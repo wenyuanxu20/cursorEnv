@@ -1,0 +1,36 @@
+---
+description: Auto-call agentmemory in every project (recall on start, save decisions)
+alwaysApply: true
+---
+
+# agentmemory Auto (all projects)
+
+MCP server: `user-agentmemory` (mcp.json key `agentmemory`). Do **not** wait for the user to say "remember" or "recall". This applies in **every** workspace, not only cursorEnv.
+
+## Session start (mandatory, first actions)
+
+Before exploring or answering from prior context, call:
+
+1. `memory_recall` — `query` = workspace folder name + task keywords; `limit` 8; `format` compact
+2. If recall is thin, `memory_smart_search` with the same query
+
+If the server is missing / `error` / `needsAuth`, skip silently and continue the task. Do not block work or ask the user to start the service unless they asked about memory.
+
+## During / after work (mandatory)
+
+Call `memory_save` when you learn something useful next session:
+
+- architecture / API / library choices
+- bug root cause and the fix that worked
+- machine-specific paths, ports, env (no secrets)
+- user preferences and "do it this way" rules
+
+Fields: `content` (1–5 sentences), `type` (`decision` | `pattern` | `preference` | `bug` | `workflow` | `fact`), `concepts` (project slug + topic), `files` if relevant, `project` = workspace folder name (slug, **not** a filesystem path).
+
+## Never save
+
+Passwords, API keys, PATs, tokens, `.env` contents, credentials.
+
+## Subagents
+
+Include this recall query in subagent prompts that continue the same task. Subagents must `memory_save` their own durable findings.
