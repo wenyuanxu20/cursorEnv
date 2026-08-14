@@ -1,12 +1,6 @@
 {
   "name": "cursorEnv static site",
-  "terminals": [
-    {
-      "name": "web",
-      "command": "python3 -m http.server 8080 --directory web",
-      "description": "Static dev server for the cursorEnv rules library (web/). Open http://localhost:8080/ to browse core rules, tool docs, and the agency-agents catalog. Pure static HTML/CSS/vanilla JS with no build step or dependencies."
-    }
-  ],
+  "start": "if curl -sf -o /dev/null http://localhost:8080/; then echo 'web server already running on :8080'; else python3 -m http.server 8080 --directory web; fi",
   "ports": [
     {
       "name": "web",
