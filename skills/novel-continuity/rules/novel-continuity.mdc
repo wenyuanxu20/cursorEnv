@@ -1,0 +1,17 @@
+---
+description: 长篇小说连续性：wiki 为 canon，agentmemory 只记铁律
+alwaysApply: true
+---
+
+# 小说连续性（本仓库）
+
+本仓库若存在 `wiki/novel/`，写正文或回答剧情问题前：
+
+1. 读 `wiki/novel/00-continuity-now.md`
+2. 按需读 `01-characters.md` / `02-timeline.md` / `03-foreshadowing.md` / `04-rejected.md` / `05-voice.md`
+3. 读用户指定章或 `manuscript/` 最近 1–2 章
+4. **禁止**把 `memory_recall` 当书稿或人物表
+
+写完后：更新 `00-continuity-now.md`（状态变了才改）；铁律才 `memory_save`（见 `wiki/novel/memory-policy.md`）。`project` 用本文件夹名。
+
+技能：`novel-continuity`。脚手架触发词见全局规则 `novel-wiki-bootstrap.mdc`。

@@ -2,6 +2,22 @@
 
 按时间倒序记录 ingest 与页面变更。
 
+## 2026-08-14 · 长篇小说连续性脚手架上线
+
+**来源**
+- 用户：继续落地小说仓 wiki 模板 + 记忆该记/不该记；上线后 push
+- `raw/novel-writing/research-notes.md`
+
+**新增 / 更新**
+- Skill：`skills/novel-continuity/`（含 templates + 项目规则）
+- 全局规则：`novel-wiki-bootstrap.mdc`（触发词 `构建小说wiki`）
+- `NOVEL-WRITING.md`、`wiki/novel-writing/00`–`02`
+- `README.md`、`AGENTS.md`、`wiki/index.md`、manifest、`web/`
+
+**要点**
+- Canon = `wiki/novel/` + `manuscript/`；agentmemory 只记铁律
+- 小说须独立工作区，避免与代码记忆混搜
+
 ## 2026-08-14 · 介绍文档对齐 + 公开仓库前去掉记忆 blob
 
 **来源**

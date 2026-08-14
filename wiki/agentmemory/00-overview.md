@@ -34,4 +34,5 @@
 - [02 · 本机部署](02-local-deploy.md)
 - [03 · 自动调用规则](03-auto-rule.md)
 - [04 · Notion 同步](04-notion-sync.md)
+- 长篇写作：[小说连续性 · 记忆政策](../novel-writing/01-memory-policy.md)
 - 目录：`wiki/index.md`

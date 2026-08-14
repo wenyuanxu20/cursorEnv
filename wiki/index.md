@@ -114,6 +114,18 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 
 快速入口：仓库根 [AGENTMEMORY.md](../AGENTMEMORY.md)
 
+## 长篇小说连续性（Wiki canon）
+
+> 全局技能：`novel-continuity` · 触发词 `构建小说wiki` · 记忆只记铁律
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](novel-writing/00-overview.md) | 脚手架、与 agentmemory 的分工 |
+| [01 · 记忆政策](novel-writing/01-memory-policy.md) | 该记 / 不该记 |
+| [02 · 用法](novel-writing/02-usage.md) | 新开小说仓与每章流程 |
+
+快速入口：仓库根 [NOVEL-WRITING.md](../NOVEL-WRITING.md)
+
 ## 其他工具链
 
 | 文档 | 说明 |
@@ -130,6 +142,7 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 | [SERENITY-BOTTLENECK-HUNTER.md](../SERENITY-BOTTLENECK-HUNTER.md) | Serenity Bottleneck Hunter（mrjie7205） |
 | [NOTION-MCP.md](../NOTION-MCP.md) | Notion MCP 连接与授权 |
 | [AGENTMEMORY.md](../AGENTMEMORY.md) | agentmemory 持久记忆部署与使用 |
+| [NOVEL-WRITING.md](../NOVEL-WRITING.md) | 长篇连续性 wiki 与记忆政策 |
 
 ## 维护
 

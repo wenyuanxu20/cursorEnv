@@ -18,3 +18,5 @@
 | 2026-08-13 | 更新 | `C:\Users\xwy12\.cursor\rules\agentmemory-auto.mdc` | `cursor-rules/latest/rules/agentmemory-auto--global.mdc` |
 | 2026-08-13 | 新增 | `.cursor/rules/notion-agentmemory-sync.mdc` | `cursor-rules/latest/rules/notion-agentmemory-sync.mdc` |
 | 2026-08-13 | 新增 | `C:\Users\xwy12\.cursor\rules\notion-agentmemory-sync.mdc` | `cursor-rules/latest/rules/notion-agentmemory-sync--global.mdc` |
+| 2026-08-14 | 新增 | `.cursor/rules/novel-wiki-bootstrap.mdc` | `cursor-rules/latest/rules/novel-wiki-bootstrap.mdc` |
+| 2026-08-14 | 新增 | `C:\Users\xwy12\.cursor\rules\novel-wiki-bootstrap.mdc` | `cursor-rules/latest/rules/novel-wiki-bootstrap--global.mdc` |

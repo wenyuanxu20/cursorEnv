@@ -1,0 +1,68 @@
+---
+description: 中文触发“构建小说wiki”自动搭建长篇连续性知识库
+alwaysApply: true
+---
+
+# 小说 Wiki 自动构建
+
+## 触发词
+
+当用户输入以下任一短语时，立即按本规则执行，不先给方案：
+
+- `构建小说wiki`
+- `构建 小说 wiki`
+- `搭建小说知识库`
+- `建立小说wiki`
+- `build novel wiki`
+
+## 模板源（按顺序找，用第一个存在的）
+
+1. `%USERPROFILE%\.cursor\skills\novel-continuity\templates\`
+2. `%USERPROFILE%\.agents\skills\novel-continuity\templates\`
+3. `C:\Users\xwy12\Desktop\my-project\cursorEnv\skills\novel-continuity\templates\`
+
+项目级规则源（同技能 `rules/novel-continuity.mdc`）：
+
+1. `%USERPROFILE%\.cursor\skills\novel-continuity\rules\novel-continuity.mdc`
+2. cursorEnv 同上相对路径
+
+## 必做动作
+
+1. 在**当前工作区根目录**创建（不存在才建）：
+   - `manuscript/`
+   - `wiki/novel/`
+   - `raw/novel/`
+   - `wiki/log.md`（若无）
+   - `AGENTS.md`（若无则最小文件，再追加小说章节）
+
+2. 从模板源复制（**目标已有非空文件则跳过，不覆盖**）：
+
+   | 模板 | 目标 |
+   |------|------|
+   | `wiki-index.md` | `wiki/novel/index.md` |
+   | `00-continuity-now.md` | `wiki/novel/00-continuity-now.md` |
+   | `01-characters.md` | `wiki/novel/01-characters.md` |
+   | `02-timeline.md` | `wiki/novel/02-timeline.md` |
+   | `03-foreshadowing.md` | `wiki/novel/03-foreshadowing.md` |
+   | `04-rejected.md` | `wiki/novel/04-rejected.md` |
+   | `05-voice.md` | `wiki/novel/05-voice.md` |
+   | `memory-policy.md` | `wiki/novel/memory-policy.md` |
+   | `manuscript-readme.md` | `manuscript/README.md` |
+
+3. 将 `rules/novel-continuity.mdc` 复制到当前项目 `.cursor/rules/novel-continuity.mdc`（已存在非空则跳过）。
+
+4. 若 `AGENTS.md` 尚无「小说连续性」段落：把 `AGENTS-novel-section.md` 追加到文件末尾。
+
+5. 在 `wiki/log.md` 顶部追加一条今日记录：小说 wiki 脚手架。
+
+6. 幂等：不覆盖用户已有非空内容；不删除 `manuscript/` 已有章节。
+
+7. 若 `raw/novel/` 已有资料：按模板把可确认事实 ingest 进 `wiki/novel/` 对应页。若为空：请用户提供书名、POV、已有人物，或把设定草稿放入 `raw/novel/`。
+
+## 输出格式
+
+执行后必须输出：
+
+- 创建 / 跳过文件清单
+- 下一步：填 `05-voice.md` 与 `01-characters.md`，再写 `manuscript/ch-001.md`
+- 提醒：续写读 `00-continuity-now.md`；agentmemory 只记铁律（见 `memory-policy.md`）

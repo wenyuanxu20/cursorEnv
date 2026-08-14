@@ -70,6 +70,16 @@ const CORE_RULES = [
     desc: "用户明确要求 push / 建仓时按 Windows + 代理 + GCM 凭据流程执行；禁止 force push 与提交密钥。",
     trigger: "触发：push 到 git / 同步 GitHub / 创建仓库",
   },
+  {
+    key: "novel-wiki-bootstrap",
+    icon: "📖",
+    title: "小说 Wiki 脚手架",
+    file: "novel-wiki-bootstrap.mdc",
+    scopes: ["项目", "全局"],
+    always: true,
+    desc: "在小说工作区命中触发词后复制 wiki/novel 与 manuscript 模板，写入项目级连续性规则。agentmemory 只记铁律。",
+    trigger: "触发词：构建小说wiki / 搭建小说知识库 / build novel wiki",
+  },
 ];
 
 // ---------- 环境工具文档（来自 cursor-env-manifest.json）----------
@@ -157,6 +167,13 @@ const TOOLS = [
     necessity: "必要",
     desc: "本机 REST :3111 + MCP。开场自动 recall；决策自动 save；可读 Notion 页增量同步。记忆 blob 不入库。",
     cmd: "pwsh .\\scripts\\start-agentmemory.ps1",
+  },
+  {
+    name: "NOVEL-WRITING.md",
+    title: "长篇小说连续性",
+    necessity: "非必要",
+    desc: "wiki/novel 为设定真相，manuscript 为正文；agentmemory 只记铁律。新开小说仓说：构建小说wiki。",
+    cmd: "触发词：构建小说wiki / 搭建小说知识库",
   },
   {
     name: "UZI.md",

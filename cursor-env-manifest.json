@@ -45,6 +45,7 @@
     "SERENITY-BOTTLENECK-HUNTER.md",
     "NOTION-MCP.md",
     "AGENTMEMORY.md",
+    "NOVEL-WRITING.md",
     "HEADROOM.md"
   ],
   "configs": [
@@ -412,6 +413,29 @@
       "notes": "Windows 不支持 agentmemory connect cursor。公开仓库不包含 data/state_store.db/。结构化知识见 wiki/agentmemory/"
     },
     {
+      "file": "NOVEL-WRITING.md",
+      "title": "长篇小说连续性（Wiki canon）",
+      "necessity": "非必要",
+      "summary": "小说仓以 wiki/novel 为设定真相、manuscript 为正文；agentmemory 只记铁律。触发词：构建小说wiki",
+      "category": "productivity-skills",
+      "install_method": "复制 skills/novel-continuity 到 ~/.cursor/skills 与 ~/.agents/skills；全局规则 novel-wiki-bootstrap.mdc",
+      "related_paths": [
+        "%USERPROFILE%\\.cursor\\skills\\novel-continuity",
+        "%USERPROFILE%\\.agents\\skills\\novel-continuity",
+        "%USERPROFILE%\\.cursor\\rules\\novel-wiki-bootstrap.mdc",
+        "skills/novel-continuity/",
+        "wiki/novel-writing/",
+        ".cursor/rules/novel-wiki-bootstrap.mdc"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "Copy-Item cursorEnv/skills/novel-continuity 到 %USERPROFILE%\\.cursor\\skills\\novel-continuity 与 %USERPROFILE%\\.agents\\skills\\novel-continuity",
+        "Copy-Item novel-wiki-bootstrap.mdc 到 %USERPROFILE%\\.cursor\\rules\\",
+        "在小说工作区对 Agent 说：构建小说wiki"
+      ],
+      "notes": "不要与代码仓共用一个工作区。不要开 AGENTMEMORY_INJECT_CONTEXT。结构化知识见 wiki/novel-writing/"
+    },
+    {
       "file": "HEADROOM.md",
       "title": "Headroom × Cursor Token 压缩配置",
       "necessity": "非必要",
@@ -477,6 +501,7 @@
       "SERENITY-BOTTLENECK-HUNTER.md",
       "NOTION-MCP.md",
       "AGENTMEMORY.md",
+      "NOVEL-WRITING.md",
       "HEADROOM.md",
       "OKF.md"
     ]
