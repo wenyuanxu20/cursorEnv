@@ -107,6 +107,7 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 | 页 | 内容 |
 |----|------|
 | [00 · 总览](cloud-agent/00-overview.md) | 定位、环境优先级、与 cursorEnv 本机工具差异 |
+| [01 · AstrBot](cloud-agent/01-astrbot.md) | my-project/ai：IM → ECS AstrBot → Cursor CLI + 独立 agentmemory |
 
 快速入口：仓库根 [CLOUD-AGENT.md](../CLOUD-AGENT.md)
 

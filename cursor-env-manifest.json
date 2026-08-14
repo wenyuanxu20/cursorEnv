@@ -446,8 +446,11 @@
       "related_paths": [
         ".cursor/environment.json",
         "wiki/cloud-agent/",
+        "raw/cloud-agent/",
         "https://cursor.com/dashboard/cloud-agents",
         "https://cursor.com/docs/cloud-agent/setup",
+        "https://cursor.com/docs/cli/headless",
+        "https://cursor.com/docs/sdk/python",
         "https://cursor.com/schemas/environment.schema.json"
       ],
       "env_vars": [],
@@ -457,7 +460,7 @@
         "可选：将验证后的配置提交到 .cursor/environment.json",
         "从 Agents 面板或仪表盘启动 Cloud Agent 任务"
       ],
-      "notes": "Cloud 跑 Linux；agentmemory REST :3111 与 Headroom :8787 为本机向。结构化知识见 wiki/cloud-agent/"
+      "notes": "Cloud 跑 Linux；agentmemory REST :3111 与 Headroom :8787 为本机向。AstrBot 生产路径是 ECS 上 Cursor CLI + 独立 agentmemory，见 wiki/cloud-agent/01-astrbot.md。结构化知识见 wiki/cloud-agent/"
     },
     {
       "file": "HEADROOM.md",

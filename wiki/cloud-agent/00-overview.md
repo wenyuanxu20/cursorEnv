@@ -13,6 +13,7 @@
 | 加速 | **Builds** 预跑幂等 `install`，Agent 从快照启动 |
 | 密钥 | 仅放 Dashboard **Secrets**，不进 Git |
 | cursorEnv | Graphify 可装；agentmemory/Headroom 为本机向，Cloud 需单独方案 |
+| AstrBot（ai） | 手机 IM → ECS AstrBot → Cursor **CLI** + 独立 agentmemory；不是本机 `:3111` |
 | 验收 | 要求 PR + 终端/截图/录屏证据 |
 
 ## 证据与来源
@@ -23,5 +24,6 @@
 
 ## 相关页面
 
+- [01 · AstrBot 调用 Cursor Agent](01-astrbot.md)
 - [wiki/index.md](../index.md)
 - [AGENTS.md](../../AGENTS.md)

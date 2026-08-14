@@ -2,6 +2,23 @@
 
 按时间倒序记录 ingest 与页面变更。
 
+## 2026-08-14 · AstrBot 调用 Cursor Agent API
+
+**来源**
+- 用户：查看 my-project/ai 中 AstrBot 调用 Cursor Agent API 的方式；未记录则写入 cursorEnv 并 push
+- `raw/cloud-agent/astrbot-cursor-agent-2026-08-14.md`
+
+**新增 / 更新**
+- `wiki/cloud-agent/01-astrbot.md`
+- `CLOUD-AGENT.md` 增补 AstrBot 调用链
+- `wiki/agentmemory/03-auto-rule.md` 交叉链接
+
+**要点**
+- 已核实：手机 IM → ECS AstrBot → Cursor **CLI** + ECS 独立 agentmemory（非本机 `:3111`）
+- 未打开：`ai/AstrBot` 插件源码（`wenyuanxu20/ai` 不在 GitHub）；subprocess vs `cursor_sdk` 待本机 ingest
+- 未证实：AstrBot 直连 `api.cursor.com/v0|v1/agents`
+- 勿与 Fate 本机 `cursor-agent` 飞书路径混淆
+
 ## 2026-08-14 · Cloud Agent 使用说明
 
 **来源**

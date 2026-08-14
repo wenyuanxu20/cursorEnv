@@ -208,6 +208,31 @@ cursorEnv 许多组件面向 **Windows 本机**；Cloud Agent 跑在 **Linux 容
 - 在 `AGENTS.md` 标明 Cloud 上可用的验证命令（如 `python -m pytest`、`npm test`）
 - 大文档变更后可在任务中要求 Agent 更新 `wiki/log.md`
 
+## AstrBot 如何调用 Cursor Agent（my-project/ai）
+
+生产路径在 **阿里云 ECS**，不是本机 Cursor IDE。
+
+```
+手机 IM → ECS AstrBot → Cursor CLI（agent / cursor-agent，CURSOR_API_KEY）
+                      → MCP agentmemory（ECS 独立 store）
+                      → 回复写回 IM
+```
+
+| 易混对象 | 实际 |
+|----------|------|
+| 本机 Headroom `:8787` / agentmemory `:3111` | **不在** 这条链上 |
+| Fate `feishuBot` 的 `cursor-agent` | Windows 本机另一条链路 |
+| Cloud Agents REST `api.cursor.com/v0\|v1/agents` | cursorEnv **未证实** AstrBot 直连；已证实的是 **CLI** |
+
+CLI headless 对照（官方，非 ai 仓摘录）：
+
+```bash
+export CURSOR_API_KEY=your_api_key_here
+agent -p --force --trust --output-format text "IM 用户任务"
+```
+
+`wenyuanxu20/ai` 不在 GitHub，本环境未能打开 `ai/AstrBot` 插件源码，因此 subprocess vs `cursor_sdk` 尚未用文件钉死。Wiki：[01 · AstrBot](wiki/cloud-agent/01-astrbot.md)；调研：`raw/cloud-agent/astrbot-cursor-agent-2026-08-14.md`。
+
 ## 网络与内网访问
 
 默认 Cloud Agent 可访问公网。若环境启用了 **egress 限制**：
@@ -255,4 +280,5 @@ Build 失败时打开环境 **Builds** 日志，定位最早失败层：镜像�
 - [cursor-env-manifest.json](./cursor-env-manifest.json) — 机器可读部署清单
 - [AGENTS.md](./AGENTS.md) — 本仓库 Agent 规范与查询优先级
 - [wiki/cloud-agent/00-overview.md](./wiki/cloud-agent/00-overview.md) — Wiki 摘要页
+- [wiki/cloud-agent/01-astrbot.md](./wiki/cloud-agent/01-astrbot.md) — AstrBot × Cursor CLI
 - [wiki/index.md](./wiki/index.md) — 知识库目录
