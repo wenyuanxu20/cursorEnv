@@ -1,0 +1,16 @@
+{
+  "name": "cursorEnv static site",
+  "terminals": [
+    {
+      "name": "web",
+      "command": "python3 -m http.server 8080 --directory web",
+      "description": "Static dev server for the cursorEnv rules library (web/). Open http://localhost:8080/ to browse core rules, tool docs, and the agency-agents catalog. Pure static HTML/CSS/vanilla JS with no build step or dependencies."
+    }
+  ],
+  "ports": [
+    {
+      "name": "web",
+      "port": 8080
+    }
+  ]
+}
