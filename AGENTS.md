@@ -1,6 +1,6 @@
 # cursorEnv 知识库 Agent 规范
 
-本仓库是 Cursor 开发环境配置中枢；知识库覆盖 **Graphify 图谱**、**Headroom Token 压缩**、**Agency Agents**、**Caveman / Ponytail / UZI / Serenity / Bottleneck Hunter / Serenity-Bottleneck-Hunter Skills**、**Notion MCP**、**agentmemory**、**长篇小说连续性（novel-continuity）** 等工具链。
+本仓库是 Cursor 开发环境配置中枢；知识库覆盖 **Graphify 图谱**、**Headroom Token 压缩**、**Agency Agents**、**Caveman / Ponytail / UZI / Serenity / Bottleneck Hunter / Serenity-Bottleneck-Hunter Skills**、**Notion MCP**、**agentmemory**、**Cloud Agent / AstrBot Cursor CLI**、**长篇小说连续性（novel-continuity）** 等工具链。
 
 ## 页面模板
 
@@ -31,12 +31,13 @@ Agent 探索本仓库时：
 1. `memory_recall`（全局规则 `agentmemory-auto.mdc`，会话开场自动；MCP：`user-agentmemory`）
 2. `graphify query "<问题>"`（需 `graphify-out/graph.json`）
 3. `wiki/index.md` → 主题页
-4. 原始文件 `HEADROOM.md` / `GRAPHIFY.md` / `NOTION-MCP.md` / `AGENTMEMORY.md` / `NOVEL-WRITING.md`
+4. 原始文件 `HEADROOM.md` / `GRAPHIFY.md` / `NOTION-MCP.md` / `AGENTMEMORY.md` / `CLOUD-AGENT.md` / `NOVEL-WRITING.md`
 
 ## 命名规范
 
 - Headroom 主题页：`wiki/headroom/NN-*.md`（两位序号）
 - Skill 主题页：`wiki/caveman/`、`wiki/ponytail/`、`wiki/uzi/`、`wiki/serenity/`、`wiki/bottleneck-hunter/`、`wiki/serenity-bottleneck-hunter/`、`wiki/notion-mcp/`、`wiki/novel-writing/`
 - agentmemory 主题页：`wiki/agentmemory/NN-*.md`
-- 术语统一：Base URL、BYOK、RTK、path prefix `/p/{project}`、Notion 插件 MCP `plugin-notion-workspace-notion`、PAT 备用 MCP 配置键 `notion-token` / 运行时 id `user-notion-token`、环境变量 `NOTION_TOKEN`、agentmemory REST `:3111` / Viewer `:3113` / MCP 键 `agentmemory`、Skill `notion-agentmemory-sync`、Skill `novel-continuity`、触发词 `构建小说wiki`
+- Cloud Agent 主题页：`wiki/cloud-agent/NN-*.md`
+- 术语统一：Base URL、BYOK、RTK、path prefix `/p/{project}`、Notion 插件 MCP `plugin-notion-workspace-notion`、PAT 备用 MCP 配置键 `notion-token` / 运行时 id `user-notion-token`、环境变量 `NOTION_TOKEN`、agentmemory REST `:3111` / Viewer `:3113` / MCP 键 `agentmemory`、Skill `notion-agentmemory-sync`、Skill `novel-continuity`、触发词 `构建小说wiki`、Cursor CLI `agent`/`cursor-agent`、`CURSOR_API_KEY`、AstrBot ECS 独立 agentmemory store
 - 介绍文档：仓库根 `README.md` 与 `cursor-env-manifest.json` 须覆盖当前工具链（含 agentmemory）；静态页 `web/index.html`

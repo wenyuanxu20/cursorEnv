@@ -46,7 +46,8 @@
     "NOTION-MCP.md",
     "AGENTMEMORY.md",
     "NOVEL-WRITING.md",
-    "HEADROOM.md"
+    "HEADROOM.md",
+    "CLOUD-AGENT.md"
   ],
   "configs": [
     {
@@ -436,6 +437,32 @@
       "notes": "不要与代码仓共用一个工作区。不要开 AGENTMEMORY_INJECT_CONTEXT。结构化知识见 wiki/novel-writing/"
     },
     {
+      "file": "CLOUD-AGENT.md",
+      "title": "Cloud Agent 部署与使用指南",
+      "necessity": "非必要",
+      "summary": "Cursor 远程自主 Agent：Environment/Builds/Secrets、分支 PR 流程；与 agentmemory/Headroom 等本机工具的差异",
+      "category": "cursor-core",
+      "install_method": "无需安装；在 Dashboard 创建 Environment，可选提交 .cursor/environment.json",
+      "related_paths": [
+        ".cursor/environment.json",
+        "wiki/cloud-agent/",
+        "raw/cloud-agent/",
+        "https://cursor.com/dashboard/cloud-agents",
+        "https://cursor.com/docs/cloud-agent/setup",
+        "https://cursor.com/docs/cli/headless",
+        "https://cursor.com/docs/sdk/python",
+        "https://cursor.com/schemas/environment.schema.json"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "打开 https://cursor.com/dashboard/cloud-agents#environments 创建 Environment",
+        "在 Secrets 填入 API Key 等凭证",
+        "可选：将验证后的配置提交到 .cursor/environment.json",
+        "从 Agents 面板或仪表盘启动 Cloud Agent 任务"
+      ],
+      "notes": "Cloud 跑 Linux；agentmemory REST :3111 与 Headroom :8787 为本机向。AstrBot 生产路径是 ECS 上 Cursor CLI + 独立 agentmemory，见 wiki/cloud-agent/01-astrbot.md。结构化知识见 wiki/cloud-agent/"
+    },
+    {
       "file": "HEADROOM.md",
       "title": "Headroom × Cursor Token 压缩配置",
       "necessity": "非必要",
@@ -503,6 +530,7 @@
       "AGENTMEMORY.md",
       "NOVEL-WRITING.md",
       "HEADROOM.md",
+      "CLOUD-AGENT.md",
       "OKF.md"
     ]
   }

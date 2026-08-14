@@ -20,6 +20,7 @@ Cursor 开发环境配置中枢：把 **规则、Skills、工具链、LLM Wiki�
 | 文件 | 说明 | 必要程度 |
 |------|------|----------|
 | [GRAPHIFY.md](./GRAPHIFY.md) | Graphify 代码知识图谱 | 必要 |
+| [CLOUD-AGENT.md](./CLOUD-AGENT.md) | Cloud Agent 远程自主 Agent：环境、Builds、Secrets、PR 流程 | 见 manifest |
 | [AGENTMEMORY.md](./AGENTMEMORY.md) | 跨会话持久记忆 + 自动 recall/save + Notion 同步 | 必要 |
 | [NOVEL-WRITING.md](./NOVEL-WRITING.md) | 长篇连续性：wiki canon + 记忆该记/不该记 | 见 manifest |
 | [NOTION-MCP.md](./NOTION-MCP.md) | Notion MCP 连接、授权与飞书桥接 | 见 manifest |
@@ -49,7 +50,7 @@ Cursor 开发环境配置中枢：把 **规则、Skills、工具链、LLM Wiki�
 4. 按 `AGENTMEMORY.md` 启动本机记忆服务，并确认 `~\.cursor\mcp.json` 含 `agentmemory`
 5. 按需部署 Notion MCP、Headroom 与其它 Skills（见 manifest `deploy_order`）
 
-Agent 查本仓库时：`memory_recall` → `graphify query` → `wiki/index.md` → 根目录指南。
+Agent 查本仓库时：`memory_recall` → `graphify query` → `wiki/index.md` → 根目录指南。AstrBot / Cursor CLI 调用链见 [CLOUD-AGENT.md](./CLOUD-AGENT.md) 与 [wiki/cloud-agent/01-astrbot.md](./wiki/cloud-agent/01-astrbot.md)。
 
 ## 最小部署
 
