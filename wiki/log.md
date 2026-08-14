@@ -2,6 +2,55 @@
 
 按时间倒序记录 ingest 与页面变更。
 
+## 2026-08-14 · 介绍文档对齐 + 公开仓库前去掉记忆 blob
+
+**来源**
+- 用户：检查 README / wiki / graphify / memory 是否落后；更新后 push，并把 GitHub 仓库改为 public
+
+**新增 / 更新**
+- `README.md`：四层入口（部署文档 / wiki / graphify / agentmemory），补 `AGENTMEMORY.md` 与静态页
+- `cursor-env-manifest.json`：登记 agentmemory；`last_updated` → 2026-08-14
+- `GRAPHIFY.md`：cursorEnv 图谱规模与 gitignore 说明
+- `AGENTMEMORY.md`、`AGENTS.md`、`NOTION-MCP.md`
+- `wiki/index.md`、`wiki/agentmemory/00`–`04`、`wiki/notion-mcp/00`/`05`
+- `web/index.html`、`web/app.js`、`web/rules.js`（核心规则与工具书架）
+- `.gitignore`：不再跟踪 `data/state_store.db/`（个人记忆不公开）
+
+**要点**
+- 介绍文档此前仍停在 Notion MCP（2026-07-26），未写 agentmemory 自动规则与 Notion 同步
+- 增量 Notion sync 本机可读页 25（checkpoint 跳过未改页）
+- Graphify 产物与记忆 blob 均不入库；克隆后需本地 `graphify update .`（文档语义提取需 API Key）
+- 2026-08-14 本机 `graphify update .`：4770 节点 · 4997 边 · 299 社区
+
+## 2026-08-13 · Notion 全量写入 agentmemory + 自动同步 skill
+
+**来源**
+- 用户：确认记忆文件；把可读 Notion 内容写入记忆；新建 skill，任何项目在 Notion 更新时自动同步
+
+**新增 / 更新**
+- 全量 ingest：24 页，`failed=0` → `data/state_store.db/mem%3Amemories.bin`
+- Skill：`skills/notion-agentmemory-sync/` → `~\.cursor\skills` 与 `~\.agents\skills`
+- 全局规则：`notion-agentmemory-sync.mdc`（`alwaysApply`）
+- `wiki/agentmemory/04-notion-sync.md`、`02`/`03`/`index`/`log`
+
+**要点**
+- 记忆主文件是 iii 的 `mem:memories.bin`，不是单独 markdown
+- 仅同步已分享给 `xwy-notion` 的页面；增量靠 checkpoint
+- Python 调 Notion 须直连，不可走本机 SOCKS
+
+## 2026-08-13 · 阿里云 AstrBot 部署独立 agentmemory
+
+**来源**
+- 用户：同步阿里云信息到 memory；检查后直接在 ECS 部署，供手机端自动 recall/save
+
+**更新**
+- `wiki/agentmemory/03-auto-rule.md`：注明 Aliyun 为独立 store
+- 实际部署与详页在 `ai/AstrBot/wiki/aliyun/agentmemory.md`
+
+**要点**
+- ECS glibc 2.32 → 必须 musl iii；GitHub 从 ECS 不通
+- Cursor CLI MCP id 为 `agentmemory`（无 `user-` 前缀）
+
 ## 2026-08-13 · agentmemory 全局自动调用规则
 
 **来源**

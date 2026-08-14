@@ -20,6 +20,7 @@ credentials.json
 # Graphify build output (regenerate with graphify extract/update)
 graphify-out/
 
-# agentmemory: track state_store.db memories; ignore runtime sidecars
+# agentmemory: local store only — do not publish personal memories
+data/state_store.db/
 data/temp/
 data/stream_store/

@@ -175,5 +175,6 @@ foreach ($d in $dests) {
 ## 相关页面
 
 - Wiki：[00 · 总览](wiki/notion-mcp/00-overview.md) · [01 · 授权与配置](wiki/notion-mcp/01-auth-and-config.md) · [02 · 飞书桥接](wiki/notion-mcp/02-feishu-bridge.md) · [03 · 桥接直连建页](wiki/notion-mcp/03-bridge-create-page.md) · [04 · Token 兜底](wiki/notion-mcp/04-token-fallback.md) · [05 · 环境与运维](wiki/notion-mcp/05-environment-and-ops.md)
+- Notion → 记忆：[AGENTMEMORY.md](./AGENTMEMORY.md) · [wiki/agentmemory/04-notion-sync.md](wiki/agentmemory/04-notion-sync.md) · Skill `skills/notion-agentmemory-sync/`
 - Fate：[12 · 飞书×Cursor×Notion](../Fate/wiki/12-feishu-cursor-bot.md)（相对 monorepo 布局；绝对路径见 wiki）
 - 原始笔记：`raw/notion-mcp/research-notes.md`

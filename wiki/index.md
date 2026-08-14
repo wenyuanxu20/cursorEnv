@@ -1,6 +1,6 @@
 # cursorEnv 知识库索引
 
-Cursor 开发环境配置与迁移文档仓库的知识层。代码与配置问题优先用 `graphify query "<问题>"`（图谱在 `graphify-out/`）。
+Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优先 `memory_recall`；代码与配置问题优先 `graphify query "<问题>"`（图谱在本地 `graphify-out/`，不入库）；人读总览见根目录 [README.md](../README.md)。
 
 ## Headroom（Token 压缩 × Cursor）
 
@@ -110,6 +110,7 @@ Cursor 开发环境配置与迁移文档仓库的知识层。代码与配置问�
 | [01 · 用法与命令](agentmemory/01-usage.md) | Cursor MCP、REST、Viewer、记什么/不记什么 |
 | [02 · 本机部署](agentmemory/02-local-deploy.md) | Windows 安装路径、端口、MCP、排障（2026-08-12） |
 | [03 · 自动调用规则](agentmemory/03-auto-rule.md) | 全局 `alwaysApply`：开场 recall、决策 save，无需口头提醒 |
+| [04 · Notion 同步](agentmemory/04-notion-sync.md) | 可读 Notion 页写入 `mem:memories.bin`；会话增量自动同步 |
 
 快速入口：仓库根 [AGENTMEMORY.md](../AGENTMEMORY.md)
 

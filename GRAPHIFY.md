@@ -20,17 +20,20 @@
 
 | 项目 | 图谱规模 | 输出目录 |
 |------|----------|----------|
-| `cursorEnv` | 见 `graphify-out/GRAPH_REPORT.md` | `cursorEnv/graphify-out/` |
+| `cursorEnv` | 见 `graphify-out/GRAPH_REPORT.md`（2026-08-14：4770 节点 · 4997 边 · 299 社区；含 Headroom / Skills / Notion MCP / agentmemory wiki） | `cursorEnv/graphify-out/`（**gitignored**，需本地重建） |
 | `ai` | 76 节点 · 101 边 · 8 社区 | `ai/graphify-out/` |
 | `quant2026` | 898 节点 · 2037 边 · 41 社区 | `github/quant2026/graphify-out/` |
 
-`cursorEnv` 图谱包含 **Headroom 配置 wiki**（`wiki/headroom/`）、脚本与 `HEADROOM.md`；查询示例：
+`cursorEnv` 图谱覆盖根目录指南与 `wiki/`（Headroom、Caveman/Ponytail/UZI/Serenity、Notion MCP、agentmemory）。查询示例：
 
 ```powershell
 cd C:\Users\xwy12\Desktop\my-project\cursorEnv
 graphify query "Headroom Cursor BYOK 如何配置"
+graphify query "agentmemory 自动 recall"
 graphify explain "Headroom"
 ```
+
+`graphify-out/` 已在本仓库 `.gitignore` 中。克隆后在根目录执行 `graphify extract . --cluster-only` 或 `graphify update .`。
 
 ---
 
@@ -273,4 +276,4 @@ graphify query "你的问题"
 
 ---
 
-*最后更新：2026-07-03 · 本机 Graphify v0.8.44 · cursorEnv 图谱已含 Headroom wiki*
+*最后更新：2026-08-14 · 本机 Graphify v0.8.44 · cursorEnv 图谱含 Headroom / Skills / Notion MCP / agentmemory wiki；`graphify-out/` 不入库*

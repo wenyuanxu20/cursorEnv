@@ -13,6 +13,7 @@
 | `needsAuth` 时自动切换 | 插件 → `user-notion-token` → bridge `resolve_notion_access_token`（见 [[04-token-fallback]]） |
 | CLI / 飞书不共享 IDE 会话 | Fate bridge：PAT → OAuth refresh → access |
 | 知识入口 | 根文档 `NOTION-MCP.md` + Skill `notion-mcp` |
+| Notion → 记忆 | Skill `notion-agentmemory-sync`：已分享页面增量写入 agentmemory（见 [[../agentmemory/04-notion-sync]]） |
 | 环境快照 | [[05-environment-and-ops]]（路径 / 能力边界 / AiRec 锚点，2026-08-12） |
 | PAT 传输 | **stdio** `@notionhq/notion-mcp-server`（非托管 URL + Bearer header） |
 
@@ -33,4 +34,5 @@
 - [[03-bridge-create-page]]
 - [[04-token-fallback]]
 - [[05-environment-and-ops]]
+- [agentmemory · Notion 同步](../agentmemory/04-notion-sync.md)
 - 目录：`wiki/index.md`

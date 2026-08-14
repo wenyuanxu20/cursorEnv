@@ -19,7 +19,7 @@
 ## 更新策略
 
 1. 改 Headroom 脚本或 `headroom-projects.json` 后，同步更新 `wiki/headroom/` 相关页与 `wiki/log.md`
-2. 改全局 skills（Caveman / Ponytail / UZI / Serenity / Bottleneck Hunter / Serenity-Bottleneck-Hunter / Notion MCP）部署后，同步 `wiki/{caveman,ponytail,uzi,serenity,bottleneck-hunter,serenity-bottleneck-hunter,notion-mcp}/` 与根目录对应 `*.md`
+2. 改全局 skills（Caveman / Ponytail / UZI / Serenity / Bottleneck Hunter / Serenity-Bottleneck-Hunter / Notion MCP / Notion-agentmemory-sync）部署后，同步 `wiki/{caveman,ponytail,uzi,serenity,bottleneck-hunter,serenity-bottleneck-hunter,notion-mcp,agentmemory}/` 与根目录对应 `*.md`
 3. 改 agentmemory 版本、MCP、启动脚本或自动调用规则后，同步 `wiki/agentmemory/` 与根目录 `AGENTMEMORY.md`
 4. 运行 `graphify update .` 刷新 `graphify-out/`（AST，无 API 成本）
 5. 大量文档变更后运行 `graphify extract . --cluster-only` 全量重建
@@ -38,4 +38,5 @@ Agent 探索本仓库时：
 - Headroom 主题页：`wiki/headroom/NN-*.md`（两位序号）
 - Skill 主题页：`wiki/caveman/`、`wiki/ponytail/`、`wiki/uzi/`、`wiki/serenity/`、`wiki/bottleneck-hunter/`、`wiki/serenity-bottleneck-hunter/`、`wiki/notion-mcp/`
 - agentmemory 主题页：`wiki/agentmemory/NN-*.md`
-- 术语统一：Base URL、BYOK、RTK、path prefix `/p/{project}`、Notion 插件 MCP `plugin-notion-workspace-notion`、PAT 备用 MCP 配置键 `notion-token` / 运行时 id `user-notion-token`、环境变量 `NOTION_TOKEN`、agentmemory REST `:3111` / Viewer `:3113` / MCP 键 `agentmemory`
+- 术语统一：Base URL、BYOK、RTK、path prefix `/p/{project}`、Notion 插件 MCP `plugin-notion-workspace-notion`、PAT 备用 MCP 配置键 `notion-token` / 运行时 id `user-notion-token`、环境变量 `NOTION_TOKEN`、agentmemory REST `:3111` / Viewer `:3113` / MCP 键 `agentmemory`、Skill `notion-agentmemory-sync`
+- 介绍文档：仓库根 `README.md` 与 `cursor-env-manifest.json` 须覆盖当前工具链（含 agentmemory）；静态页 `web/index.html`

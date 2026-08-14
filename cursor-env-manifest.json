@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "description": "Cursor 开发环境配置清单，用于新机器一键部署与迁移",
-  "last_updated": "2026-07-26",
+  "last_updated": "2026-08-14",
   "platform": "windows",
   "repo_root": "cursorEnv",
   "monorepos": {
@@ -44,6 +44,7 @@
     "BOTTLENECK-HUNTER.md",
     "SERENITY-BOTTLENECK-HUNTER.md",
     "NOTION-MCP.md",
+    "AGENTMEMORY.md",
     "HEADROOM.md"
   ],
   "configs": [
@@ -369,16 +370,46 @@
         "wiki/notion-mcp/",
         "raw/notion-mcp/",
         "C:\\Users\\xwy12\\Desktop\\my-project\\Fate\\feishuBot\\notion_bridge.py",
-        "https://mcp.notion.com/mcp"
+        "https://mcp.notion.com/mcp",
+        "skills/notion-agentmemory-sync/"
       ],
-      "env_vars": [],
+      "env_vars": [
+        "NOTION_TOKEN"
+      ],
       "quick_deploy": [
         "Cursor 安装/启用 Notion Workspace 插件",
         "Agent 中对 plugin-notion-workspace-notion 调用 mcp_auth",
         "Copy-Item cursorEnv/skills/notion-mcp 到 %USERPROFILE%\\.cursor\\skills\\notion-mcp 与 %USERPROFILE%\\.agents\\skills\\notion-mcp",
         "notion-search 冒烟验证"
       ],
-      "notes": "用户 mcp.json 通常不含 Notion 条目属正常（插件注入）。CLI/飞书不共享 IDE OAuth，见 Fate wiki/13-feishu-notion-bridge.md。结构化知识见 wiki/notion-mcp/"
+      "notes": "用户 mcp.json 通常不含 Notion 插件条目属正常（插件注入）。PAT 走用户环境变量 NOTION_TOKEN。可读页可经 skills/notion-agentmemory-sync 写入 agentmemory。CLI/飞书不共享 IDE OAuth，见 Fate wiki/13-feishu-notion-bridge.md。结构化知识见 wiki/notion-mcp/"
+    },
+    {
+      "file": "AGENTMEMORY.md",
+      "title": "agentmemory 持久记忆部署与使用指南",
+      "necessity": "必要",
+      "summary": "本机 REST+MCP 跨会话记忆；全局规则自动 recall/save；已分享 Notion 页增量写入 memories.bin。记忆 blob 仅本机，不提交 Git",
+      "category": "cursor-core",
+      "install_method": "npm -g @agentmemory/agentmemory @agentmemory/mcp + 手动 iii.exe + 手写 mcp.json",
+      "related_paths": [
+        "%USERPROFILE%\\.local\\bin\\iii.exe",
+        "%USERPROFILE%\\.agentmemory\\",
+        "%USERPROFILE%\\.cursor\\mcp.json",
+        "%USERPROFILE%\\.cursor\\rules\\agentmemory-auto.mdc",
+        "%USERPROFILE%\\.cursor\\rules\\notion-agentmemory-sync.mdc",
+        "%USERPROFILE%\\.cursor\\skills\\notion-agentmemory-sync",
+        "scripts/start-agentmemory.ps1",
+        "skills/notion-agentmemory-sync/",
+        "wiki/agentmemory/"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "npm install -g @agentmemory/agentmemory @agentmemory/mcp --registry=https://registry.npmmirror.com",
+        "将 iii.exe（tag iii/v0.11.2）放到 %USERPROFILE%\\.local\\bin",
+        "pwsh .\\scripts\\start-agentmemory.ps1",
+        "确认 ~/.cursor/mcp.json 含 agentmemory 后重启 Cursor"
+      ],
+      "notes": "Windows 不支持 agentmemory connect cursor。公开仓库不包含 data/state_store.db/。结构化知识见 wiki/agentmemory/"
     },
     {
       "file": "HEADROOM.md",
@@ -445,6 +476,7 @@
       "BOTTLENECK-HUNTER.md",
       "SERENITY-BOTTLENECK-HUNTER.md",
       "NOTION-MCP.md",
+      "AGENTMEMORY.md",
       "HEADROOM.md",
       "OKF.md"
     ]

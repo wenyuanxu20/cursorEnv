@@ -2,7 +2,7 @@
 
 > 上游：[rohitg00/agentmemory](https://github.com/rohitg00/agentmemory) · 站点：[agent-memory.dev](https://agent-memory.dev/)  
 > Wiki：`wiki/agentmemory/` · 启动脚本：`scripts/start-agentmemory.ps1`  
-> 本机验证日期：2026-08-12
+> 本机验证日期：2026-08-12 · 自动规则 / Notion 同步：2026-08-13 · 文档对齐：2026-08-14
 
 ## 是什么
 
@@ -21,8 +21,11 @@
 | Viewer | `http://127.0.0.1:3113` |
 | Streams | `ws://127.0.0.1:3112` |
 | Engine WS | `ws://127.0.0.1:49134` |
-| 数据目录 | `%USERPROFILE%\.agentmemory\` |
+| 配置目录 | `%USERPROFILE%\.agentmemory\`（pid、preferences、Notion checkpoint） |
+| 记忆落盘 | 本机 `cursorEnv/data/state_store.db/mem%3Amemories.bin`（**不提交 Git**） |
 | Cursor MCP | `%USERPROFILE%\.cursor\mcp.json` → `agentmemory`（`AGENTMEMORY_TOOLS=core`） |
+| 自动调用 | 全局 `agentmemory-auto.mdc`：开场 `memory_recall`，有结论则 `memory_save` |
+| Notion 同步 | 全局 `notion-agentmemory-sync.mdc` + Skill `notion-agentmemory-sync` |
 | 模式 | zero-LLM / BM25-only（未配 Provider Key） |
 
 ## 快速开始
@@ -48,6 +51,8 @@ pwsh C:\Users\xwy12\Desktop\my-project\cursorEnv\scripts\start-agentmemory.ps1
 4. 仍可口头补充：`memory_save` 记下决策；`memory_smart_search` / `memory_recall` 找回。
 
 当前 core 工具集（约 8 个）：`memory_save`、`memory_recall`、`memory_consolidate`、`memory_smart_search`、`memory_sessions`、`memory_diagnose`、lesson save、reflect。
+
+会话开场还会按 `notion-agentmemory-sync.mdc` 做 **增量** Notion → 记忆同步（需 `NOTION_TOKEN` 且 `:3111` 已起）。详页：[04 · Notion 同步](wiki/agentmemory/04-notion-sync.md)。
 
 ### 3. REST 冒烟
 
@@ -120,6 +125,6 @@ curl.exe -s -X POST http://127.0.0.1:3111/agentmemory/remember -H "Content-Type:
 
 ## 相关文档
 
-- Wiki：[00 总览](wiki/agentmemory/00-overview.md) · [01 用法](wiki/agentmemory/01-usage.md) · [02 本机部署](wiki/agentmemory/02-local-deploy.md) · [03 自动调用](wiki/agentmemory/03-auto-rule.md)
+- Wiki：[00 总览](wiki/agentmemory/00-overview.md) · [01 用法](wiki/agentmemory/01-usage.md) · [02 本机部署](wiki/agentmemory/02-local-deploy.md) · [03 自动调用](wiki/agentmemory/03-auto-rule.md) · [04 Notion 同步](wiki/agentmemory/04-notion-sync.md)
 - 上游：`INSTALL_FOR_AGENTS.md`、README
 - 对比：`agency-agents/integrations/mcp-memory` 仅为 **Prompt 模板**，不是本服务

@@ -84,3 +84,4 @@ AGENTMEMORY_INJECT_CONTEXT=true
 - [00 · 总览](00-overview.md)
 - [02 · 本机部署](02-local-deploy.md)
 - [03 · 自动调用规则](03-auto-rule.md)
+- [04 · Notion 同步](04-notion-sync.md)

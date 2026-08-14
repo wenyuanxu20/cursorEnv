@@ -14,7 +14,8 @@
 | agentmemory CLI | `@agentmemory/agentmemory@0.9.28` → `%APPDATA%\npm\agentmemory.cmd` |
 | MCP 包 | `@agentmemory/mcp@0.9.28` → `agentmemory-mcp` |
 | iii 引擎 | `0.11.2` → `%USERPROFILE%\.local\bin\iii.exe`（副本：`%USERPROFILE%\.agentmemory\bin\iii.exe`） |
-| 数据 / 配置 | `%USERPROFILE%\.agentmemory\`（可选 `.env`） |
+| 数据 / 配置 | `%USERPROFILE%\.agentmemory\`（可选 `.env`、Notion checkpoint） |
+| 记忆落盘 | `cursorEnv/data/state_store.db/mem%3Amemories.bin`（`mem:memories.bin`，**不提交 Git**） |
 | REST | `http://127.0.0.1:3111` |
 | Viewer | `http://127.0.0.1:3113` |
 | Streams | `ws://127.0.0.1:3112` |
@@ -108,4 +109,5 @@ agentmemory status
 - [00 · 总览](00-overview.md)
 - [01 · 用法](01-usage.md)
 - [03 · 自动调用规则](03-auto-rule.md)
+- [04 · Notion 同步](04-notion-sync.md)
 - [[notion-mcp/05-environment-and-ops]]（同机其他 MCP 环境）

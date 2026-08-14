@@ -33,7 +33,7 @@
       <p class="eyebrow">CURSOR DEVELOPMENT ENVIRONMENT · 知识藏书阁</p>
       <h1>cursorEnv<br /><span class="hero-accent">一座可随身迁移的 Cursor 规则图书馆</span></h1>
       <p class="hero-lead">
-        本项目集中管理 Cursor 开发环境的<strong>规则、Agent、工具与迁移文档</strong>。
+        本项目集中管理 Cursor 开发环境的<strong>规则、Agent、工具、Wiki、图谱与跨会话记忆</strong>。
         把它想象成一座图书馆：大门口告诉你“这里是什么”，
         走进书架则能逐本翻阅每一条 Cursor 规则与每一位 Agent 的介绍，
         让任意一台新机器都能一键复现同一套智能开发环境。
@@ -43,8 +43,8 @@
         <a class="btn btn-ghost" href="#catalog">进入 Agent 目录</a>
       </div>
       <dl class="hero-stats" id="heroStats">
-        <div><dt id="statRules">4</dt><dd>核心 Cursor 规则</dd></div>
-        <div><dt id="statTools">6</dt><dd>环境工具文档</dd></div>
+        <div><dt id="statRules">7</dt><dd>核心 Cursor 规则</dd></div>
+        <div><dt id="statTools">16</dt><dd>环境工具文档</dd></div>
         <div><dt id="statAgents">—</dt><dd>agency-agents 规则</dd></div>
         <div><dt id="statCats">8</dt><dd>领域细分</dd></div>
       </dl>
@@ -74,7 +74,7 @@
       <article class="about-card">
         <span class="about-num">02</span>
         <h3>环境工具文档</h3>
-        <p>Graphify、AgentsView、Karpathy、Matt Pocock Skills 等工具的部署与迁移指南，新机器照着做即可复现。</p>
+        <p>Graphify、agentmemory、Notion MCP、Headroom 与各类 Skills 的部署指南；新机器按 <code>cursor-env-manifest.json</code> 复现。</p>
       </article>
       <article class="about-card">
         <span class="about-num">03</span>
@@ -115,7 +115,7 @@
     </div>
     <div class="catalog-source">
       <span class="src-badge">单一来源</span>
-      <span class="src-path"><code>C:\Users\xwy12\Desktop\my-project\github\agency-agents\.cursor\rules\</code></span>
+      <span class="src-path"><code>repos/agency-agents/.cursor/rules/</code></span>
     </div>
     <div class="catalog-controls">
       <input id="search" class="search" type="search" placeholder="搜索 Agent 名称或职责，例如：backend、SEO、unreal…" />
@@ -142,8 +142,8 @@
   </div>
 
   <footer class="footer">
-    <p>cursorEnv · Cursor 开发环境配置与迁移仓库</p>
-    <p class="footer-sub">规则数据由 <code>cursor-rules/grouped</code> 自动提取生成 · 本页面为纯静态，可直接用浏览器打开</p>
+    <p>cursorEnv · Cursor 开发环境配置与迁移仓库 · <a href="https://github.com/wenyuanxu20/cursorEnv">GitHub</a></p>
+    <p class="footer-sub">规则数据由 <code>cursor-rules/grouped</code> 与仓库根文档对齐 · 本页面为纯静态，可直接用浏览器打开</p>
   </footer>
 
   <script src="data.js"></script>

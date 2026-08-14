@@ -1,0 +1,17 @@
+---
+description: Auto-sync Notion updates into agentmemory (all projects)
+alwaysApply: true
+---
+
+# Notion → agentmemory (all projects)
+
+Do **not** wait for the user to say "sync Notion". After `memory_recall` at session start, run an **incremental** Notion ingest if agentmemory is up.
+
+```powershell
+python "$env:USERPROFILE\.cursor\skills\notion-agentmemory-sync\scripts\sync.py"
+```
+
+- Skip silently if `NOTION_TOKEN` is missing or `http://127.0.0.1:3111/agentmemory/livez` fails.
+- If the user created/edited a Notion page this session, run the script again before finishing.
+- Full rebuild only when asked: `python ...\sync.py --full`
+- Never print `NOTION_TOKEN`. Skill: `notion-agentmemory-sync`.

@@ -58,6 +58,7 @@
 | `NOTION-MCP.md` | 根指南（连接 / 排障 / Skill 安装） |
 | `wiki/notion-mcp/00`–`05` | LLM wiki 主题页 |
 | `skills/notion-mcp/SKILL.md` | Agent Skill 源（同步到 `~\.cursor\skills` 与 `~\.agents\skills`） |
+| `skills/notion-agentmemory-sync/` | 可读 Notion 页 → agentmemory；会话开场增量同步 |
 | `scripts/set-notion-token.ps1` | 设置用户级 `NOTION_TOKEN`（不落盘、不打印全文） |
 | `raw/notion-mcp/` | 调研与会话原始记录 |
 | `data/temp/` | 一次性 bridge/建页脚本；用完删除 |

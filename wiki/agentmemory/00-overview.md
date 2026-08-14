@@ -15,6 +15,8 @@
 | 非同类物 | `agency-agents/integrations/mcp-memory` 是 Prompt 集成说明，不是记忆服务 |
 | 启动入口 | `scripts/start-agentmemory.ps1` |
 | 自动调用 | 全局规则 `agentmemory-auto.mdc`（`alwaysApply`）：会话开场 `memory_recall`，有可复用结论时 `memory_save`，无需用户口头提醒 |
+| Notion 同步 | 全局 `notion-agentmemory-sync.mdc`：开场增量 ingest 已分享给 `xwy-notion` 的页面 |
+| 落盘不入库 | 记忆 blob 在 `data/state_store.db/`，公开仓库不提交 |
 
 ## 证据与来源
 
@@ -31,4 +33,5 @@
 - [01 · 用法与命令](01-usage.md)
 - [02 · 本机部署](02-local-deploy.md)
 - [03 · 自动调用规则](03-auto-rule.md)
+- [04 · Notion 同步](04-notion-sync.md)
 - 目录：`wiki/index.md`

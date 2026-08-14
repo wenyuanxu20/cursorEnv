@@ -14,3 +14,7 @@
 | 2026-07-01 | 新增 | `.cursor/rules/cursor-git-rules.mdc` | `cursor-rules/latest/rules/cursor-git-rules.mdc` |
 | 2026-08-13 | 新增 | `.cursor/rules/agentmemory-auto.mdc` | `cursor-rules/latest/rules/agentmemory-auto.mdc` |
 | 2026-08-13 | 新增 | `C:\Users\xwy12\.cursor\rules\agentmemory-auto.mdc` | `cursor-rules/latest/rules/agentmemory-auto--global.mdc` |
+| 2026-08-13 | 更新 | `.cursor/rules/agentmemory-auto.mdc` | `cursor-rules/latest/rules/agentmemory-auto.mdc` |
+| 2026-08-13 | 更新 | `C:\Users\xwy12\.cursor\rules\agentmemory-auto.mdc` | `cursor-rules/latest/rules/agentmemory-auto--global.mdc` |
+| 2026-08-13 | 新增 | `.cursor/rules/notion-agentmemory-sync.mdc` | `cursor-rules/latest/rules/notion-agentmemory-sync.mdc` |
+| 2026-08-13 | 新增 | `C:\Users\xwy12\.cursor\rules\notion-agentmemory-sync.mdc` | `cursor-rules/latest/rules/notion-agentmemory-sync--global.mdc` |
