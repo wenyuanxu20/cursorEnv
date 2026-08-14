@@ -72,3 +72,4 @@ Cursor Base URL 仍填 `http://127.0.0.1:8787/p/<项目id>/v1`，由 Headroom �
 - [02 · 日常使用](02-daily-usage.md)
 - [06 · 排障与验证](06-troubleshooting.md)
 - [00 · 总览](00-overview.md)
+- 程序化调用 Agent（非 IDE BYOK）：[../cursor-agent-api/00-overview.md](../cursor-agent-api/00-overview.md)

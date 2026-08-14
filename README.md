@@ -22,6 +22,7 @@ Cursor 开发环境配置中枢：把 **规则、Skills、工具链、LLM Wiki�
 | [GRAPHIFY.md](./GRAPHIFY.md) | Graphify 代码知识图谱 | 必要 |
 | [AGENTMEMORY.md](./AGENTMEMORY.md) | 跨会话持久记忆 + 自动 recall/save + Notion 同步 | 必要 |
 | [NOVEL-WRITING.md](./NOVEL-WRITING.md) | 长篇连续性：wiki canon + 记忆该记/不该记 | 见 manifest |
+| [CURSOR-AGENT-API.md](./CURSOR-AGENT-API.md) | 程序化调用 Cursor Agent：AstrBot proxy / Cloud REST / SDK | 见 manifest |
 | [NOTION-MCP.md](./NOTION-MCP.md) | Notion MCP 连接、授权与飞书桥接 | 见 manifest |
 | [HEADROOM.md](./HEADROOM.md) | Headroom token 压缩 × Cursor 子项目映射 | 见 manifest |
 | [AGENTSVIEW.md](./AGENTSVIEW.md) | AgentsView 会话浏览器 | 见 manifest |
@@ -37,7 +38,7 @@ Cursor 开发环境配置中枢：把 **规则、Skills、工具链、LLM Wiki�
 | [SERENITY-BOTTLENECK-HUNTER.md](./SERENITY-BOTTLENECK-HUNTER.md) | Serenity Bottleneck Hunter（mrjie7205） | 见 manifest |
 | [OKF.md](./OKF.md) | Open Knowledge Format 调研 | 参考 |
 | [cursor-env-manifest.json](./cursor-env-manifest.json) | 环境配置清单（机器可读） | 核心 |
-| [wiki/index.md](./wiki/index.md) | LLM Wiki 目录（Headroom、Skills、Notion MCP、agentmemory） | 推荐 |
+| [wiki/index.md](./wiki/index.md) | LLM Wiki 目录（Headroom、Skills、Notion MCP、agentmemory、Cursor Agent API） | 推荐 |
 | [repos/](./repos/) | 归并子仓库（agency-agents、serenity-bottleneck-hunter） | 见 manifest |
 | [Quant-Research](https://github.com/wenyuanxu20/Quant-Research) | 投研 Skills monorepo（ai-berkshire 等） | 见 manifest |
 

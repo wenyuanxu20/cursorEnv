@@ -176,6 +176,13 @@ const TOOLS = [
     cmd: "触发词：构建小说wiki / 搭建小说知识库",
   },
   {
+    name: "CURSOR-AGENT-API.md",
+    title: "Cursor Agent API",
+    necessity: "非必要",
+    desc: "IDE 外调用 Cursor Agent：AstrBot 本地 proxy :18791 → agent CLI；Cloud REST Basic 鉴权；官方 SDK。实现在 sibling ai/。",
+    cmd: "阅读 CURSOR-AGENT-API.md；实现见 ai/AstrBot/cursor-proxy",
+  },
+  {
     name: "UZI.md",
     title: "UZI 股票深度分析",
     necessity: "见 manifest",

@@ -2,6 +2,23 @@
 
 按时间倒序记录 ingest 与页面变更。
 
+## 2026-08-14 · Cursor Agent API 调用方式入库
+
+**来源**
+- 用户：检查 cursorEnv 是否已有 Cursor Agent API 文档/memory/wiki；若无则参考 `ai` 仓 AstrBot 调用方式整理后 push
+- sibling：`ai/AstrBot/cursor-proxy/`、`ai/cursor_api.py`、`ai/AstrBot/wiki/aliyun/provider-routing.md`
+
+**新增 / 更新**
+- `CURSOR-AGENT-API.md`
+- `wiki/cursor-agent-api/00`–`03`
+- `README.md`、`AGENTS.md`、`wiki/index.md`、manifest、`web/app.js`、`GRAPHIFY.md`
+
+**要点**
+- 本仓此前无此专题（grep / graphify / memory 均无独立文档）
+- AstrBot 主路径：standalone proxy `:18791` → `agent -p --trust --approve-mcps`；Cloud REST 为回退
+- 勿把 `cursor.exe` 当成 Agent CLI；Cloud 鉴权是 Basic `key:` 不是 Bearer
+- 密钥与 ECS 登录信息不写入本公开仓
+
 ## 2026-08-14 · 长篇小说连续性脚手架上线
 
 **来源**

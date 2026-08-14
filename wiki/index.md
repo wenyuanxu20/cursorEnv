@@ -126,6 +126,19 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 
 快速入口：仓库根 [NOVEL-WRITING.md](../NOVEL-WRITING.md)
 
+## Cursor Agent API（程序化调用）
+
+> 实现在 sibling `ai/`（AstrBot cursor-proxy）；本仓只存调用方式。主路径：本地 `agent` CLI + OpenAI 兼容 proxy `:18791`
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](cursor-agent-api/00-overview.md) | 三条路径选型：本地 proxy / Cloud REST / 官方 SDK |
+| [01 · 本地 CLI + proxy](cursor-agent-api/01-local-cli-proxy.md) | AstrBot 生产：`agent -p` + `streaming-proxy.mjs` |
+| [02 · Cloud REST](cursor-agent-api/02-cloud-rest.md) | `https://api.cursor.com`，Basic `api_key:` |
+| [03 · SDK 与陷阱](cursor-agent-api/03-sdk-and-traps.md) | `@cursor/sdk`；与 A/B 对照；已踩坑 |
+
+快速入口：仓库根 [CURSOR-AGENT-API.md](../CURSOR-AGENT-API.md)
+
 ## 其他工具链
 
 | 文档 | 说明 |
@@ -143,6 +156,7 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 | [NOTION-MCP.md](../NOTION-MCP.md) | Notion MCP 连接与授权 |
 | [AGENTMEMORY.md](../AGENTMEMORY.md) | agentmemory 持久记忆部署与使用 |
 | [NOVEL-WRITING.md](../NOVEL-WRITING.md) | 长篇连续性 wiki 与记忆政策 |
+| [CURSOR-AGENT-API.md](../CURSOR-AGENT-API.md) | 程序化调用 Cursor Agent（AstrBot proxy / Cloud REST / SDK） |
 
 ## 维护
 

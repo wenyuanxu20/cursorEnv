@@ -46,6 +46,7 @@
     "NOTION-MCP.md",
     "AGENTMEMORY.md",
     "NOVEL-WRITING.md",
+    "CURSOR-AGENT-API.md",
     "HEADROOM.md"
   ],
   "configs": [
@@ -436,6 +437,32 @@
       "notes": "不要与代码仓共用一个工作区。不要开 AGENTMEMORY_INJECT_CONTEXT。结构化知识见 wiki/novel-writing/"
     },
     {
+      "file": "CURSOR-AGENT-API.md",
+      "title": "Cursor Agent API 调用方式",
+      "necessity": "非必要",
+      "summary": "IDE 外调用 Cursor Agent：AstrBot 本地 OpenAI 兼容 proxy :18791 → agent CLI；Cloud REST Basic 鉴权；官方 SDK。实现在 sibling ai/，本仓只存结论。",
+      "category": "cursor-core",
+      "install_method": "文档；运行时代码在 ai/AstrBot/cursor-proxy 与 ai/cursor_api.py",
+      "related_paths": [
+        "CURSOR-AGENT-API.md",
+        "wiki/cursor-agent-api/"
+      ],
+      "env_vars": [
+        "CURSOR_API_KEY",
+        "CURSOR_PATH",
+        "CURSOR_PROXY_STANDALONE",
+        "CURSOR_PROXY_PORT",
+        "CURSOR_WORKSPACE_DIR",
+        "CURSOR_PROXY_URL",
+        "CURSOR_MODE"
+      ],
+      "quick_deploy": [
+        "阅读 CURSOR-AGENT-API.md 与 wiki/cursor-agent-api/",
+        "实现与启动脚本在 sibling：ai/AstrBot/cursor-proxy/"
+      ],
+      "notes": "不要把 cursor.exe 当成 Agent CLI。AstrBot 端口 18791，OpenClaw cursor-brain 端口 18790。Cloud 鉴权是 Basic api_key: 不是 Bearer。密钥不进 Git。"
+    },
+    {
       "file": "HEADROOM.md",
       "title": "Headroom × Cursor Token 压缩配置",
       "necessity": "非必要",
@@ -502,6 +529,7 @@
       "NOTION-MCP.md",
       "AGENTMEMORY.md",
       "NOVEL-WRITING.md",
+      "CURSOR-AGENT-API.md",
       "HEADROOM.md",
       "OKF.md"
     ]
