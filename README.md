@@ -20,6 +20,7 @@ Cursor 开发环境配置中枢：把 **规则、Skills、工具链、LLM Wiki�
 | 文件 | 说明 | 必要程度 |
 |------|------|----------|
 | [GRAPHIFY.md](./GRAPHIFY.md) | Graphify 代码知识图谱 | 必要 |
+| [CLOUD-AGENT.md](./CLOUD-AGENT.md) | Cloud Agent 远程自主 Agent：环境、Builds、Secrets、PR 流程 | 见 manifest |
 | [AGENTMEMORY.md](./AGENTMEMORY.md) | 跨会话持久记忆 + 自动 recall/save + Notion 同步 | 必要 |
 | [NOVEL-WRITING.md](./NOVEL-WRITING.md) | 长篇连续性：wiki canon + 记忆该记/不该记 | 见 manifest |
 | [NOTION-MCP.md](./NOTION-MCP.md) | Notion MCP 连接、授权与飞书桥接 | 见 manifest |

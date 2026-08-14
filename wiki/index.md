@@ -100,6 +100,16 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 
 快速入口：仓库根 [NOTION-MCP.md](../NOTION-MCP.md)
 
+## Cloud Agent（远程自主 Agent）
+
+> 入口：[仪表盘](https://cursor.com/dashboard/cloud-agents) · 配置：`.cursor/environment.json` + Builds + Secrets
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](cloud-agent/00-overview.md) | 定位、环境优先级、与 cursorEnv 本机工具差异 |
+
+快速入口：仓库根 [CLOUD-AGENT.md](../CLOUD-AGENT.md)
+
 ## agentmemory（Agent 持久记忆）
 
 > 全局 npm：`@agentmemory/agentmemory` + `@agentmemory/mcp` · 引擎 `iii` 0.11.2 · REST `:3111` / Viewer `:3113`
@@ -141,6 +151,7 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 | [BOTTLENECK-HUNTER.md](../BOTTLENECK-HUNTER.md) | Bottleneck Hunter（AI Berkshire） |
 | [SERENITY-BOTTLENECK-HUNTER.md](../SERENITY-BOTTLENECK-HUNTER.md) | Serenity Bottleneck Hunter（mrjie7205） |
 | [NOTION-MCP.md](../NOTION-MCP.md) | Notion MCP 连接与授权 |
+| [CLOUD-AGENT.md](../CLOUD-AGENT.md) | Cloud Agent 部署与使用 |
 | [AGENTMEMORY.md](../AGENTMEMORY.md) | agentmemory 持久记忆部署与使用 |
 | [NOVEL-WRITING.md](../NOVEL-WRITING.md) | 长篇连续性 wiki 与记忆政策 |
 

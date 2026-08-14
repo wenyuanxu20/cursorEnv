@@ -2,6 +2,16 @@
 
 按时间倒序记录 ingest 与页面变更。
 
+## 2026-08-14 · Cloud Agent 使用说明
+
+**来源**
+- 用户：在 cursorEnv 新建 Cloud Agent 使用说明 md
+
+**新增 / 更新**
+- `CLOUD-AGENT.md`：快速开始、Environment/Builds/Secrets、分支 PR 流程、与 cursorEnv 工具链对照
+- `wiki/cloud-agent/00-overview.md`
+- `README.md`、`wiki/index.md`、`cursor-env-manifest.json`
+
 ## 2026-08-14 · 长篇小说连续性脚手架上线
 
 **来源**
