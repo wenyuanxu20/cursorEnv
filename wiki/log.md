@@ -2,6 +2,85 @@
 
 按时间倒序记录 ingest 与页面变更。
 
+## 2026-08-24 · 联网取数回复必须点名工具
+
+**来源**
+- 用户：调用 firecrawl / scrapling 等新增取数工具时，回复里要写明用了哪些工具
+
+**更新**
+- 全局规则 `firecrawl-web-fetch.mdc`：新增「回复必须点名工具」
+- Wiki：`wiki/firecrawl/03-auto-rule.md`、`wiki/scrapling/03-auto-rule.md`、`wiki/trendradar/03-auto-rule.md`
+
+**要点**
+- 用了 getInfo 工具或回退 WebFetch/WebSearch 时，在回复中写出服务名 + MCP/脚本名，不要只给结论
+
+## 2026-08-24 · Scrapling 本机部署（getInfo）+ 联网取数补反爬通道
+
+**来源**
+- 用户：在 `cursorEnv/getInfo` 部署 Scrapling 到本地
+
+**新增 / 更新**
+- 部署：`getInfo/scrapling/`（uv 钉 `scrapling[all]==0.4.15`；`.venv` gitignore）
+- 脚本：`getInfo/scripts/start-scrapling.ps1`、`stop-scrapling.ps1`、`scrapling-scrape.ps1`
+- 根指南：`SCRAPLING.md`
+- 全局规则：`firecrawl-web-fetch.mdc`（Firecrawl 失败 / 反爬走 Scrapling）
+- Wiki：`wiki/scrapling/00`–`03`、`raw/scrapling/research-notes.md`
+- `README.md`、`AGENTS.md`、`wiki/index.md`、manifest、`web/app.js`、用户 `mcp.json`
+
+**要点**
+- 本机已验证：`Fetcher.get(https://example.com)` → 200
+- Cursor STDIO MCP：`getInfo/scrapling/.venv/Scripts/scrapling-mcp.exe`，键名 `scrapling`
+- uv 装包用 HTTP 代理 `http://127.0.0.1:7897`；socks5 会 TLS eof；清华当时无 0.4.15
+
+## 2026-08-24 · TrendRadar 本机部署（getInfo）+ 联网规则双通道
+
+**来源**
+- 用户：在 `cursorEnv/getInfo` 部署 TrendRadar；联网取数优先 Firecrawl + TrendRadar；列为 cursorEnv 必选
+
+**新增 / 更新**
+- 部署：`getInfo/TrendRadar/`（gitignore）+ `getInfo/scripts/start-trendradar.ps1`
+- 根指南：`TRENDRADAR.md`
+- 全局规则：`firecrawl-web-fetch.mdc` 改为热榜 TrendRadar / 正文 Firecrawl
+- Wiki：`wiki/trendradar/00`–`03`、`raw/trendradar/research-notes.md`
+- `README.md`、`AGENTS.md`、`wiki/index.md`、manifest `necessary_only`、`web/app.js`、用户 `mcp.json` 键 `trendradar`
+
+**要点**
+- MCP `http://127.0.0.1:3333/mcp`（uv HTTP；Docker Hub 镜像站对 `wantcat/trendradar` 曾 403）
+- 与 Firecrawl `:3002` 并列，同为最小环境必选项
+
+## 2026-08-24 · Firecrawl 本机部署（getInfo）+ 联网取数规则
+
+**来源**
+- 用户：在 `cursorEnv/getInfo` 部署 Firecrawl；要上网取信息时优先用 Firecrawl；列为 cursorEnv 必选安装
+
+**新增 / 更新**
+- 部署：`getInfo/`（脚本、`env.example`；源码检出 gitignore）
+- 根指南：`FIRECRAWL.md`
+- 全局规则：`firecrawl-web-fetch.mdc`（`alwaysApply`）
+- Wiki：`wiki/firecrawl/00`–`03`、`raw/firecrawl/research-notes.md`
+- `README.md`、`AGENTS.md`、`wiki/index.md`、manifest、`web/app.js`、用户 `mcp.json`
+
+**要点**
+- API `http://127.0.0.1:3002`，钉选上游 `v2.11.162`，评估配置无鉴权
+- MCP `firecrawl-mcp@3.23.7` + `FIRECRAWL_API_URL`，不填 Cloud Key
+- 仅本机栈失败时才回退 WebFetch/WebSearch
+- 2026-08-24 本机验证：readiness ok；scrape `https://example.com` 成功（GHCR 镜像 + ECR RabbitMQ；跳过 FoundationDB）
+
+## 2026-08-17 · my-project 知识库总览 + 双写规则
+
+**来源**
+- 用户：把 my-project 各项目的 llm wiki / memory / graphify 统一到 my-project 根目录，项目内文件保留，后续两边同时更新，并写入 Cursor 默认规则
+
+**新增 / 更新**
+- 总览目录：`C:\Users\xwy12\Desktop\my-project\knowledge-hub\`（`sync.ps1` / `INDEX.md` / `projects/`）
+- 全局规则：`knowledge-hub-dual-update.mdc`（`alwaysApply`）
+- `wiki/knowledge-hub/00-overview.md`、`wiki/index.md`、`AGENTS.md`、`README.md`、`scripts/sync-knowledge-hub.ps1`
+
+**要点**
+- wiki / raw / schema / AGENTS 等为副本；`graphify-out` 为目录联接
+- agentmemory blob 不镜像（本机 `:3111`）
+- 改知识库后跑 `knowledge-hub/sync.ps1 -Project <名>`
+
 ## 2026-08-14 · Cursor Agent API 调用方式入库
 
 **来源**

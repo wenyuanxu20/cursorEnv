@@ -114,6 +114,45 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 
 快速入口：仓库根 [AGENTMEMORY.md](../AGENTMEMORY.md)
 
+## Firecrawl（本机网页抓取）
+
+> 部署根：`getInfo/` · API `http://127.0.0.1:3002` · MCP `firecrawl` · 全局规则 `firecrawl-web-fetch.mdc`
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](firecrawl/00-overview.md) | 必选安装、本机 API、与 WebFetch 分工 |
+| [01 · 用法](firecrawl/01-usage.md) | scrape / crawl / map / HTTP 回退 |
+| [02 · 本机部署](firecrawl/02-local-deploy.md) | Docker Compose、MCP、资源与安全 |
+| [03 · 自动调用规则](firecrawl/03-auto-rule.md) | 联网：正文 Firecrawl，热榜 TrendRadar，反爬 Scrapling |
+
+快速入口：仓库根 [FIRECRAWL.md](../FIRECRAWL.md)
+
+## TrendRadar（本机热榜 MCP）
+
+> 部署根：`getInfo/` · MCP `http://127.0.0.1:3333/mcp` · 键 `trendradar` · 与 Firecrawl / Scrapling 共用 `firecrawl-web-fetch.mdc`
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](trendradar/00-overview.md) | 必选安装、热榜 vs 正文分工 |
+| [01 · 用法](trendradar/01-usage.md) | get_latest_news / search_news / trigger_crawl |
+| [02 · 本机部署](trendradar/02-local-deploy.md) | Docker 优先、uv 回退、MCP |
+| [03 · 自动调用规则](trendradar/03-auto-rule.md) | 与 Firecrawl / Scrapling 同一条 alwaysApply 规则 |
+
+快速入口：仓库根 [TRENDRADAR.md](../TRENDRADAR.md)
+
+## Scrapling（本机反爬抓取）
+
+> 部署根：`getInfo/scrapling/` · 钉选 `0.4.15` · MCP 键 `scrapling` · 与 Firecrawl / TrendRadar 共用 `firecrawl-web-fetch.mdc`
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](scrapling/00-overview.md) | 必选安装、与 Firecrawl 分工 |
+| [01 · 用法](scrapling/01-usage.md) | make_request / fetch / stealthy_fetch |
+| [02 · 本机部署](scrapling/02-local-deploy.md) | uv 钉选、浏览器、STDIO MCP |
+| [03 · 自动调用规则](scrapling/03-auto-rule.md) | 反爬或 Firecrawl 失败时调用 |
+
+快速入口：仓库根 [SCRAPLING.md](../SCRAPLING.md)
+
 ## 长篇小说连续性（Wiki canon）
 
 > 全局技能：`novel-continuity` · 触发词 `构建小说wiki` · 记忆只记铁律
@@ -125,6 +164,14 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 | [02 · 用法](novel-writing/02-usage.md) | 新开小说仓与每章流程 |
 
 快速入口：仓库根 [NOVEL-WRITING.md](../NOVEL-WRITING.md)
+
+## 跨项目知识库总览（knowledge-hub）
+
+> 路径：`C:\Users\xwy12\Desktop\my-project\knowledge-hub` · 全局规则 `knowledge-hub-dual-update.mdc`
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](knowledge-hub/00-overview.md) | 各项目 wiki 保留原地，总览目录双写；graphify 用 junction |
 
 ## Cursor Agent API（程序化调用）
 
@@ -144,6 +191,7 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 | 文档 | 说明 |
 |------|------|
 | [GRAPHIFY.md](../GRAPHIFY.md) | 代码知识图谱 CLI |
+| [knowledge-hub](knowledge-hub/00-overview.md) | my-project 跨项目 wiki/graphify 总览与双写 |
 | [cursor-env-manifest.json](../cursor-env-manifest.json) | 机器可读环境清单 |
 | [agency-agents.md](../agency-agents.md) | 多 Agent 编排 |
 | [MATTPOCOCK-SKILLS.md](../MATTPOCOCK-SKILLS.md) | 工程流程 Skills |
@@ -155,6 +203,9 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 | [SERENITY-BOTTLENECK-HUNTER.md](../SERENITY-BOTTLENECK-HUNTER.md) | Serenity Bottleneck Hunter（mrjie7205） |
 | [NOTION-MCP.md](../NOTION-MCP.md) | Notion MCP 连接与授权 |
 | [AGENTMEMORY.md](../AGENTMEMORY.md) | agentmemory 持久记忆部署与使用 |
+| [FIRECRAWL.md](../FIRECRAWL.md) | 本机 Firecrawl 网页抓取 |
+| [TRENDRADAR.md](../TRENDRADAR.md) | 本机 TrendRadar 热榜 MCP |
+| [SCRAPLING.md](../SCRAPLING.md) | 本机 Scrapling 反爬 / Firecrawl 失败 |
 | [NOVEL-WRITING.md](../NOVEL-WRITING.md) | 长篇连续性 wiki 与记忆政策 |
 | [CURSOR-AGENT-API.md](../CURSOR-AGENT-API.md) | 程序化调用 Cursor Agent（AstrBot proxy / Cloud REST / SDK） |
 

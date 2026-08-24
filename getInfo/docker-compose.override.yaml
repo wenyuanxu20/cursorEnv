@@ -1,0 +1,25 @@
+# Local overlay for cursorEnv/getInfo.
+# Docker Hub (daoCloud mirror) 403/slow; use images already on this machine or ECR Public.
+# Copied onto getInfo/firecrawl/docker-compose.override.yaml by start-firecrawl.ps1.
+services:
+  redis:
+    image: redis:7-alpine
+  rabbitmq:
+    image: public.ecr.aws/docker/library/rabbitmq:3-alpine
+  api:
+    image: ghcr.io/firecrawl/firecrawl:latest
+    build: !reset
+    cpus: 2.0
+    mem_limit: 6G
+    memswap_limit: 6G
+    restart: on-failure
+  playwright-service:
+    image: ghcr.io/firecrawl/playwright-service:latest
+    build: !reset
+    cpus: 1.0
+    mem_limit: 2G
+    memswap_limit: 2G
+    restart: on-failure
+  nuq-postgres:
+    image: ghcr.io/firecrawl/nuq-postgres:latest
+    build: !reset

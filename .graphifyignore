@@ -1,0 +1,4 @@
+# Third-party checkouts under getInfo — do not index into cursorEnv graph
+getInfo/firecrawl/
+getInfo/TrendRadar/
+getInfo/scrapling/.venv/

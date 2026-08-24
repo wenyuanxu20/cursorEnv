@@ -1,0 +1,35 @@
+---
+description: my-project 知识库双写：项目路径与 knowledge-hub 同时更新
+alwaysApply: true
+---
+
+# my-project 知识库双写
+
+`C:\Users\xwy12\Desktop\my-project` 下各项目保留自己的 wiki / memory 文档 / graphify；总览在 `knowledge-hub/`。改知识库必须两边一起更新。
+
+## 路径
+
+| 角色 | 路径 |
+|------|------|
+| 项目侧（日常读写） | `{项目}/wiki` `raw` `schema` `manuscript` `graphify-out` `AGENTS.md` |
+| 总览侧 | `knowledge-hub/projects/{相对路径}/` |
+| 同步 | `knowledge-hub/sync.ps1` |
+| 目录 | `knowledge-hub/INDEX.md` |
+
+agentmemory 是本机全局服务（REST `:3111`），**不要**把 `data/state_store.db` 或记忆 blob 拷进 hub。
+
+## 必做
+
+1. 以**当前项目路径**写完 wiki / raw / schema / AGENTS / 小说设定后，立刻同步到 hub，禁止只改一侧。
+2. 同步（项目 → hub）：
+   `powershell -File C:\Users\xwy12\Desktop\my-project\knowledge-hub\sync.ps1 -Project <文件夹名>`
+3. 若在 hub 里改了文件，加 `-FromHub` 写回项目。
+4. `graphify-out` 是目录联接：在项目根执行 `graphify update .` 即可两边可见。**禁止**在资源管理器删除 hub 里的 `graphify-out`（会删到项目原目录）。
+5. 「构建LLM wiki」/ ingest / 「构建小说wiki」/ 续写更新 canon 之后，同样跑 sync。
+6. 回复中列出项目路径与 hub 对应路径。
+
+## 覆盖 / 排除
+
+覆盖：`wiki/` `raw/` `schema/` `manuscript/` `AGENTS.md` `AGENTMEMORY.md` `GRAPHIFY.md` `NOVEL-WRITING.md` `FIRECRAWL.md` `TRENDRADAR.md` `SCRAPLING.md` `memory-policy.md` `graphify-out/`（junction）。
+
+排除：`.env`、密钥、`node_modules`、`venv`、agentmemory blob。

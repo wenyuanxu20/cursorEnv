@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "description": "Cursor 开发环境配置清单，用于新机器一键部署与迁移",
-  "last_updated": "2026-08-14",
+  "last_updated": "2026-08-24",
   "platform": "windows",
   "repo_root": "cursorEnv",
   "monorepos": {
@@ -32,6 +32,9 @@
   },
   "deploy_order": [
     "GRAPHIFY.md",
+    "FIRECRAWL.md",
+    "TRENDRADAR.md",
+    "SCRAPLING.md",
     "AGENTSVIEW.md",
     "KARPATHY.md",
     "karpathy-llm-wiki-knowledge-base-guide.md",
@@ -73,6 +76,86 @@
         "graphify install --platform cursor"
       ],
       "notes": "PyPI 包名为 graphifyy（双 y），CLI 命令为 graphify。PATH 需包含 %USERPROFILE%\\.local\\bin"
+    },
+    {
+      "file": "FIRECRAWL.md",
+      "title": "Firecrawl 本机自托管与联网取数",
+      "necessity": "必要",
+      "summary": "在 getInfo/ 用 Docker Compose 自托管 Firecrawl API :3002；全局规则要求从网络取页面时优先 Firecrawl，而不是 WebFetch",
+      "category": "cursor-core",
+      "install_method": "Docker Compose 钉选 v2.11.162 + npx firecrawl-mcp@3.23.7 + 全局 firecrawl-web-fetch.mdc",
+      "related_paths": [
+        "getInfo/",
+        "getInfo/scripts/start-firecrawl.ps1",
+        "getInfo/firecrawl/",
+        "%USERPROFILE%\\.cursor\\mcp.json",
+        "%USERPROFILE%\\.cursor\\rules\\firecrawl-web-fetch.mdc",
+        ".cursor/rules/firecrawl-web-fetch.mdc",
+        "wiki/firecrawl/",
+        "https://github.com/firecrawl/firecrawl",
+        "https://docs.firecrawl.dev/contributing/self-host"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "启动 Docker Desktop",
+        "pwsh .\\getInfo\\scripts\\start-firecrawl.ps1",
+        "curl.exe -fsS http://127.0.0.1:3002/v0/health/readiness",
+        "确认 ~/.cursor/mcp.json 含 firecrawl（FIRECRAWL_API_URL=http://127.0.0.1:3002）",
+        "确认全局规则 firecrawl-web-fetch.mdc"
+      ],
+      "notes": "评估配置关闭 API 鉴权，仅本机可信网络。源码检出与 .env 不入库。自托管不含 Cloud Fire-engine/截图。Docker 内存建议 ≥16GB。与 TRENDRADAR.md 共用 firecrawl-web-fetch.mdc。"
+    },
+    {
+      "file": "TRENDRADAR.md",
+      "title": "TrendRadar 本机热榜与 MCP",
+      "necessity": "必要",
+      "summary": "在 getInfo/ 部署 TrendRadar：热榜聚合 + MCP :3333；全局规则要求联网时热榜走 TrendRadar、正文走 Firecrawl",
+      "category": "cursor-core",
+      "install_method": "clone getInfo/TrendRadar + Docker Compose 或 uv sync + HTTP MCP + 全局 firecrawl-web-fetch.mdc",
+      "related_paths": [
+        "getInfo/",
+        "getInfo/scripts/start-trendradar.ps1",
+        "getInfo/TrendRadar/",
+        "%USERPROFILE%\\.cursor\\mcp.json",
+        "%USERPROFILE%\\.cursor\\rules\\firecrawl-web-fetch.mdc",
+        ".cursor/rules/firecrawl-web-fetch.mdc",
+        "wiki/trendradar/",
+        "https://github.com/sansan0/TrendRadar"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "pwsh 不可用时用 powershell.exe -File .\\getInfo\\scripts\\start-trendradar.ps1",
+        "curl.exe 探活 http://127.0.0.1:3333/mcp",
+        "确认 ~/.cursor/mcp.json 含 trendradar（url http://127.0.0.1:3333/mcp）",
+        "确认全局规则 firecrawl-web-fetch.mdc"
+      ],
+      "notes": "本机 Docker Hub 镜像站曾对 wantcat/trendradar 返回 403，脚本回退 uv + CPython 3.12 + 清华 PyPI。检出与 logs 不入库。"
+    },
+    {
+      "file": "SCRAPLING.md",
+      "title": "Scrapling 本机反爬抓取与 MCP",
+      "necessity": "必要",
+      "summary": "在 getInfo/scrapling 用 uv 钉选 scrapling[all]==0.4.15；全局规则要求反爬或 Firecrawl 失败时走 Scrapling",
+      "category": "cursor-core",
+      "install_method": "uv sync + scrapling install + 全局 firecrawl-web-fetch.mdc + mcp.json 键 scrapling",
+      "related_paths": [
+        "getInfo/",
+        "getInfo/scripts/start-scrapling.ps1",
+        "getInfo/scrapling/",
+        "%USERPROFILE%\\.cursor\\mcp.json",
+        "%USERPROFILE%\\.cursor\\rules\\firecrawl-web-fetch.mdc",
+        ".cursor/rules/firecrawl-web-fetch.mdc",
+        "wiki/scrapling/",
+        "https://github.com/D4Vinci/Scrapling"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "powershell.exe -File .\\getInfo\\scripts\\start-scrapling.ps1",
+        "powershell.exe -File .\\getInfo\\scripts\\scrapling-scrape.ps1 -Url https://example.com",
+        "确认 ~/.cursor/mcp.json 含 scrapling（STDIO scrapling-mcp.exe）",
+        "确认全局规则 firecrawl-web-fetch.mdc"
+      ],
+      "notes": "uv 装包用 HTTP 代理 http://127.0.0.1:7897，不要 socks5。清华镜像曾滞后 0.4.15。.venv 不入库。普通文档站仍走 Firecrawl。"
     },
     {
       "file": "AGENTSVIEW.md",
@@ -131,13 +214,16 @@
         "wiki/log.md",
         "schema/",
         "AGENTS.md",
-        "cursor-rules/latest/docs/karpathy-llm-wiki-knowledge-base-guide.md"
+        "cursor-rules/latest/docs/karpathy-llm-wiki-knowledge-base-guide.md",
+        "C:\\Users\\xwy12\\Desktop\\my-project\\knowledge-hub",
+        "%USERPROFILE%\\.cursor\\rules\\knowledge-hub-dual-update.mdc"
       ],
       "env_vars": [],
       "quick_deploy": [
         "确认全局规则存在：%USERPROFILE%\\.cursor\\rules\\llm-wiki-bootstrap.mdc",
         "在目标项目 Cursor 对话中输入：构建LLM wiki",
-        "将原始资料放入 raw/ 后执行 ingest 更新 wiki/"
+        "将原始资料放入 raw/ 后执行 ingest 更新 wiki/",
+        "powershell -File C:\\Users\\xwy12\\Desktop\\my-project\\knowledge-hub\\sync.ps1 -Project <name>"
       ],
       "trigger_phrases": [
         "构建LLM wiki",
@@ -500,7 +586,10 @@
     "description": "新机器最小 Cursor 环境：仅部署 necessity=必要 的项即可开始正常开发",
     "files": [
       "GRAPHIFY.md",
-      "karpathy-llm-wiki-knowledge-base-guide.md"
+      "karpathy-llm-wiki-knowledge-base-guide.md",
+      "FIRECRAWL.md",
+      "TRENDRADAR.md",
+      "SCRAPLING.md"
     ],
     "steps": [
       "安装 uv 与 graphify CLI",
@@ -508,6 +597,9 @@
       "确认 PATH 包含 %USERPROFILE%\\.local\\bin",
       "确认全局 LLM Wiki 规则：%USERPROFILE%\\.cursor\\rules\\llm-wiki-bootstrap.mdc",
       "在每个目标项目输入「构建LLM wiki」初始化 raw/wiki/schema",
+      "运行 getInfo/scripts/start-firecrawl.ps1、start-trendradar.ps1 与 start-scrapling.ps1",
+      "确认 ~/.cursor/mcp.json 含 firecrawl、trendradar、scrapling，全局规则 firecrawl-web-fetch.mdc",
+      "知识库变更后运行 knowledge-hub/sync.ps1 双写到 my-project 根目录总览",
       "（可选）配置 OPENAI_API_KEY 等以启用语义图谱"
     ]
   },
@@ -515,6 +607,9 @@
     "description": "完整复原本机环境：按 deploy_order 顺序部署全部配置",
     "files": [
       "GRAPHIFY.md",
+      "FIRECRAWL.md",
+      "TRENDRADAR.md",
+      "SCRAPLING.md",
       "AGENTSVIEW.md",
       "KARPATHY.md",
       "karpathy-llm-wiki-knowledge-base-guide.md",

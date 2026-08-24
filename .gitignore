@@ -24,3 +24,15 @@ graphify-out/
 data/state_store.db/
 data/temp/
 data/stream_store/
+
+# getInfo: upstream checkouts + runtime env (clone via start scripts)
+getInfo/firecrawl/
+getInfo/TrendRadar/
+getInfo/scrapling/.venv/
+getInfo/**/.env
+getInfo/logs/
+
+# Firecrawl self-host checkout (cloned by getInfo/scripts/start-firecrawl.ps1)
+getInfo/firecrawl/
+# TrendRadar checkout (cloned by getInfo/scripts/start-trendradar.ps1)
+getInfo/TrendRadar/

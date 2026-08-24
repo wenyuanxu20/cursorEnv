@@ -1,0 +1,46 @@
+---
+description: Prefer Firecrawl + TrendRadar + Scrapling when fetching information from the web
+alwaysApply: true
+---
+
+# Firecrawl + TrendRadar + Scrapling 优先联网取数（all projects）
+
+MCP：`user-firecrawl`（键名 `firecrawl`）、`user-trendradar`（键名 `trendradar`）、`user-scrapling`（键名 `scrapling`）。**不要**等用户说「用 firecrawl / trendradar / scrapling」。本规则对**每个工作区**生效。
+
+| 服务 | 地址 |
+|------|------|
+| Firecrawl API | `http://127.0.0.1:3002`（自托管，默认无鉴权） |
+| TrendRadar Web | `http://127.0.0.1:8080` |
+| TrendRadar MCP | `http://127.0.0.1:3333/mcp` |
+| Scrapling MCP | STDIO `getInfo/scrapling/.venv/Scripts/scrapling-mcp.exe`；可选 HTTP `:3344` |
+
+## 路由（先选工具，再抓）
+
+1. **热榜 / 舆情 / 今日新闻 / 多平台热点** → TrendRadar：`get_latest_news`、`search_news`、`get_trending_topics`；本地无今日数据时 `trigger_crawl`
+2. **具体 URL / 文档站 / 任意网页正文** → Firecrawl：`firecrawl_scrape`；整站 `firecrawl_crawl`；链图 `firecrawl_map`
+3. **反爬 / Cloudflare / JS 重渲染 / Firecrawl 失败** → Scrapling：先 `make_request`；不够再 `fetch`；仍被拦再用 `stealthy_fetch`。MCP 不可用时 `getInfo/scripts/scrapling-scrape.ps1`
+4. **热点条目要全文** → TrendRadar 拿标题和 URL，再用 Firecrawl scrape；Firecrawl 失败再 Scrapling（不要默认用 TrendRadar `read_article`）
+5. **开放「网上搜」** → 先 TrendRadar；不够再试 `firecrawl_search`；自托管无 search 时 WebSearch **只拿 URL**，再用 Firecrawl scrape，失败再 Scrapling
+
+## 禁止默认走的路径
+
+- 不要先用 Cursor `WebFetch` / `WebSearch` 当主抓取器
+- 不要默认打 Firecrawl Cloud（`api.firecrawl.dev`）
+- 不要把 API Key / `.env` 写进回复或 Git
+- 不要默认用 Scrapling 浏览器去抓普通文档站（比 Firecrawl scrape 更慢、更重）
+
+## 服务未起
+
+- Firecrawl：`GET http://127.0.0.1:3002/v0/health/readiness` → `pwsh …\getInfo\scripts\start-firecrawl.ps1`
+- TrendRadar：`http://127.0.0.1:3333/mcp` → `pwsh …\getInfo\scripts\start-trendradar.ps1`
+- Scrapling：venv / `scrapling-mcp.exe` 缺失 → `pwsh …\getInfo\scripts\start-scrapling.ps1`
+
+MCP 不可用时：Firecrawl 用 `getInfo/scripts/firecrawl-scrape.ps1 -Url <url>`；Scrapling 用 `getInfo/scripts/scrapling-scrape.ps1 -Url <url>`。仅当 **Firecrawl 与 Scrapling 都抓不到该 URL**（热榜场景还要 TrendRadar 也失败）才回退 WebFetch/WebSearch，并写明原因。
+
+## 回复必须点名工具
+
+实际调用了 Firecrawl / TrendRadar / Scrapling（或其它 `getInfo/` 新增取数工具）后，给用户的回复里**写明用了哪些**，不要只给结论。回退 `WebFetch` / `WebSearch` 同样点名。
+
+```text
+来源：TrendRadar `get_latest_news` → Firecrawl `firecrawl_scrape`
+```

@@ -1,0 +1,14 @@
+---
+description: Cursor 网文关卡：写前只读 wiki，写后 commits 再投影
+alwaysApply: true
+---
+
+# Webnovel Cursor
+
+用户说 `/webnovel-init|plan|write|review|query|learn|doctor`、写章、规划、审查、初始化小说时：先读并执行 `.cursor/skills/webnovel-cursor/SKILL.md`。
+
+- Canon：`wiki/novel/`。正文定稿：`manuscript/`。章纲：`outline/`。提交：`commits/`。
+- 详细设定用本机 GUI：`python -X utf8 scripts/webnovel.py serve`（`http://127.0.0.1:18765/`），不要只靠记命令行。文笔模仿在「文笔风格」，真源 `wiki/novel/07-style.md`。
+- 写正文前跑 `python -X utf8 scripts/webnovel.py write-gate --chapter N --stage prewrite`，或在 GUI「总览与关卡」里跑同一关卡。
+- 有未豁免 blocking 禁止定稿。无 `commits/ch-NNN.md` 且 `status: accepted` 禁止把新事实写进 wiki。
+- 不要把 `memory_recall` 当人物表。不要在本仓库装 Claude 版 webnovel-writer。

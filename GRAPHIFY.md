@@ -20,16 +20,17 @@
 
 | 项目 | 图谱规模 | 输出目录 |
 |------|----------|----------|
-| `cursorEnv` | 见 `graphify-out/GRAPH_REPORT.md`（含 Headroom / Skills / Notion MCP / agentmemory / Cursor Agent API wiki） | `cursorEnv/graphify-out/`（**gitignored**，需本地重建） |
+| `cursorEnv` | 见 `graphify-out/GRAPH_REPORT.md`（含 Headroom / Skills / Notion MCP / agentmemory / Firecrawl / TrendRadar / Cursor Agent API wiki） | `cursorEnv/graphify-out/`（**gitignored**，需本地重建） |
 | `ai` | 76 节点 · 101 边 · 8 社区 | `ai/graphify-out/` |
 | `quant2026` | 898 节点 · 2037 边 · 41 社区 | `github/quant2026/graphify-out/` |
 
-`cursorEnv` 图谱覆盖根目录指南与 `wiki/`（Headroom、Caveman/Ponytail/UZI/Serenity、Notion MCP、agentmemory、Cursor Agent API）。查询示例：
+`cursorEnv` 图谱覆盖根目录指南与 `wiki/`（Headroom、Caveman/Ponytail/UZI/Serenity、Notion MCP、agentmemory、Firecrawl、TrendRadar、Cursor Agent API）。查询示例：
 
 ```powershell
 cd C:\Users\xwy12\Desktop\my-project\cursorEnv
 graphify query "Headroom Cursor BYOK 如何配置"
 graphify query "agentmemory 自动 recall"
+graphify query "TrendRadar MCP"
 graphify query "Cursor Agent API"
 graphify explain "streaming-proxy"
 graphify explain "Headroom"
