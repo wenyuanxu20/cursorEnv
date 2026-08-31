@@ -160,8 +160,21 @@ agent -p --output-format stream-json --stream-partial-output --trust --approve-m
 3. 本文件与 `wiki/cursor-agent-api/`
 4. sibling：`ai/AstrBot/cursor-proxy/README.md`、`ai/AstrBot/wiki/aliyun/provider-routing.md`
 
+## AstrBot 调用 getInfo
+
+查热榜 / 网页正文时走 cursorEnv `getInfo/`，不要用 AstrBot 内置 Firecrawl Cloud。
+
+| 路径 | 说明 |
+|------|------|
+| Cursor 主模型 | 工作区 `ai/AstrBot/.cursor/mcp.json` + `firecrawl-web-fetch.mdc`；`agent --approve-mcps` |
+| SiliconFlow 回退 | 插件 `astrbot_plugin_getinfo` HTTP `:3002` / `:3333` |
+| 安装 | `getInfo/scripts/install-astrbot-getinfo.ps1` |
+| 自测 | `/getinfo_ping` |
+
+专题：[wiki/cursor-agent-api/04-getinfo-bridge.md](wiki/cursor-agent-api/04-getinfo-bridge.md)。阿里云 ECS（2026-08-31）：TrendRadar + scrape shim；无 Firecrawl Compose。
+
 ## 相关
 
-- Wiki：[00 总览](wiki/cursor-agent-api/00-overview.md)
+- Wiki：[00 总览](wiki/cursor-agent-api/00-overview.md) · [04 getInfo 桥接](wiki/cursor-agent-api/04-getinfo-bridge.md)
 - OpenClaw 变体（端口 18790）：`ai/OpenClaw-Cursor-接入指南.md`（不在本仓）
 - Headroom BYOK 是 **IDE 里改 Base URL**，与本页的 **程序化调用 Agent** 不是同一条链路

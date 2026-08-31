@@ -2,7 +2,7 @@
 
 ## 定义
 
-全局 Cursor 规则 `firecrawl-web-fetch.mdc`：任意工作区要从**网络**取信息时，页面走本机 Firecrawl、热榜走 TrendRadar、反爬或 Firecrawl 失败走 Scrapling，**不需要**用户点名工具。
+全局 Cursor 规则 `firecrawl-web-fetch.mdc`：任意工作区要从**网络**取信息时，页面走本机 Firecrawl、热榜走本机 TrendRadar、反爬或 Firecrawl 失败走**本机 Scrapling**（`getInfo/scrapling/`），**不需要**用户点名工具。
 
 ## 关键结论
 
@@ -13,6 +13,7 @@
 | 中枢副本 | `cursorEnv/.cursor/rules/firecrawl-web-fetch.mdc` |
 | MCP | 键名 `firecrawl`，运行时 id `user-firecrawl` |
 | API | `http://127.0.0.1:3002` |
+| Scrapling | 本机已部署 `getInfo/scrapling/`（钉选 `0.4.15`），键 `scrapling` / `user-scrapling` |
 | 主路径 | scrape / crawl / map；search 不可用则 WebSearch 发现 URL 后再 scrape |
 | 服务未起 | 跑 `getInfo/scripts/start-firecrawl.ps1`，不要空等 |
 | 回退 | 该 URL 上 Firecrawl 与 Scrapling 都失败时才用 WebFetch/WebSearch 当主抓取器，并写明原因 |
@@ -27,6 +28,7 @@
 - 根指南：`FIRECRAWL.md`、`TRENDRADAR.md`、`SCRAPLING.md`
 - TrendRadar：[03 · 自动调用规则](../trendradar/03-auto-rule.md)
 - Scrapling：[03 · 自动调用规则](../scrapling/03-auto-rule.md)
+- AstrBot 桥接：[Cursor Agent API · 04](../cursor-agent-api/04-getinfo-bridge.md)
 
 ## 相关页面
 

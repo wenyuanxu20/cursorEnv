@@ -1,26 +1,27 @@
 ---
-description: Prefer Firecrawl + TrendRadar + Scrapling when fetching information from the web
+description: Prefer locally deployed Firecrawl + TrendRadar + Scrapling when fetching from the web
 alwaysApply: true
 ---
 
-# Firecrawl + TrendRadar + Scrapling 优先联网取数（all projects）
+# Firecrawl + TrendRadar + Scrapling + agents-radar 优先联网取数（all projects）
 
-MCP：`user-firecrawl`（键名 `firecrawl`）、`user-trendradar`（键名 `trendradar`）、`user-scrapling`（键名 `scrapling`）。**不要**等用户说「用 firecrawl / trendradar / scrapling」。本规则对**每个工作区**生效。
+三件套都在 `cursorEnv/getInfo/` **本机已部署**，用户 `mcp.json` 已有对应键。**不要**等用户说「用 firecrawl / trendradar / scrapling」。对**每个工作区**生效。
 
-| 服务 | 地址 |
-|------|------|
-| Firecrawl API | `http://127.0.0.1:3002`（自托管，默认无鉴权） |
-| TrendRadar Web | `http://127.0.0.1:8080` |
-| TrendRadar MCP | `http://127.0.0.1:3333/mcp` |
-| Scrapling MCP | STDIO `getInfo/scrapling/.venv/Scripts/scrapling-mcp.exe`；可选 HTTP `:3344` |
+| 服务 | 本机部署 | 调用 |
+|------|----------|------|
+| Firecrawl | `getInfo/firecrawl/` API `http://127.0.0.1:3002`（自托管，默认无鉴权） | MCP 键 `firecrawl` / `user-firecrawl` |
+| TrendRadar | `getInfo/TrendRadar/` · Web `:8080` | Cursor：STDIO `getInfo/scripts/trendradar-mcp-stdio.py`（键 `trendradar`）；脚本：HTTP `:3333/mcp` |
+| Scrapling | `getInfo/scrapling/` 钉选 `scrapling[all]==0.4.15` | STDIO `getInfo/scrapling/.venv/Scripts/scrapling-mcp.exe`（键 `scrapling` / `user-scrapling`）；可选 HTTP `:3344` |
+| agents-radar | `getInfo/agents-radar/` HTTP `http://127.0.0.1:3355` | `start-agents-radar.ps1`；AstrBot `/radar_bind` |
 
 ## 路由（先选工具，再抓）
 
 1. **热榜 / 舆情 / 今日新闻 / 多平台热点** → TrendRadar：`get_latest_news`、`search_news`、`get_trending_topics`；本地无今日数据时 `trigger_crawl`
-2. **具体 URL / 文档站 / 任意网页正文** → Firecrawl：`firecrawl_scrape`；整站 `firecrawl_crawl`；链图 `firecrawl_map`
-3. **反爬 / Cloudflare / JS 重渲染 / Firecrawl 失败** → Scrapling：先 `make_request`；不够再 `fetch`；仍被拦再用 `stealthy_fetch`。MCP 不可用时 `getInfo/scripts/scrapling-scrape.ps1`
-4. **热点条目要全文** → TrendRadar 拿标题和 URL，再用 Firecrawl scrape；Firecrawl 失败再 Scrapling（不要默认用 TrendRadar `read_article`）
-5. **开放「网上搜」** → 先 TrendRadar；不够再试 `firecrawl_search`；自托管无 search 时 WebSearch **只拿 URL**，再用 Firecrawl scrape，失败再 Scrapling
+2. **AI CLI / OpenClaw / Agent 生态 / 海外 AI 工具日报** → agents-radar：`GET http://127.0.0.1:3355/card` 或 `/latest?type=ai-cli`；未起则 `start-agents-radar.ps1`
+3. **具体 URL / 文档站 / 任意网页正文** → Firecrawl：`firecrawl_scrape`；整站 `firecrawl_crawl`；链图 `firecrawl_map`
+4. **反爬 / Cloudflare / JS 重渲染 / Firecrawl 失败** → **本机 Scrapling**（不要改走 Cloud）：先 `make_request`；不够再 `fetch`；仍被拦再用 `stealthy_fetch`。MCP 不可用时 `getInfo/scripts/scrapling-scrape.ps1`
+5. **热点条目要全文** → TrendRadar 拿标题和 URL，再用 Firecrawl scrape；Firecrawl 失败再 Scrapling（不要默认用 TrendRadar `read_article`）
+6. **开放「网上搜」** → 先 TrendRadar；不够再试 `firecrawl_search`；自托管无 search 时 WebSearch **只拿 URL**，再用 Firecrawl scrape，失败再本机 Scrapling
 
 ## 禁止默认走的路径
 
@@ -31,16 +32,30 @@ MCP：`user-firecrawl`（键名 `firecrawl`）、`user-trendradar`（键名 `tre
 
 ## 服务未起
 
-- Firecrawl：`GET http://127.0.0.1:3002/v0/health/readiness` → `pwsh …\getInfo\scripts\start-firecrawl.ps1`
-- TrendRadar：`http://127.0.0.1:3333/mcp` → `pwsh …\getInfo\scripts\start-trendradar.ps1`
-- Scrapling：venv / `scrapling-mcp.exe` 缺失 → `pwsh …\getInfo\scripts\start-scrapling.ps1`
+- Firecrawl：`GET http://127.0.0.1:3002/v0/health/readiness` → `getInfo/scripts/start-firecrawl.ps1`
+- TrendRadar：STDIO 包装脚本或 `:3333` 不通 → `getInfo/scripts/start-trendradar.ps1`
+- Scrapling：`getInfo/scrapling/.venv/Scripts/scrapling-mcp.exe` 缺失 → `getInfo/scripts/start-scrapling.ps1`
+- agents-radar：`GET http://127.0.0.1:3355/health` → `getInfo/scripts/start-agents-radar.ps1`
 
 MCP 不可用时：Firecrawl 用 `getInfo/scripts/firecrawl-scrape.ps1 -Url <url>`；Scrapling 用 `getInfo/scripts/scrapling-scrape.ps1 -Url <url>`。仅当 **Firecrawl 与 Scrapling 都抓不到该 URL**（热榜场景还要 TrendRadar 也失败）才回退 WebFetch/WebSearch，并写明原因。
 
 ## 回复必须点名工具
 
-实际调用了 Firecrawl / TrendRadar / Scrapling（或其它 `getInfo/` 新增取数工具）后，给用户的回复里**写明用了哪些**，不要只给结论。回退 `WebFetch` / `WebSearch` 同样点名。
+实际调用了 Firecrawl / TrendRadar / Scrapling / agents-radar（或其它 `getInfo/` 新增取数工具）后，给用户的回复里**写明用了哪些**，不要只给结论。回退 `WebFetch` / `WebSearch` 同样点名。
 
 ```text
-来源：TrendRadar `get_latest_news` → Firecrawl `firecrawl_scrape`
+来源：TrendRadar `search_news` → Firecrawl `firecrawl_scrape` → Scrapling `make_request`
 ```
+
+## AstrBot
+
+经 AstrBot 查网上信息时同样走本机 getInfo，不要改走 AstrBot 内置 Firecrawl Cloud / Tavily。
+
+| 路径 | 怎么调 getInfo |
+|------|----------------|
+| Cursor 主模型 | cursor-proxy → `agent --approve-mcps`；工作区 `ai/AstrBot` 用本规则 + `.cursor/mcp.json` |
+| SiliconFlow 回退 | 插件 `astrbot_plugin_getinfo` HTTP 调 `:3002` / `:3333`（不依赖 Cursor MCP） |
+| agents-radar 推送 | 插件 `astrbot_plugin_agents_radar` HTTP 调 `:3355`；`/radar_bind` |
+| 安装 | `getInfo/scripts/install-astrbot-getinfo.ps1`；`install-astrbot-agents-radar.ps1` |
+
+阿里云 ECS（2026-08-31 已部署）：TrendRadar `:3333` + scrape shim `:3002` + agents-radar `:3355`（无 Firecrawl Compose，机器 3.5 GiB）。`127.0.0.1` 是云主机本机。不要把 3002/3333/3355 放进安全组。

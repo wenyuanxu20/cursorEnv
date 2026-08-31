@@ -23,6 +23,7 @@
 | Engine WS | `ws://127.0.0.1:49134` |
 | 配置目录 | `%USERPROFILE%\.agentmemory\`（pid、preferences、Notion checkpoint） |
 | 记忆落盘 | 本机 `cursorEnv/data/state_store.db/mem%3Amemories.bin`（**不提交 Git**） |
+| 与阿里云对齐 | `ai/cloudsurver/_sync_memory_getinfo_aliyun.py`（merge，不覆盖）。REST 挂了时 Cursor MCP 会兜底写 `~\.agentmemory\standalone.json` |
 | Cursor MCP | `%USERPROFILE%\.cursor\mcp.json` → `agentmemory`（`AGENTMEMORY_TOOLS=core`） |
 | 自动调用 | 全局 `agentmemory-auto.mdc`：开场 `memory_recall`，有结论则 `memory_save` |
 | Notion 同步 | 全局 `notion-agentmemory-sync.mdc` + Skill `notion-agentmemory-sync` |

@@ -1,3 +1,13 @@
+﻿- 2026-08-31：更新 | 源: cursorEnv/.cursor/rules/firecrawl-web-fetch.mdc | 备份: cursor-rules/latest/rules/firecrawl-web-fetch.mdc（agents-radar :3355）
+- 2026-08-31：更新 | 源: C:\Users\xwy12\.cursor\rules\firecrawl-web-fetch.mdc | 备份: cursor-rules/latest/rules/firecrawl-web-fetch--global.mdc（agents-radar :3355）
+- 2026-08-31：更新 | 源: cursorEnv/.cursor/rules/knowledge-hub-dual-update.mdc | 备份: cursor-rules/latest/rules/knowledge-hub-dual-update.mdc（AGENTS-RADAR.md）
+- 2026-08-31：更新 | 源: C:\Users\xwy12\.cursor\rules\knowledge-hub-dual-update.mdc | 备份: cursor-rules/latest/rules/knowledge-hub-dual-update--global.mdc（AGENTS-RADAR.md）
+- 2026-08-31：更新 | 源: cursorEnv/.cursor/rules/firecrawl-web-fetch.mdc | 备份: cursor-rules/latest/rules/firecrawl-web-fetch.mdc（阿里云 getInfo 已部署）
+- 2026-08-31：更新 | 源: C:\Users\xwy12\.cursor\rules\firecrawl-web-fetch.mdc | 备份: cursor-rules/latest/rules/firecrawl-web-fetch--global.mdc（阿里云 getInfo 已部署）- 2026-08-31：更新 | 源: cursorEnv/.cursor/rules/firecrawl-web-fetch.mdc | 备份: cursor-rules/latest/rules/firecrawl-web-fetch.mdc（AstrBot getInfo 桥接）
+- 2026-08-31：更新 | 源: C:\Users\xwy12\.cursor\rules\firecrawl-web-fetch.mdc | 备份: cursor-rules/latest/rules/firecrawl-web-fetch--global.mdc（AstrBot getInfo 桥接）- 2026-08-24：更新 | 源: C:\Users\xwy12\.cursor\rules\firecrawl-web-fetch.mdc | 备份: cursor-rules/latest/rules/firecrawl-web-fetch--global.mdc（本机已部署 Scrapling）
+- 2026-08-24：更新 | 源: cursorEnv/.cursor/rules/firecrawl-web-fetch.mdc | 备份: cursor-rules/latest/rules/firecrawl-web-fetch.mdc（本机已部署 Scrapling）
+- 2026-08-24：更新 | 源: C:\Users\xwy12\.cursor\rules\firecrawl-web-fetch.mdc | 备份: cursor-rules/latest/rules/firecrawl-web-fetch--global.mdc（TrendRadar STDIO）
+- 2026-08-24：更新 | 源: cursorEnv/.cursor/rules/firecrawl-web-fetch.mdc | 备份: cursor-rules/latest/rules/firecrawl-web-fetch.mdc（TrendRadar STDIO）
 - 2026-08-24：更新 | 源: C:\Users\xwy12\.cursor\rules\firecrawl-web-fetch.mdc | 备份: cursor-rules/latest/rules/firecrawl-web-fetch--global.mdc（回复点名工具）
 - 2026-08-24：更新 | 源: cursorEnv/.cursor/rules/firecrawl-web-fetch.mdc | 备份: cursor-rules/latest/rules/firecrawl-web-fetch.mdc（回复点名工具）
 - 2026-08-24������ | Դ: cursorEnv/.cursor/rules/firecrawl-web-fetch.mdc | ����: cursor-rules/latest/rules/firecrawl-web-fetch.mdc������ Scrapling��
@@ -39,6 +49,9 @@
 | 2026-08-14 | 新增 | `C:\Users\xwy12\.cursor\rules\novel-wiki-bootstrap.mdc` | `cursor-rules/latest/rules/novel-wiki-bootstrap--global.mdc` |
 | 2026-08-16 | 新增 | `novel/.cursor/rules/webnovel-cursor.mdc` | `cursor-rules/latest/rules/webnovel-cursor.mdc` |
 | 2026-08-16 | 新增 | `novel/.cursor/rules/novel-continuity.mdc` | `cursor-rules/latest/rules/novel-continuity.mdc` |
+
+
+
 
 
 

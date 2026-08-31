@@ -16,6 +16,8 @@
 | iii 引擎 | `0.11.2` → `%USERPROFILE%\.local\bin\iii.exe`（副本：`%USERPROFILE%\.agentmemory\bin\iii.exe`） |
 | 数据 / 配置 | `%USERPROFILE%\.agentmemory\`（可选 `.env`、Notion checkpoint） |
 | 记忆落盘 | `cursorEnv/data/state_store.db/mem%3Amemories.bin`（`mem:memories.bin`，**不提交 Git**） |
+| MCP 兜底 | REST `/agentmemory/livez` 失败时 Cursor MCP 写入 `%USERPROFILE%\.agentmemory\standalone.json`（不是 iii 文件库） |
+| 与阿里云对齐 | `ai/cloudsurver/_sync_memory_getinfo_aliyun.py`（merge 导入，不覆盖） |
 | REST | `http://127.0.0.1:3111` |
 | Viewer | `http://127.0.0.1:3113` |
 | Streams | `ws://127.0.0.1:3112` |

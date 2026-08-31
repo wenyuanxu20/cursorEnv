@@ -30,15 +30,19 @@ curl.exe -s -o NUL -w "%{http_code}" -H "Accept: application/json, text/event-st
 
 ### MCP（用户级，全局）
 
-写入 `%USERPROFILE%\.cursor\mcp.json`：
+Cursor **不要**填 HTTP `url`（会触发 OAuth，只剩 `mcp_auth`）。写入 STDIO：
 
 ```json
 "trendradar": {
-  "url": "http://127.0.0.1:3333/mcp"
+  "command": "C:\\Users\\xwy12\\Desktop\\my-project\\cursorEnv\\getInfo\\TrendRadar\\.venv\\Scripts\\python.exe",
+  "args": [
+    "C:\\Users\\xwy12\\Desktop\\my-project\\cursorEnv\\getInfo\\scripts\\trendradar-mcp-stdio.py"
+  ],
+  "env": { "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8" }
 }
 ```
 
-改完后重载 MCP。STDIO 备选（官方 README）：`uv --directory <检出> run python -m mcp_server.server`。
+改完后重载 MCP。HTTP `:3333` 仍由 `start-trendradar.ps1` 拉起，给 `trendradar-mcp-call.py` 用。
 
 ### 本机已验证 / 上游推断
 

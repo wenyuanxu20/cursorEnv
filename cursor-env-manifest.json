@@ -103,13 +103,13 @@
         "确认 ~/.cursor/mcp.json 含 firecrawl（FIRECRAWL_API_URL=http://127.0.0.1:3002）",
         "确认全局规则 firecrawl-web-fetch.mdc"
       ],
-      "notes": "评估配置关闭 API 鉴权，仅本机可信网络。源码检出与 .env 不入库。自托管不含 Cloud Fire-engine/截图。Docker 内存建议 ≥16GB。与 TRENDRADAR.md 共用 firecrawl-web-fetch.mdc。"
+      "notes": "评估配置关闭 API 鉴权，仅本机可信网络。源码检出与 .env 不入库。自托管不含 Cloud Fire-engine/截图。Docker 内存建议 ≥16GB。与 TRENDRADAR.md / SCRAPLING.md 共用 firecrawl-web-fetch.mdc。"
     },
     {
       "file": "TRENDRADAR.md",
       "title": "TrendRadar 本机热榜与 MCP",
       "necessity": "必要",
-      "summary": "在 getInfo/ 部署 TrendRadar：热榜聚合 + MCP :3333；全局规则要求联网时热榜走 TrendRadar、正文走 Firecrawl",
+      "summary": "在 getInfo/ 部署 TrendRadar：热榜聚合 + MCP :3333；全局规则要求联网时热榜走 TrendRadar、正文走 Firecrawl、反爬走本机 Scrapling",
       "category": "cursor-core",
       "install_method": "clone getInfo/TrendRadar + Docker Compose 或 uv sync + HTTP MCP + 全局 firecrawl-web-fetch.mdc",
       "related_paths": [
@@ -135,7 +135,7 @@
       "file": "SCRAPLING.md",
       "title": "Scrapling 本机反爬抓取与 MCP",
       "necessity": "必要",
-      "summary": "在 getInfo/scrapling 用 uv 钉选 scrapling[all]==0.4.15；全局规则要求反爬或 Firecrawl 失败时走 Scrapling",
+      "summary": "在 getInfo/scrapling 用 uv 钉选 scrapling[all]==0.4.15；联网规则 firecrawl-web-fetch.mdc 把本机 Scrapling 列为反爬 / Firecrawl 失败通道",
       "category": "cursor-core",
       "install_method": "uv sync + scrapling install + 全局 firecrawl-web-fetch.mdc + mcp.json 键 scrapling",
       "related_paths": [
@@ -156,6 +156,28 @@
         "确认全局规则 firecrawl-web-fetch.mdc"
       ],
       "notes": "uv 装包用 HTTP 代理 http://127.0.0.1:7897，不要 socks5。清华镜像曾滞后 0.4.15。.venv 不入库。普通文档站仍走 Firecrawl。"
+    },
+    {
+      "file": "AGENTS-RADAR.md",
+      "title": "agents-radar 本机 AI 生态日报",
+      "necessity": "必要",
+      "summary": "在 getInfo/ 部署 agents-radar 已发布日报 HTTP :3355；AstrBot /radar_bind 推送。不跑上游 LLM Actions。",
+      "category": "cursor-core",
+      "install_method": "start-agents-radar.ps1 + install-astrbot-agents-radar.ps1",
+      "related_paths": [
+        "getInfo/",
+        "getInfo/scripts/start-agents-radar.ps1",
+        "getInfo/agents-radar/",
+        "wiki/agents-radar/",
+        "https://github.com/duanyytop/agents-radar"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "powershell.exe -File .\\getInfo\\scripts\\start-agents-radar.ps1",
+        "curl.exe -s http://127.0.0.1:3355/health",
+        "powershell.exe -File .\\getInfo\\scripts\\install-astrbot-agents-radar.ps1"
+      ],
+      "notes": "整仓含历史日报，clone/zip 常超时；服务读 jsDelivr/Pages。不要把 3355 暴露公网。"
     },
     {
       "file": "AGENTSVIEW.md",

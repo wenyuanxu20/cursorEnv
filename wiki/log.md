@@ -2,6 +2,100 @@
 
 按时间倒序记录 ingest 与页面变更。
 
+## 2026-08-31 · AstrBot 微信可回复图片
+
+**来源**
+- 用户：调整astrbot，我需要能回复我图片
+
+**更新**
+- 插件 `astrbot_plugin_sf_image`（Kolors 生图）+ `siliconflow_vl` 识图；本机与阿里云已加载
+- 专题在 sibling：`ai/AstrBot/wiki/aliyun/sf-image.md`
+- 出图请在**阿里云微信**测 `/画` 或「发张图」；本机微信仍关闭以免抢登录
+
+## 2026-08-31 · cursor-proxy 转发 Persona system（女仆人设）
+
+**来源**
+- 用户：人设没生效，检查阿里云
+
+**更新**
+- 根因：`streaming-proxy.mjs` 只把最后一条 user 交给 `agent -p`，AstrBot 人格 system 被丢弃
+- 已改为 `buildAgentPrompt` 拼接 system + 用户消息；阿里云 `cursor-proxy` 已重启
+
+## 2026-08-31 · 本机 ↔ 阿里云同步记忆库与 getInfo 数据
+
+**来源**
+- 用户：同步本机和阿里云记忆库、getInfo 数据
+
+**更新**
+- 脚本：`ai/cloudsurver/_sync_memory_getinfo_aliyun.py`
+- 本机 iii 曾占着 `:3111` 但 `/agentmemory/*` 全 404，Cursor MCP 已落到 `standalone.json`（56 条）；已重启 REST 并从该文件 + 阿里云导出 merge
+- 对齐后两边 agentmemory **122** 条；getInfo TrendRadar `news/html/rss` 与 agents-radar `cache` 按文件更新时间做并集
+- 仍是两套进程，不会自动实时双写；下次再跑同一脚本
+
+## 2026-08-31 · getInfo 部署 agents-radar 并接入 AstrBot 推送
+
+**来源**
+- 用户：在 getInfo 部署开源 agents-radar，接入 AstrBot 推送最新动态
+
+**更新**
+- 本机 HTTP `:3355`（读已发布日报，不跑上游 LLM Actions）
+- 插件 `astrbot_plugin_agents_radar`：`/radar_bind` 绑定并推送
+- 专题 `wiki/agents-radar/`、根指南 `AGENTS-RADAR.md`
+- 整仓 zip 因 SOCKS 超时未检出；服务不依赖 clone
+- 阿里云：`getinfo-agents-radar` active；`:3355/health` 与 `/card` 已通（先上传本机 cache，避免 ECS 拉 GitHub 超时）；插件已加载，`/radar_bind` 可用
+
+## 2026-08-31 · 阿里云 ECS 部署 getInfo
+
+**来源**
+- 用户：在阿里云部署 getInfo 并接入 AstrBot
+
+**更新**
+- ECS 2 vCPU / 3.5 GiB：不装 Firecrawl Compose；TrendRadar uv MCP + scrape shim
+- 脚本：`ai/cloudsurver/_deploy_getinfo_aliyun.py`
+- 核验：`trendradar: ready`；今日热榜 db；插件 `astrbot_plugin_getinfo` 已加载
+
+## 2026-08-31 · AstrBot 查询走本机 getInfo
+
+**来源**
+- 用户：查看 getInfo 与 AstrBot；调用 AstrBot 查信息时也要能调信息获取项目
+
+**更新**
+- 插件：`ai/AstrBot/extras/astrbot_plugin_getinfo/`（HTTP TrendRadar / Firecrawl / Scrapling）
+- 安装：`getInfo/scripts/install-astrbot-getinfo.ps1`；MCP 模板 `getInfo/astrbot-mcp.windows.json`
+- 规则 `firecrawl-web-fetch.mdc` 增加 AstrBot 段
+- 专题：`wiki/cursor-agent-api/04-getinfo-bridge.md`；AstrBot `wiki/aliyun/getinfo-plugin.md`
+
+**要点**
+- Cursor 主路径：工作区 MCP + `--approve-mcps`
+- SiliconFlow 回退：插件 HTTP，不依赖 Cursor MCP
+- 阿里云 ECS 默认没有 Windows getInfo；`127.0.0.1` 是云主机
+
+## 2026-08-24 · 联网取数规则写明本机已部署 Scrapling
+
+**来源**
+- 用户：调用信息获取规则里面加上本地已经部署的 Scrapling
+
+**更新**
+- 全局规则 `firecrawl-web-fetch.mdc`：三件套表改为「本机部署 + 调用」；Scrapling 路径 `getInfo/scrapling/`、钉选 `0.4.15`、MCP 键 `scrapling` / `user-scrapling`
+- `AGENTS.md` 查询优先级、`FIRECRAWL.md` / `TRENDRADAR.md`、wiki firecrawl/trendradar/scrapling 03 与总览、`wiki/index.md`、`web/app.js`
+
+**要点**
+- 路由仍是：热榜 TrendRadar → 普通页 Firecrawl → 反爬/失败才走本机 Scrapling（不要默认用浏览器抓普通文档站）
+
+## 2026-08-24 · TrendRadar Cursor MCP 改 STDIO
+
+**来源**
+- 用户：修 TrendRadar MCP 接入（Cursor 工具发现失败）
+
+**更新**
+- 用户 `mcp.json`：`trendradar` 从 HTTP URL 改为 STDIO 包装脚本
+- 新增 `getInfo/scripts/trendradar-mcp-stdio.py`、`trendradar-mcp-call.py`
+- `TRENDRADAR.md`、`wiki/trendradar/02-local-deploy.md`、`firecrawl-web-fetch.mdc`
+
+**要点**
+- HTTP `:3333` 握手本身正常；Cursor 把 localhost Streamable-HTTP 当 OAuth，只露出 `mcp_auth`
+- 上游 STDIO 会把启动横幅打到 stdout，包装脚本把 print 改到 stderr
+
 ## 2026-08-24 · 联网取数回复必须点名工具
 
 **来源**

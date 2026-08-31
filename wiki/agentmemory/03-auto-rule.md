@@ -17,7 +17,7 @@
 | `project` 字段 | 工作区文件夹名（slug），**禁止**写文件系统路径 |
 | 失败策略 | MCP 缺失 / `error` / `needsAuth` 时静默跳过，不阻断任务 |
 | 禁止写入 | 密钥、PAT、token、密码、完整 `.env` |
-| 阿里云 AstrBot | **另一套** store。手机 IM 走 ECS `agentmemory.service` + Cursor CLI `agentmemory` MCP，不是本机 `:3111`。Wiki：`ai/AstrBot/wiki/aliyun/agentmemory.md` |
+| 阿里云 AstrBot | 运行时仍是 **另一套** store（ECS `agentmemory.service`，不是本机 `:3111`）。需要两边一致时跑 `ai/cloudsurver/_sync_memory_getinfo_aliyun.py`（记忆 merge + getInfo 数据双向对齐）。Wiki：`ai/AstrBot/wiki/aliyun/agentmemory.md` |
 
 与 graphify 全局规则同类：Agent 默认执行，用户不必说「查 memory」或「记一下」。
 

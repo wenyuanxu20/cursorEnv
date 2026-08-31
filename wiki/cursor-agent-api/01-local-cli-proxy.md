@@ -13,10 +13,12 @@ IM → AstrBot → http://127.0.0.1:18791/v1/chat/completions
             → node streaming-proxy.mjs
             → spawn agent -p --output-format stream-json --stream-partial-output
                          --trust --approve-mcps --force
-            → stdin = 最后一条 role=user 文本
+            → stdin = system（人格等）+ 最后一条 role=user 文本
 ```
 
 ECS 上由 `cursor-proxy.service` 常驻；`WorkingDirectory=/opt/AstrBot/cursor-proxy`，`CURSOR_WORKSPACE_DIR=/opt/AstrBot`。
+
+**陷阱（已修）**：旧实现只转发最后一条 user，AstrBot 的 Persona system prompt 不会进 Cursor Agent，人设看起来「没生效」。现在 `buildAgentPrompt` 会把 `role=system` 拼进 stdin。
 
 ### 可执行文件
 
@@ -83,3 +85,4 @@ curl -sS http://127.0.0.1:18791/v1/health
 - [00 · 总览](00-overview.md)
 - [02 · Cloud REST](02-cloud-rest.md)
 - [03 · SDK 与陷阱](03-sdk-and-traps.md)
+- [04 · AstrBot ↔ getInfo](04-getinfo-bridge.md)

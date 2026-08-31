@@ -12,7 +12,7 @@
 | 本机 MCP | `http://127.0.0.1:3333/mcp`，键名 `trendradar`，运行时 id `user-trendradar` |
 | 目录 | 脚本在 `getInfo/scripts/`；源码检出 `getInfo/TrendRadar/` 不入库 |
 | 部署路径 | 先 Docker Compose；Hub 镜像站 403 时脚本改 uv HTTP MCP + 一次 crawl |
-| 自动调用 | 全局 `firecrawl-web-fetch.mdc`：热榜走 TrendRadar，URL 走 Firecrawl |
+| 自动调用 | 全局 `firecrawl-web-fetch.mdc`：热榜走本机 TrendRadar，URL 走本机 Firecrawl，反爬/失败走本机 Scrapling |
 | 数据 | `getInfo/TrendRadar/output/`；MCP 只分析已抓到的日期，不是全网任意搜 |
 
 ## 证据与来源

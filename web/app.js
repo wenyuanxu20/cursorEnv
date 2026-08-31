@@ -83,12 +83,12 @@ const CORE_RULES = [
   {
     key: "firecrawl-web-fetch",
     icon: "🔥",
-    title: "Firecrawl + TrendRadar + Scrapling 联网取数",
+    title: "Firecrawl + TrendRadar + Scrapling + agents-radar 联网取数",
     file: "firecrawl-web-fetch.mdc",
     scopes: ["项目", "全局"],
     always: true,
-    desc: "要从网络取信息时：热榜走 TrendRadar :3333，网页正文走本机 Firecrawl :3002，反爬或 Firecrawl 失败走 Scrapling，不要先用 WebFetch。",
-    trigger: "热榜 get_latest_news；正文 firecrawl_scrape；反爬 make_request/stealthy_fetch；都失败才回退 WebFetch",
+    desc: "要从网络取信息时：热榜走本机 TrendRadar，AI 生态日报走 agents-radar :3355，网页正文走本机 Firecrawl :3002，反爬或 Firecrawl 失败走本机已部署 Scrapling，不要先用 WebFetch。",
+    trigger: "热榜 TrendRadar；日报 :3355/card；正文 firecrawl_scrape；反爬 Scrapling",
   },
 ];
 
@@ -121,6 +121,13 @@ const TOOLS = [
     necessity: "必要",
     desc: "getInfo/scrapling uv 钉选 0.4.15。全局规则：反爬或 Firecrawl 失败时走 Scrapling MCP。",
     cmd: "powershell.exe -File .\\getInfo\\scripts\\start-scrapling.ps1",
+  },
+  {
+    name: "AGENTS-RADAR.md",
+    title: "agents-radar 本机日报",
+    necessity: "必要",
+    desc: "getInfo/ 部署 agents-radar HTTP :3355。AI CLI / Agent 生态日报与 AstrBot /radar_bind 推送。",
+    cmd: "powershell.exe -File .\\getInfo\\scripts\\start-agents-radar.ps1",
   },
   {
     name: "AGENTSVIEW.md",

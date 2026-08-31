@@ -44,5 +44,6 @@
 - [01 · 本地 CLI + OpenAI proxy](01-local-cli-proxy.md)
 - [02 · Cloud Agents REST](02-cloud-rest.md)
 - [03 · 官方 SDK 与陷阱](03-sdk-and-traps.md)
+- [04 · AstrBot ↔ getInfo](04-getinfo-bridge.md)
 - Headroom BYOK：[../headroom/03-byok-cursor.md](../headroom/03-byok-cursor.md)
 - 目录：`wiki/index.md`

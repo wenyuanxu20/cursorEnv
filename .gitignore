@@ -36,3 +36,7 @@ getInfo/logs/
 getInfo/firecrawl/
 # TrendRadar checkout (cloned by getInfo/scripts/start-trendradar.ps1)
 getInfo/TrendRadar/
+# agents-radar: optional full checkout + fetched digest cache
+getInfo/agents-radar/upstream/
+getInfo/agents-radar/cache/
+getInfo/agents-radar/digests/

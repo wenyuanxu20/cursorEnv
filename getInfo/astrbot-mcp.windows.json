@@ -1,0 +1,24 @@
+{
+  "mcpServers": {
+    "firecrawl": {
+      "command": "npx",
+      "args": ["-y", "firecrawl-mcp@3.23.7"],
+      "env": {
+        "FIRECRAWL_API_URL": "http://127.0.0.1:3002"
+      }
+    },
+    "trendradar": {
+      "command": "C:\\Users\\xwy12\\Desktop\\my-project\\cursorEnv\\getInfo\\TrendRadar\\.venv\\Scripts\\python.exe",
+      "args": [
+        "C:\\Users\\xwy12\\Desktop\\my-project\\cursorEnv\\getInfo\\scripts\\trendradar-mcp-stdio.py"
+      ],
+      "env": {
+        "PYTHONUTF8": "1",
+        "PYTHONIOENCODING": "utf-8"
+      }
+    },
+    "scrapling": {
+      "command": "C:\\Users\\xwy12\\Desktop\\my-project\\cursorEnv\\getInfo\\scrapling\\.venv\\Scripts\\scrapling-mcp.exe"
+    }
+  }
+}

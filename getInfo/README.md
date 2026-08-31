@@ -1,6 +1,6 @@
 # getInfo — 本机联网取数
 
-本目录部署 **Firecrawl**（网页正文）、**TrendRadar**（多平台热榜）与 **Scrapling**（反爬 / Firecrawl 失败时的自适应抓取），供 Cursor Agent 在需要从网络取信息时优先调用。
+本目录部署 **Firecrawl**（网页正文）、**TrendRadar**（多平台热榜）、**Scrapling**（反爬 / Firecrawl 失败时的自适应抓取）与 **agents-radar**（AI CLI / Agent 生态日报），供 Cursor Agent 与 AstrBot 优先调用。
 
 | 文件 | 作用 |
 |------|------|
@@ -15,6 +15,12 @@
 | `scripts/start-scrapling.ps1` | uv 安装钉选 Scrapling、浏览器、HTTP 冒烟 |
 | `scripts/stop-scrapling.ps1` | 停止可选 HTTP MCP `:3344` |
 | `scripts/scrapling-scrape.ps1` | HTTP/dynamic/stealthy Fetcher 冒烟 |
+| `scripts/start-agents-radar.ps1` | 启动 agents-radar 日报 HTTP `:3355` |
+| `scripts/stop-agents-radar.ps1` | 停止 `:3355` |
+| `scripts/install-astrbot-agents-radar.ps1` | 安装 AstrBot 日报推送插件 |
+| `scripts/install-astrbot-getinfo.ps1` | 把 getInfo 接到本机 AstrBot（插件 + Agent 工作区 MCP/规则） |
+| `agents-radar/` | 说明 + 缓存（`cache/` 不入库） |
+| `astrbot-mcp.windows.json` | AstrBot 工作区 MCP 片段（Windows 路径） |
 | `env.example` | Firecrawl Compose `.env` 模板 |
 | `firecrawl/` | Firecrawl 上游检出（`v2.11.162`，**不入库**） |
 | `TrendRadar/` | TrendRadar 上游检出（**不入库**） |

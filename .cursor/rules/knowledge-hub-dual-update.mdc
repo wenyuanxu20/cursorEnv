@@ -30,6 +30,6 @@ agentmemory 是本机全局服务（REST `:3111`），**不要**把 `data/state_
 
 ## 覆盖 / 排除
 
-覆盖：`wiki/` `raw/` `schema/` `manuscript/` `AGENTS.md` `AGENTMEMORY.md` `GRAPHIFY.md` `NOVEL-WRITING.md` `FIRECRAWL.md` `TRENDRADAR.md` `SCRAPLING.md` `memory-policy.md` `graphify-out/`（junction）。
+覆盖：`wiki/` `raw/` `schema/` `manuscript/` `AGENTS.md` `AGENTMEMORY.md` `GRAPHIFY.md` `NOVEL-WRITING.md` `FIRECRAWL.md` `TRENDRADAR.md` `SCRAPLING.md` `AGENTS-RADAR.md` `memory-policy.md` `graphify-out/`（junction）。
 
 排除：`.env`、密钥、`node_modules`、`venv`、agentmemory blob。

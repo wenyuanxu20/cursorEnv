@@ -25,6 +25,7 @@ Cursor 开发环境配置中枢：把 **规则、Skills、工具链、LLM Wiki�
 | [FIRECRAWL.md](./FIRECRAWL.md) | 本机 Firecrawl（`getInfo/`）网页抓取 | 必要 |
 | [TRENDRADAR.md](./TRENDRADAR.md) | 本机 TrendRadar（`getInfo/`）热榜 MCP | 必要 |
 | [SCRAPLING.md](./SCRAPLING.md) | 本机 Scrapling（`getInfo/`）反爬 / Firecrawl 失败 | 必要 |
+| [AGENTS-RADAR.md](./AGENTS-RADAR.md) | 本机 agents-radar（`getInfo/`）AI 生态日报 + AstrBot 推送 | 必要 |
 | [NOVEL-WRITING.md](./NOVEL-WRITING.md) | 长篇连续性：wiki canon + 记忆该记/不该记 | 见 manifest |
 | [CURSOR-AGENT-API.md](./CURSOR-AGENT-API.md) | 程序化调用 Cursor Agent：AstrBot proxy / Cloud REST / SDK | 见 manifest |
 | [NOTION-MCP.md](./NOTION-MCP.md) | Notion MCP 连接、授权与飞书桥接 | 见 manifest |
@@ -49,13 +50,13 @@ Cursor 开发环境配置中枢：把 **规则、Skills、工具链、LLM Wiki�
 ## 新机器快速开始
 
 1. 克隆本仓库
-2. 阅读 `cursor-env-manifest.json` 中的 `necessary_only`（Graphify + LLM Wiki 脚手架 + Firecrawl + TrendRadar + Scrapling）
+2. 阅读 `cursor-env-manifest.json` 中的 `necessary_only`（Graphify + LLM Wiki 脚手架 + Firecrawl + TrendRadar + Scrapling + agents-radar）
 3. 按 `GRAPHIFY.md` 安装最小 Cursor 环境
 4. 按 `AGENTMEMORY.md` 启动本机记忆服务，并确认 `~\.cursor\mcp.json` 含 `agentmemory`
-5. 按 `FIRECRAWL.md` / `TRENDRADAR.md` / `SCRAPLING.md` 启动 `getInfo/` 联网栈，并确认 `mcp.json` 含 `firecrawl`、`trendradar`、`scrapling`、全局规则 `firecrawl-web-fetch.mdc`
+5. 按 `FIRECRAWL.md` / `TRENDRADAR.md` / `SCRAPLING.md` / `AGENTS-RADAR.md` 启动 `getInfo/` 联网栈，并确认 `mcp.json` 含 `firecrawl`、`trendradar`、`scrapling`、全局规则 `firecrawl-web-fetch.mdc`
 6. 按需部署 Notion MCP、Headroom 与其它 Skills（见 manifest `deploy_order`）
 
-Agent 查本仓库时：`memory_recall` → 热榜用 TrendRadar、网页用 Firecrawl、反爬用 Scrapling → `graphify query` → `wiki/index.md` → 根目录指南。
+Agent 查本仓库时：`memory_recall` → 热榜用本机 TrendRadar、AI 生态日报用本机 agents-radar、网页用本机 Firecrawl、反爬用本机 Scrapling（`getInfo/scrapling/`）→ `graphify query` → `wiki/index.md` → 根目录指南。
 
 ## 最小部署
 
@@ -76,6 +77,7 @@ pwsh .\scripts\start-agentmemory.ps1
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\getInfo\scripts\start-firecrawl.ps1
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\getInfo\scripts\start-trendradar.ps1
 powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\getInfo\scripts\start-scrapling.ps1
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\getInfo\scripts\start-agents-radar.ps1
 ```
 
 详见各文档与 `cursor-env-manifest.json`。

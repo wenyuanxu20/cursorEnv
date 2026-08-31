@@ -9,10 +9,11 @@
 | 结论 | 说明 |
 |------|------|
 | 必选安装 | `cursor-env-manifest.json` 中 `necessity=必要`；与 Firecrawl / TrendRadar 共用联网规则 |
+| 本机已部署 | 2026-08-24：`getInfo/scrapling/` uv 钉选 `0.4.15`；STDIO MCP `scrapling-mcp.exe` |
 | 钉选 | `scrapling[all]==0.4.15` + CPython 3.12 |
 | 目录 | uv 项目 `getInfo/scrapling/` 入库；`.venv/` 不入库 |
 | Cursor | `%USERPROFILE%\.cursor\mcp.json` 键名 `scrapling`，STDIO `scrapling-mcp.exe` |
-| 自动调用 | 全局 `firecrawl-web-fetch.mdc`：先 Firecrawl，失败或反爬再 Scrapling |
+| 自动调用 | 全局 `firecrawl-web-fetch.mdc`：三件套本机已部署；先 Firecrawl，失败或反爬再本机 Scrapling |
 | HTTP MCP | 可选 `:3344`，`--no-auth` 仅 localhost |
 
 ## 证据与来源

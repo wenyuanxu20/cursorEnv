@@ -38,6 +38,7 @@
 | Windows spawn `.cmd` EINVAL | proxy 对 `.cmd`/`.bat` 使用 `shell: true` |
 | Gateway/服务环境无 `LOCALAPPDATA` | `agent login` 凭据读不到 |
 | 连续超时 | proxy 记失败次数，超阈值 `process.exit(2)` 等 systemd 拉起 |
+| Persona / system 不生效 | 旧 proxy 只转发最后一条 user；须用 `buildAgentPrompt` 把 system 拼进 stdin |
 | Cloud 401 | 改用 Basic `key:`，不要 Bearer |
 | 双开 OpenClaw 18789 | 与 AstrBot 无关；OpenClaw 场景只留 Windows 或 WSL 一套 |
 | `CURSOR_API_KEY` 进 Git | 禁止；`.env` chmod 600 |

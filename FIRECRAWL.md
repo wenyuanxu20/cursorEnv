@@ -3,7 +3,7 @@
 > 上游：[firecrawl/firecrawl](https://github.com/firecrawl/firecrawl) · 自托管文档：[Self-hosting](https://docs.firecrawl.dev/contributing/self-host)  
 > 检出：`getInfo/firecrawl/`（钉 `v2.11.162`）· 启动：`getInfo/scripts/start-firecrawl.ps1`  
 > API：`http://127.0.0.1:3002` · MCP：`firecrawl-mcp@3.23.7` → `FIRECRAWL_API_URL`  
-> 本主题为 cursorEnv **必选**安装项；全局规则 `firecrawl-web-fetch.mdc` 要求：网页正文走本机 Firecrawl，热榜走 TrendRadar。
+> 本主题为 cursorEnv **必选**安装项；全局规则 `firecrawl-web-fetch.mdc` 要求：网页正文走本机 Firecrawl，热榜走 TrendRadar，反爬或 Firecrawl 失败走本机 Scrapling（`getInfo/scrapling/`）。
 
 ## 是什么
 
@@ -79,5 +79,7 @@ powershell -NoProfile -ExecutionPolicy Bypass -File C:\Users\xwy12\Desktop\my-pr
 Compose 默认为 API 预留较高 CPU/内存。本机 overlay 把 API 限制为 **6G**（2G 会 OOM 137）。Docker Desktop 内存建议 ≥ 16GB。首次从 GHCR 拉 `firecrawl` 镜像约 2.5GB。栈含 API、Playwright、Redis、RabbitMQ、PostgreSQL；不启动 FoundationDB。仅 API 映射到主机 `3002`。
 
 `.env` 只存在检出目录，**不提交**。`getInfo/firecrawl/` 源码检出也不入库。
+
+AstrBot：`getInfo/scripts/install-astrbot-getinfo.ps1`；专题 `wiki/cursor-agent-api/04-getinfo-bridge.md`。
 
 详页：`wiki/firecrawl/`。

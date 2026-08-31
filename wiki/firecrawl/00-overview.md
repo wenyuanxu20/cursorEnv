@@ -13,7 +13,7 @@
 | 本机 API | `http://127.0.0.1:3002`，钉选上游 `v2.11.162` |
 | 目录 | 脚本与说明在 `getInfo/`；源码检出 `getInfo/firecrawl/` 不入库 |
 | Cursor | `%USERPROFILE%\.cursor\mcp.json` 键名 `firecrawl`，`FIRECRAWL_API_URL` 指向本机 |
-| 自动调用 | 全局 `firecrawl-web-fetch.mdc`（`alwaysApply`）：URL/正文走 Firecrawl，热榜走 TrendRadar |
+| 自动调用 | 全局 `firecrawl-web-fetch.mdc`（`alwaysApply`）：URL/正文走本机 Firecrawl，热榜走本机 TrendRadar，反爬/失败走本机 Scrapling |
 | 鉴权 | 本机评估栈关闭 DB auth；禁止把 3002 暴露到公网 |
 | 能力边界 | 自托管有 scrape/crawl/map；截图/Fire-engine/Cloud Agent 能力默认没有 |
 

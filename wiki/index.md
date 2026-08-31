@@ -123,7 +123,7 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 | [00 · 总览](firecrawl/00-overview.md) | 必选安装、本机 API、与 WebFetch 分工 |
 | [01 · 用法](firecrawl/01-usage.md) | scrape / crawl / map / HTTP 回退 |
 | [02 · 本机部署](firecrawl/02-local-deploy.md) | Docker Compose、MCP、资源与安全 |
-| [03 · 自动调用规则](firecrawl/03-auto-rule.md) | 联网：正文 Firecrawl，热榜 TrendRadar，反爬 Scrapling |
+| [03 · 自动调用规则](firecrawl/03-auto-rule.md) | 联网：正文本机 Firecrawl，热榜本机 TrendRadar，反爬本机 Scrapling |
 
 快速入口：仓库根 [FIRECRAWL.md](../FIRECRAWL.md)
 
@@ -149,9 +149,22 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 | [00 · 总览](scrapling/00-overview.md) | 必选安装、与 Firecrawl 分工 |
 | [01 · 用法](scrapling/01-usage.md) | make_request / fetch / stealthy_fetch |
 | [02 · 本机部署](scrapling/02-local-deploy.md) | uv 钉选、浏览器、STDIO MCP |
-| [03 · 自动调用规则](scrapling/03-auto-rule.md) | 反爬或 Firecrawl 失败时调用 |
+| [03 · 自动调用规则](scrapling/03-auto-rule.md) | 本机已部署；反爬或 Firecrawl 失败时调用 |
 
 快速入口：仓库根 [SCRAPLING.md](../SCRAPLING.md)
+
+## agents-radar（AI 生态日报）
+
+> 部署根：`getInfo/agents-radar/` · HTTP `http://127.0.0.1:3355` · AstrBot `/radar_bind`
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](agents-radar/00-overview.md) | 已发布日报的本机 HTTP，不是 Actions LLM 流水线 |
+| [01 · 用法](agents-radar/01-usage.md) | /health /card /latest /search |
+| [02 · 本机部署](agents-radar/02-local-deploy.md) | start 脚本与阿里云 systemd |
+| [03 · 自动调用与推送](agents-radar/03-auto-rule.md) | 与 TrendRadar 分工；AstrBot 按日推送 |
+
+快速入口：仓库根 [AGENTS-RADAR.md](../AGENTS-RADAR.md)
 
 ## 长篇小说连续性（Wiki canon）
 
@@ -183,6 +196,7 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 | [01 · 本地 CLI + proxy](cursor-agent-api/01-local-cli-proxy.md) | AstrBot 生产：`agent -p` + `streaming-proxy.mjs` |
 | [02 · Cloud REST](cursor-agent-api/02-cloud-rest.md) | `https://api.cursor.com`，Basic `api_key:` |
 | [03 · SDK 与陷阱](cursor-agent-api/03-sdk-and-traps.md) | `@cursor/sdk`；与 A/B 对照；已踩坑 |
+| [04 · AstrBot ↔ getInfo](cursor-agent-api/04-getinfo-bridge.md) | 查网上信息时走本机 TrendRadar / Firecrawl / Scrapling |
 
 快速入口：仓库根 [CURSOR-AGENT-API.md](../CURSOR-AGENT-API.md)
 
@@ -206,6 +220,7 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 | [FIRECRAWL.md](../FIRECRAWL.md) | 本机 Firecrawl 网页抓取 |
 | [TRENDRADAR.md](../TRENDRADAR.md) | 本机 TrendRadar 热榜 MCP |
 | [SCRAPLING.md](../SCRAPLING.md) | 本机 Scrapling 反爬 / Firecrawl 失败 |
+| [AGENTS-RADAR.md](../AGENTS-RADAR.md) | 本机 agents-radar AI 生态日报 + AstrBot 推送 |
 | [NOVEL-WRITING.md](../NOVEL-WRITING.md) | 长篇连续性 wiki 与记忆政策 |
 | [CURSOR-AGENT-API.md](../CURSOR-AGENT-API.md) | 程序化调用 Cursor Agent（AstrBot proxy / Cloud REST / SDK） |
 

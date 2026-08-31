@@ -2,7 +2,7 @@
 
 ## 定义
 
-全局 Cursor 规则 `firecrawl-web-fetch.mdc`：任意工作区要从**网络**取信息时，热榜走 TrendRadar、页面走 Firecrawl、反爬走 Scrapling，**不需要**用户点名这些工具。
+全局 Cursor 规则 `firecrawl-web-fetch.mdc`：任意工作区要从**网络**取信息时，热榜走本机 TrendRadar、页面走本机 Firecrawl、反爬走**本机 Scrapling**，**不需要**用户点名这些工具。
 
 ## 关键结论
 
@@ -11,8 +11,9 @@
 | 生效范围 | **所有 Cursor 项目**（`alwaysApply: true`） |
 | 全局规则 | `%USERPROFILE%\.cursor\rules\firecrawl-web-fetch.mdc` |
 | 中枢副本 | `cursorEnv/.cursor/rules/firecrawl-web-fetch.mdc` |
-| TrendRadar MCP | 键名 `trendradar`，运行时 id `user-trendradar`，`:3333` |
+| TrendRadar MCP | 键名 `trendradar`，运行时 id `user-trendradar`；Cursor 用 STDIO 包装脚本 |
 | Firecrawl MCP | 键名 `firecrawl`，运行时 id `user-firecrawl`，API `:3002` |
+| Scrapling | 本机 `getInfo/scrapling/`，键名 `scrapling` / `user-scrapling` |
 | 热榜未起 | 跑 `getInfo/scripts/start-trendradar.ps1`，不要空等 |
 | 回退 | 该 URL 上 Firecrawl 与 Scrapling 都失败（热榜还要 TrendRadar 失败）才用 WebFetch/WebSearch 当主通道，并写明原因 |
 | 点名工具 | 回复里写明实际用了哪些 getInfo 工具（Firecrawl / TrendRadar / Scrapling 及 MCP 名） |
@@ -31,3 +32,5 @@
 - [01 · 用法](01-usage.md)
 - [02 · 本机部署](02-local-deploy.md)
 - Firecrawl：[03 · 自动调用规则](../firecrawl/03-auto-rule.md)
+- Scrapling：[03 · 自动调用规则](../scrapling/03-auto-rule.md)
+- AstrBot 桥接：[Cursor Agent API · 04](../cursor-agent-api/04-getinfo-bridge.md)
