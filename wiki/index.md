@@ -166,6 +166,18 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 
 快速入口：仓库根 [AGENTS-RADAR.md](../AGENTS-RADAR.md)
 
+## System Informer（Windows 进程管理）
+
+> 便携目录：`tools/systeminformer/` · 钉选 `v4.0.26241.138` · 安装 `scripts/install-systeminformer.ps1`
+
+| 页 | 内容 |
+|----|------|
+| [00 · 总览](systeminformer/00-overview.md) | 原 Process Hacker；与 Optimizer 分工 |
+| [01 · 用法](systeminformer/01-usage.md) | 看进程、结束第三方、查句柄 |
+| [02 · 本机部署](systeminformer/02-local-deploy.md) | GitHub zip + SHA256、管理员启动 |
+
+快速入口：仓库根 [SYSTEMINFORMER.md](../SYSTEMINFORMER.md)
+
 ## 长篇小说连续性（Wiki canon）
 
 > 全局技能：`novel-continuity` · 触发词 `构建小说wiki` · 记忆只记铁律
@@ -221,6 +233,7 @@ Cursor 开发环境配置与迁移文档仓库的知识层。跨会话决策优�
 | [TRENDRADAR.md](../TRENDRADAR.md) | 本机 TrendRadar 热榜 MCP |
 | [SCRAPLING.md](../SCRAPLING.md) | 本机 Scrapling 反爬 / Firecrawl 失败 |
 | [AGENTS-RADAR.md](../AGENTS-RADAR.md) | 本机 agents-radar AI 生态日报 + AstrBot 推送 |
+| [SYSTEMINFORMER.md](../SYSTEMINFORMER.md) | 本机 System Informer 便携进程管理器 |
 | [NOVEL-WRITING.md](../NOVEL-WRITING.md) | 长篇连续性 wiki 与记忆政策 |
 | [CURSOR-AGENT-API.md](../CURSOR-AGENT-API.md) | 程序化调用 Cursor Agent（AstrBot proxy / Cloud REST / SDK） |
 

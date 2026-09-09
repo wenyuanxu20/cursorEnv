@@ -32,6 +32,13 @@ getInfo/scrapling/.venv/
 getInfo/**/.env
 getInfo/logs/
 
+# System Informer portable binary (scripts/install-systeminformer.ps1)
+tools/systeminformer/amd64/
+tools/systeminformer/i386/
+tools/systeminformer/arm64/
+tools/systeminformer/*.zip
+tools/systeminformer/install-state.json
+
 # Firecrawl self-host checkout (cloned by getInfo/scripts/start-firecrawl.ps1)
 getInfo/firecrawl/
 # TrendRadar checkout (cloned by getInfo/scripts/start-trendradar.ps1)

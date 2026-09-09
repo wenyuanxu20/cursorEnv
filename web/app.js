@@ -130,6 +130,13 @@ const TOOLS = [
     cmd: "powershell.exe -File .\\getInfo\\scripts\\start-agents-radar.ps1",
   },
   {
+    name: "SYSTEMINFORMER.md",
+    title: "System Informer 进程管理",
+    necessity: "按需",
+    desc: "winsiderss/systeminformer 便携版。钉选 GitHub Releases v4.0.26241.138，SHA256 校验后解压到 tools/systeminformer/。Windows GUI，管理员可看磁盘/网络。",
+    cmd: "powershell.exe -File .\\scripts\\install-systeminformer.ps1",
+  },
+  {
     name: "AGENTSVIEW.md",
     title: "AgentsView 会话浏览器",
     necessity: "必要",

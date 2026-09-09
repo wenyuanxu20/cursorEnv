@@ -1,7 +1,7 @@
 {
   "version": "1.0.0",
   "description": "Cursor 开发环境配置清单，用于新机器一键部署与迁移",
-  "last_updated": "2026-08-24",
+  "last_updated": "2026-09-09",
   "platform": "windows",
   "repo_root": "cursorEnv",
   "monorepos": {
@@ -36,6 +36,7 @@
     "TRENDRADAR.md",
     "SCRAPLING.md",
     "AGENTSVIEW.md",
+    "SYSTEMINFORMER.md",
     "KARPATHY.md",
     "karpathy-llm-wiki-knowledge-base-guide.md",
     "agency-agents.md",
@@ -178,6 +179,27 @@
         "powershell.exe -File .\\getInfo\\scripts\\install-astrbot-agents-radar.ps1"
       ],
       "notes": "整仓含历史日报，clone/zip 常超时；服务读 jsDelivr/Pages。不要把 3355 暴露公网。"
+    },
+    {
+      "file": "SYSTEMINFORMER.md",
+      "title": "System Informer 本机进程管理器",
+      "necessity": "按需",
+      "summary": "winsiderss/systeminformer 便携版：查看/结束后台进程与服务。钉选 GitHub Releases v4.0.26241.138，SHA256 校验后解压到 tools/systeminformer/。",
+      "category": "devtools",
+      "install_method": "scripts/install-systeminformer.ps1",
+      "related_paths": [
+        "tools/systeminformer/",
+        "scripts/install-systeminformer.ps1",
+        "scripts/start-systeminformer.ps1",
+        "wiki/systeminformer/",
+        "https://github.com/winsiderss/systeminformer"
+      ],
+      "env_vars": [],
+      "quick_deploy": [
+        "powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\install-systeminformer.ps1",
+        "powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\\scripts\\start-systeminformer.ps1 -RunAsAdmin"
+      ],
+      "notes": "Windows GUI，不能在 Linux Cloud Agent 里启动。磁盘/网络插件需管理员。二进制不入库。"
     },
     {
       "file": "AGENTSVIEW.md",
@@ -633,6 +655,7 @@
       "TRENDRADAR.md",
       "SCRAPLING.md",
       "AGENTSVIEW.md",
+      "SYSTEMINFORMER.md",
       "KARPATHY.md",
       "karpathy-llm-wiki-knowledge-base-guide.md",
       "agency-agents.md",

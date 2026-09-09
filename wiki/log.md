@@ -2,6 +2,19 @@
 
 按时间倒序记录 ingest 与页面变更。
 
+## 2026-09-09 · 本机部署 System Informer
+
+**来源**
+- 用户：本机部署安装 winsiderss/systeminformer
+
+**更新**
+- 便携钉选 GitHub Releases `v4.0.26241.138`；SHA256 见 `raw/systeminformer/research-notes.md`
+- 脚本：`scripts/install-systeminformer.ps1`、`scripts/start-systeminformer.ps1`
+- 落盘 `tools/systeminformer/`（二进制 gitignore）
+- 专题 `wiki/systeminformer/`、根指南 `SYSTEMINFORMER.md`
+- Cloud Agent 为 Linux，已校验 zip 哈希与 `amd64/SystemInformer.exe` 存在；GUI 需在 Windows 跑 start 脚本
+- knowledge-hub 双写：本环境无 `C:\Users\xwy12\Desktop\my-project\knowledge-hub\sync.ps1`，未执行
+
 ## 2026-08-31 · AstrBot 微信可回复图片
 
 **来源**
