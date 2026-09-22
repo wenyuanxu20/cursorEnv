@@ -1,0 +1,10 @@
+{
+  "name": "cursorEnv static site",
+  "start": "if curl -sf -o /dev/null http://localhost:8080/; then echo 'web server already running on :8080'; else python3 -m http.server 8080 --directory web; fi",
+  "ports": [
+    {
+      "name": "web",
+      "port": 8080
+    }
+  ]
+}
