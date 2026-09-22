@@ -2,6 +2,16 @@
 
 按时间倒序记录 ingest 与页面变更。
 
+## 2026-09-22 · 阿里云 AstrBot 配置拉回本机
+
+**来源**
+- 用户：检查阿里云 AstrBot 与本机差异，同步到本机并 push GitHub
+
+**更新**
+- 云端多 `astrbot_plugin_note`、`astrbot_plugin_xbot`；已写入 sibling `ai/AstrBot/extras/`
+- 模型/人格一致；本机微信/飞书/QQ 仍关闭
+- 专题：`ai/AstrBot/wiki/aliyun/note-plugin.md`、`xbot-plugin.md`
+
 ## 2026-08-31 · AstrBot 微信可回复图片
 
 **来源**
